@@ -1,0 +1,95 @@
+﻿@model NursingHouse_v3.Models.TRoombed
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+    </style>
+}
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">修改房型床號</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-body">
+            <input type="hidden" name="RbId" value="@Model.RbId" />
+            <div class="form-group">
+                <label asp-for="Rb房型" class="control-label"></label>
+                <input asp-for="Rb房型" class="form-control" id="RoomtypeInput" hidden />
+                <select id="RoomtypeSelected" name="Rb房型" class="form-select">
+                    <optgroup label="請選擇房型">
+                        <option selected disabled hidden>請選擇房型</option>
+                        <option value="多人房">多人房</option>
+                        <option value="雙人房">雙人房</option>
+                        <option value="單人房">單人房</option>
+                    </optgroup>
+                </select>
+                <span asp-validation-for="Rb房型" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Rb房型" class="control-label"></label>
+                <input asp-for="Rb房型" class="form-control" />
+                <span asp-validation-for="Rb房型" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Rb床號" class="control-label"></label>
+                <input asp-for="Rb床號" class="form-control" />
+                <span asp-validation-for="Rb床號" class="text-danger"></span>
+            </div>
+            <input type="hidden" name="Rb空床" value="@Model.Rb空床" />
+            @*<div class="form-group">
+                <label asp-for="Rb空床" class="control-label"></label>
+                <input asp-for="Rb空床" class="form-control" />
+                <span asp-validation-for="Rb空床" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rb建立日期" class="control-label"></label>
+                <input asp-for="Rb建立日期" class="form-control" />
+                <span asp-validation-for="Rb建立日期" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rb建立者工號" class="control-label"></label>
+                <input asp-for="Rb建立者工號" class="form-control" />
+                <span asp-validation-for="Rb建立者工號" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rb修改日期" class="control-label"></label>
+                <input asp-for="Rb修改日期" class="form-control" />
+                <span asp-validation-for="Rb修改日期" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rb修改者工號" class="control-label"></label>
+                <input asp-for="Rb修改者工號" class="form-control" />
+                <span asp-validation-for="Rb修改者工號" class="text-danger"></span>
+            </div>*@
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="存檔" class="btn btn-warning" />
+                        <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+         <script>
+        @* // 獲取<select id="RoomtypeSelected">標籤*@
+                let RoomtypeSelected = document.querySelector("#RoomtypeSelected");
+        @* // 獲取<input asp-for="Roomtype" class="form-control" id="RoomtypeInput" hidden /> 標籤*@
+                let RoomtypeInput = document.querySelector("#RoomtypeInput");
+            RoomtypeSelected.addEventListener("change", function () {
+                RoomtypeInput.value = RoomtypeSelected.value;
+                })
+            </script>
+}

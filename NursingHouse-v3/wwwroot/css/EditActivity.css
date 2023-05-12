@@ -1,0 +1,129 @@
+﻿
+.formContainerEai {
+    /*border: 1px solid black;*/
+    width: 75%;
+    margin: auto;
+}
+
+input {
+    /* 日期input寬度另外調 */
+    /* width: 150px; */
+}
+
+.topicEai {
+    text-align: center;
+}
+
+.detailEai {
+    /* width: 75%; */
+    /* display: flex; */
+    margin: auto;
+    margin-left: 40px;
+    /* justify-content: space-around; */
+}
+
+.stageEai {
+    margin-top: 10px;
+    max-width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .stageEai div {
+        /* margin: 0; */
+        /* max-width: 100%; */
+        justify-content: space-between;
+        /* justify-content: flex-end; */
+        /* padding-right: 10px; */
+        /* padding-left: 10px; */
+    }
+
+.stageItemEai {
+    width: auto;
+    display: flex;
+    height: 21px;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+    .stageItemEai p {
+        margin-right: 60px;
+    }
+
+    .stageItemEai input {
+        margin-left: 60px;
+        text-align: right;
+    }
+
+.stage4Eai {
+    margin-left: 40px;
+}
+
+textarea {
+    resize: none;
+    /* 寬度寫死 */
+    /* width: 620px; */
+    width: 90%;
+    height: 80px;
+    overflow-x: hidden;
+}
+
+.stage5Eai {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+    .stage5Eai input {
+        margin-left: 30px;
+    }
+
+.stage6Eai {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    width: 70%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+    .stage6Eai button {
+        /*height: 22px;*/
+    }
+
+    .stage6Eai p {
+        /*height: 22px;*/
+        margin: 0;
+    }
+
+.errMessage {
+    text-align: end;
+    height: 10px;
+}
+
+    .errMessage p {
+        margin: 0;
+        font-size: 8PX;
+        display: none;
+    }
+
+#dropzone {
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+    width: 500px;
+    height: 700px;
+    border: 5px dashed black;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 500px;
+    height: 700px;
+    /* border: 3px solid black; */
+}
+

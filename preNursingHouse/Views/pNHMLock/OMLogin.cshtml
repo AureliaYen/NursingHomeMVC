@@ -1,0 +1,117 @@
+﻿@model preNursingHouse.ViewModel.CpNHMLoginViewModel
+@{
+    ViewData["Title"] = "OMLogin";
+}
+  
+
+<section class="cta-section section-padding section-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                <h2 class=" mb-4">住民身份驗證</h2>
+                <form class="custom-form volunteer-form mb-5 mb-lg-0" action="#" method="post" role="form">
+                    <h5 class="mb-4">輸入您的資訊</h5>
+                    <p id="loginErr" style="color:red">@ViewBag.LoginErr</p>
+                    <div class="row">
+                        <div class=" col-12">
+                            <input type="text" name="txtAccount" id="txtAccount"
+                                   class="form-control" placeholder="請輸入姓名"
+                                   required title="">
+                        </div>
+                         <div class=" col-12">
+                            <input type="text" name="txtMphone" id="txtMphone"
+                                   pattern="^09\d{8}" class="form-control" placeholder="請輸入手機"
+                                   required title="手機格式輸入錯誤">
+                        </div>
+                        @*<div class=" col-12">
+                            todo確認
+                            <input type="password" name="txtPassword" id="txtPassword"
+                                   pattern="^(?=.*[a-zA-Z])(?=.*[\d])[^\s]{6,12}$" class="form-control" placeholder="請輸入6-12碼包含中英文的密碼" required title="密碼格式輸入錯誤">
+                        </div>*@
+
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mt-1">
+                            <button type="submit" class="form-control col-lg-6">確定</button>
+                        </div>
+                        <div class="col-6 mt-1">
+                            <a asp-controller="pNHMeal" asp-action="List" class="form-control col-lg-6" style="color:white; background-color:#597081;border-radius:50px;text-align:center;font-weight:bold">取消</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6 col-12">
+                <img src="~/images/index/pexels-kampus-production-7551646.jpg"
+                     class="volunteer-image img-fluid" alt="">
+
+                <div class="custom-block-body text-center">
+                    <h4 class=" mt-lg-3 mb-lg-3">個資保護</h4>
+
+                    <p>您輸入的個人資料只會用來做身分驗證，不會用在其他用途。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*<div class="container">
+    <div class="row align-items-center">
+        <div class="col-md-6 mx-auto">
+            <div class="card bg-white shadow rounded-lg">
+                <div class="card-header bg-success text-white">
+                    <h3 class="text-center font-weight-bold my-3">住民身分驗證</h3>
+                </div>
+                <div class="card-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                            <div class="form-group ">
+                                住民姓名
+                                <div class="col-md-10">
+                                    @Html.TextBox("txtAccount", "", new { htmlAttributes = new { @Class = "form-control" } })
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                聯絡電話
+                                <div class="col-md-10">
+                                    @Html.Password("txtMphone", "", new { htmlAttributes = new { @Class = "form-control" } })
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                身分證字號
+                                <div class="col-md-10">
+                                @Html.Password("txtIdnum", "", new { htmlAttributes = new { @Class = "form-control" } })
+
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="form-group">
+                                <div class="col-md-offset-0 col-md-10 ">
+                                    <input type="submit" value="確定" class="btn btn-default btn btn-primary" />
+                                    <a class="btn btn-danger" asp-controller="pNHMeal" asp-action="List">取消</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <div class="card-footer bg-light text-muted text-center py-2">
+                    <p>© 2023 護 Care V3.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+

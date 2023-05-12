@@ -1,0 +1,285 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = NursingHouse_v3
+build_property.RootNamespace = NursingHouse_v3
+build_property.ProjectDir = C:\Users\USER\OneDrive\桌面\0403全哥整合\MyFinalReport\NursingHouse-v3\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\USER\OneDrive\桌面\0403全哥整合\MyFinalReport\NursingHouse-v3
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Activity/ActivityItemList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlcQWN0aXZpdHlJdGVtTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Activity/CreateActivity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlcQ3JlYXRlQWN0aXZpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Activity/EditActivity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlcRWRpdEFjdGl2aXR5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Activity/OrderListForEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlcT3JkZXJMaXN0Rm9yRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/ApplicationForm/ApplicationForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25Gb3JtXEFwcGxpY2F0aW9uRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/ApplicationForm/Check.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25Gb3JtXENoZWNrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/ApplicationForm/EditApplicationForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25Gb3JtXEVkaXRBcHBsaWNhdGlvbkZvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/ApplicationForm/OutSideInSideTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25Gb3JtXE91dFNpZGVJblNpZGVUYWJsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/ApplicationForm/ReturnCheckImage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25Gb3JtXFJldHVybkNoZWNrSW1hZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/ApplicationForm/StartCheckImage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25Gb3JtXFN0YXJ0Q2hlY2tJbWFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Bed/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Bed/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Bed/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Bed/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Calendar/Calendar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcQ2FsZW5kYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Employee/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Employee/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Employee/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Employee/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/ImageCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxJbWFnZUNyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/ImageEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxJbWFnZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/ImagesList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxJbWFnZXNMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/MealCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxNZWFsQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/MealEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxNZWFsRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/MealList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxNZWFsTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/OrderMealEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxPcmRlck1lYWxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/OrderMealList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxPcmRlck1lYWxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/SupplierCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxTdXBwbGllckNyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/SupplierEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxTdXBwbGllckVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Meal/SupplierList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxTdXBwbGllckxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Member/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Member/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Member/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/NursingRecord/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTnVyc2luZ1JlY29yZFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/NursingRecord/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTnVyc2luZ1JlY29yZFxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/NursingRecord/NursingRecordCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTnVyc2luZ1JlY29yZFxOdXJzaW5nUmVjb3JkQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/NursingRecord/NursingRecordEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTnVyc2luZ1JlY29yZFxOdXJzaW5nUmVjb3JkRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/OffService/COffServiceCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmU2VydmljZVxDT2ZmU2VydmljZUNyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/OffService/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmU2VydmljZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/OffService/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmU2VydmljZVxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/OffService/OffServiceEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmU2VydmljZVxPZmZTZXJ2aWNlRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Order/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Order/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Order/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Patient/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Patient/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Patient/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Patient/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Product/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Roombed/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbWJlZFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Roombed/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbWJlZFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Roombed/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbWJlZFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Roombed/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbWJlZFxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Take/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFrZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Take/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFrZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Take/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFrZVxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-3pmj8vhbqi
+
+[C:/Users/USER/OneDrive/桌面/0403全哥整合/MyFinalReport/NursingHouse-v3/Views/Shared/_Layout111.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQxMTEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-in3ciwnr7n

@@ -1,0 +1,345 @@
+﻿@section Styles
+	{
+	<link rel="stylesheet" href="/css/ActivityItemList.css">
+	<link rel="stylesheet" href="/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="/css/uikit.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.10/dist/css/uikit.min.css" />
+	<link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet" />
+}
+
+<div class="formContainerAy ">
+	<div class="choiceforpageAy ">
+		<button id="btnCheck" class="btn btn-outline-secondary">結案</button>
+	
+			<input class="rdobutton_radio" type="radio" id="radioId" name="radioName" value="0" checked />
+			<label class="rdobutton_label" for="radioId">未結案</label>
+			<input class="rdobutton_radio" type="radio" id="radioId2" name="radioName" value="1" />
+			<label class="rdobutton_label" for="radioId2">歷史活動項目</label>
+
+	</div>
+	<div class="tableAreaAy ">	
+		<table id="activityItem" class="table table-bordered table-striped" style="width: 100%;">
+		</table>
+		<table id="activityItemClose" class="table table-bordered table-striped" style="width: 100%;">
+		</table>
+	</div>
+</div>
+
+
+@section Scripts{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.10/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.10/dist/js/uikit-icons.min.js"></script>
+	<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.js"
+			data-turbolinks-track="true"></script>
+
+
+
+	<script>		
+		let employeeId = localStorage.getItem('employeeId');
+		let searchEmployeeId;
+
+		function SearchEmployeeId(EmployeeNumber) {
+		const webApiBaseAddress = 'https://localhost:7171';
+		    fetch(`${webApiBaseAddress}/api/ApplicationForm/apiSearchEmployeeId/${EmployeeNumber}`, {
+		        method: "GET",
+		    }).then(result => {
+		        if (result.ok) {
+		            return result.text();
+		        }
+		    }).then(data => {
+		        searchEmployeeId = parseInt(data, 10);
+		        console.log(data);
+		    }).catch(err => {
+		        alert(err);
+		    });
+		}
+
+		$(document).ready(function () {
+			activityItem();
+			activityItemClose();
+			SearchEmployeeId(employeeId)
+			$('#activityItemClose').parents('div.dataTables_wrapper').first().hide();
+			stateCheck = $('input[name=radioName]:checked').val()
+
+			$('#radioId').on('change', function () {
+				updateactivityItemClose()
+				updateactivityItem()
+				$('#activityItemClose').parents('div.dataTables_wrapper').first().hide();
+				$('#activityItem').parents('div.dataTables_wrapper').first().show();
+			});
+			$('#radioId2').on('change', function () {
+				updateactivityItemClose()
+				updateactivityItem()
+				$('#activityItem').parents('div.dataTables_wrapper').first().hide();
+				$('#activityItemClose').parents('div.dataTables_wrapper').first().show();
+			});
+		});
+
+		function activityItem() {
+			const webApiBaseAddress = 'https://localhost:7171';
+			$('#activityItem').DataTable({
+				ajax: {
+					type: 'GET',
+					url: `${webApiBaseAddress}/api/Activity/ActivityNotClose`,
+					dataSrc: function (data) {
+						console.log(data);
+
+						return data;
+					},
+
+				},			
+				columns: [
+					{
+						data: null, title: "",
+						render: function (data, type, row) {
+							return `<input type="checkbox" name="" id="${data.actId}" class="checkbox"> `
+						},
+						width: 20
+					},
+					{ data: 'act活動編號', title: '活動編號' },
+					{ data: 'act活動名稱', title: '活動名稱' },
+					{ data: 'act地點', title: '地點' },
+					{
+						data: 'act活動日期', title: '活動日期', render: function (data) {
+							let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+							let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);
+
+							return localISOTime.slice(5, 10)
+						}
+					},
+					{
+						data: 'act報名截止日', title: '報名截止日', render: function (data) {
+							let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+							let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);
+
+							return localISOTime.slice(5, 10)
+						}
+					},
+					{ data: 'act價格', title: '價格' },
+					{ data: 'act已報名人數', title: '已報名人數' },
+					{ data: 'act最大人數', title: '最大人數' },				
+					{ data: 'act最後修改人', title: '最後修改人' },
+					{
+						data: null, title: "操作功能",
+						render: function (data, type, row) {
+							if (data.act已報名人數 > 0) {
+								return `<button type="button" class="btn btn-warning btn-sm" id=${data.actId} disabled>編輯</button> `
+							} else {
+								return `<button type="button" class="btn btn-warning btn-sm" id=${data.actId}>編輯</button> `
+							}
+
+						}
+					},
+					{
+						data: null, title: '公開狀態', render: function (data, type, row) {
+							if (data.act公開狀態 == 0) {
+								return `<button type="button" class="btn btn-warning btn-sm" id=Open${data.actId} style="width:62px;">未公開</button> `
+							} else {
+								return `<button type="button" class="btn btn-warning btn-sm" id=Open${data.actId} style="width:62px;">公開</button> `
+							}
+
+						},
+
+
+					},
+				],
+				"bLengthChange": false,
+				"bInfo": false,
+				"bAutoWidth": false,
+				columnDefs: [					
+					{
+						'targets': 0,
+						'checkboxes': {
+							'selectRow': true
+						}
+					},
+					{ "targets": 0, "searchable": false, "orderable": false }
+
+				],
+				'select': {
+					'style': 'multi'
+				},
+				'order': [[1, 'asc']],
+				"language": {
+					"search": "搜尋",
+					"paginate": {
+						"previous": "上一頁",
+						"next": "下一頁"
+					}
+				},
+			});
+		}
+
+		function activityItemClose() {
+			const webApiBaseAddress = 'https://localhost:7171';
+			$('#activityItemClose').DataTable({
+				ajax: {
+					type: 'GET',
+					url: `${webApiBaseAddress}/api/Activity/ActivityClose`,
+					dataSrc: function (data) {
+						return data;
+					}
+				},
+				columns: [
+					{ data: 'act活動編號', title: '活動編號' },
+					{ data: 'act活動名稱', title: '活動名稱' },
+					{ data: 'act地點', title: '地點' },
+					{
+						data: 'act活動日期', title: '活動日期', render: function (data) {
+							let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+							let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);
+
+							return localISOTime.slice(5, 10)
+						}
+					},
+					{
+						data: 'act報名截止日', title: '報名截止日', render: function (data) {
+							let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+							let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);
+
+							return localISOTime.slice(5, 10)
+						}
+					},
+					{ data: 'act價格', title: '價格' },
+					{ data: 'act已報名人數', title: '已報名人數' },
+					{ data: 'act最大人數', title: '最大人數' },
+					{ data: 'act最後修改人', title: '最後修改人' },
+				],
+				"bLengthChange": false,
+				"bInfo": false,
+				"bAutoWidth": false,
+				columnDefs: [
+					{
+						'targets': 0,
+						'checkboxes': {
+							'selectRow': true
+						}
+					},
+				],
+				'select': {
+					'style': 'multi'
+				},
+				'order': [[1, 'asc']],
+				"language": {
+					"search": "搜尋",
+					"paginate": {
+						"previous": "上一頁",
+						"next": "下一頁"
+					}
+				},
+			});
+		}
+
+		function changeActivityShow(asc) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/ChangeActivityShow`, {
+				method: 'Put',
+				body: JSON.stringify(asc),
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {
+				console.log(data);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+		function hideActivityItem(asc) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/HideActivityItem`, {
+				method: 'Put',
+				body: JSON.stringify(asc),
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {
+				console.log(data);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+		function updateactivityItem() {
+			$('#activityItem').DataTable().ajax.reload();
+		}
+
+		function updateactivityItemClose() {
+			$('#activityItemClose').DataTable().ajax.reload();
+		}
+
+		let dataAry = [];
+		let updateData = {
+			ActId: 0,
+			EId: 0
+		};
+		function updateClose() {
+			$('.checkbox').each(function () {
+				if ($(this).is(':checked')) {
+					updateData.ActId = $(this).attr('id');
+					updateData.EId = searchEmployeeId;
+					console.log(updateData);
+					hideActivityItem(updateData)
+					setTimeout(updateactivityItem, 1000);
+					setTimeout(updateactivityItemClose, 1000);
+				}
+			});
+		}
+
+		$(document).on('click', 'button', function () {
+			btnData = $(this).attr('id');
+			if (btnData === 'createAc') {
+				window.location.assign("/Activity/CreateActivity");
+			} else if (btnData === 'orderList') {
+				window.location.assign("/Activity/OrderListForEmployee");
+			} else if (btnData === 'btnCheck') {
+				updateClose();
+			}
+			else {
+				let str = btnData.slice(0, 4)
+				updateData.ActId = btnData.slice(4, 9);
+				updateData.EId = searchEmployeeId;
+				if (str === 'Open') {
+					changeActivityShow(updateData)
+					setTimeout(updateactivityItem, 1000);
+					setTimeout(updateactivityItemClose, 1000);
+				} else {
+					localStorage.setItem('activityId', btnData);
+					window.location.assign("/Activity/EditActivity");
+				}
+			}
+		});
+
+		function changeActivityShow(asc) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/ChangeActivityShow`, {
+				method: 'Put',
+				body: JSON.stringify(asc),
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {
+				console.log(data);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+	</script>
+}

@@ -1,0 +1,106 @@
+﻿@model IEnumerable<preNursingHouse.Models.TMeal>
+
+@{
+    ViewData["Title"] = "MealList";
+}
+
+<style>
+    .section-padding {
+        padding-top: 100px;
+        padding-bottom: 270px;
+    }
+
+    .hero-section-full-height {
+        height: 680px;
+        min-height: 680px;
+        position: relative;
+    }
+
+    h4 {
+        float: left;
+        /*display: inline-block;*/
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 10px;
+        margin-right: 10px;
+        width: 300px;
+    }
+
+    .form-group {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 30px;
+        margin-right: 10px;
+    }
+
+    .form-select option {
+        font-size: 20px;
+    }
+
+    .card {
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+        }
+
+    .botn {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 30px;
+        margin-right: 10px;
+    }
+</style>
+
+<section class="cta-section section-padding section-bg">
+    <div class="col-12 text-center mx-auto">
+        <h2 class=" mb-4">歡迎住民 <strong> @CpNHMLock.LoginUserName </strong> 點選餐點圖片進行點餐</h2>
+        @*<p class="featured-block-text">歡迎住民 <strong>@CpNHMLock.LoginUserName</strong> 請點選餐點圖片進行點餐</p>*@
+    </div>
+
+    <div class="d-flex justify-content-center">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-4 col-lg-3 col-xl-2 mb-4">
+                <div class="card mx-3 border rounded-3 mb-4 shadow rounded">
+                    @foreach (var image in item.TImages)
+                    {
+
+                        <div class="position-relative">
+                            <img class="card-img rounded-3 mb-3 img-fluid" src="https://localhost:7105/images/MealImages/@image.早圖" alt="早餐">
+                            <a href="#" class="btn btn-success position-absolute top-0 end-0">@Html.DisplayFor(modelItem =>item.餐種)適用</a>
+                        </div>
+                    }
+                    <div class="d-flex align-items-center justify-content-center">
+
+                        <div class="card-body">
+                            @*<a asp-controller="pNHMeal" asp-action="AddMeal" class="stretched-link"></a>*@
+                            <a asp-controller="pNHMeal" asp-action="AddMeal" asp-route-id="@item.MeId" class="stretched-link"></a>
+
+                            <h5 class="card-title">@Html.DisplayFor(modelItem =>item.月) @Html.DisplayFor(modelItem =>item.餐種) @Html.DisplayFor(modelItem =>item.餐別)</h5>
+                            <p class="card-text">NT. @Html.DisplayFor(modelItem =>item.價位)</p>
+                            <input type="hidden" name="MeId" value="@item.MeId" />
+                            @*<p>@Html.ActionLink("", "AddMeal", new {  id=item.MeId },new{@class="bi bi-eye"})</p>*@
+                           @* <p> @Html.DisplayFor(modelItem => item.MeId)</p>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        }
+    </div>
+</section>
+@*<div class="botn">
+    <p>
+        <a class="btn btn-primary" asp-controller="pNHMLock" asp-action="OMLogin">前往訂餐</a>
+    </p>
+</div>
+*@

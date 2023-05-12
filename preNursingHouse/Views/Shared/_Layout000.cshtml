@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - preNursingHouse</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/preNursingHouse.styles.css" asp-append-version="true" />
+	<!-- CSS FILES -->
+	<link href="~/css/bootstrap.min.css" rel="stylesheet">
+
+	<link href="~/css/bootstrap-icons.css" rel="stylesheet">
+
+	<link href="~/css/templatemo-kind-heart-charity.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="/css/CreateActivityOrder.css" />
+
+	<!-- CSS FILES -->
+	@await RenderSectionAsync("Styles", required: false)
+
+</head>
+<body id="section_1">
+	<header class="site-header">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-8 col-12 d-flex flex-wrap">
+					<p class="d-flex me-4 mb-0">
+						<i class="bi-geo-alt me-2"></i>
+						730臺南市新營區仁愛街32號
+					</p>
+
+					<p class="d-flex me-4 mb-0">
+						<i class="bi-envelope me-2"></i>
+
+						<a href="mailto:info@company.com">
+							hookcare@company.com
+						</a>
+					</p>
+					<p class="d-flex me-4 mb-0">
+						@{
+							string userName = Context.Session.GetString("UserName");
+							int? userID = Context.Session.GetInt32("USERID");
+							if (!string.IsNullOrEmpty(userName))
+							{
+								<i class="bi bi-person-circle me-2"></i>
+								<a href="">
+									歡迎登入，@userName								
+								</a>
+							<p id="getId" style="display: none;"> @userID </p>
+							}
+						}
+
+					<!--to do if函式  a detail-->
+					</p>
+
+				</div>
+
+				<div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
+					<ul class="social-icon">
+
+						<li class="social-icon-item">
+							<a href="#" class="social-icon-link bi-twitter"></a>
+						</li>
+
+						<li class="social-icon-item">
+							<a href="#" class="social-icon-link bi-facebook"></a>
+						</li>
+
+						<li class="social-icon-item">
+							<a href="#" class="social-icon-link bi-instagram"></a>
+						</li>
+
+						<li class="social-icon-item">
+							<a href="#" class="social-icon-link bi-youtube"></a>
+						</li>
+
+						<li class="social-icon-item">
+							<a href="#" class="social-icon-link bi-whatsapp"></a>
+						</li>
+
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</header>
+
+	<nav class="navbar navbar-expand-lg bg-light shadow-lg">
+		<div class="container">
+			<a class="navbar-brand" href="https://localhost:7287">
+				<img src="~/images/logo.png" class="logo img-fluid" alt="Kind Heart Charity">
+				<span>
+					HOOK CARE
+					<small>Care You</small>
+				</span>
+			</a>
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link click-scroll" asp-area="" asp-controller="Home" asp-action="Index">首頁</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link click-scroll" asp-area="" asp-controller="Activity" asp-action="ShowActivity">活動</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link click-scroll" asp-area="" asp-controller="frontLogin" asp-action="FrontLoginForPatient">住民專區</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link click-scroll" asp-area="" asp-controller="Home" asp-action="VUESPA">餐點</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link click-scroll dropdown-toggle" href="#"
+						   id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+						   aria-expanded="false">餐點訂購</a>
+
+						<ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+							<li><a class="dropdown-item" href="/pNHMeal/List">各類餐點</a></li>
+
+							<li><a class="dropdown-item" href="news-detail.html">本月菜單</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link click-scroll dropdown-toggle"
+						   id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+						   aria-expanded="false">會員中心</a>
+
+						<ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+							<li><a class="dropdown-item" asp-area="" asp-controller="PreMember" asp-action="Detail">會員資訊</a></li>
+
+							<li><a class="dropdown-item" href="@Url.Action("OrderListForClient", "Activity")" id="patientLogin">活動訂單</a></li>
+						</ul>
+					</li>
+					@{
+						string loginName = Context.Session.GetString("UserName");
+						if (!string.IsNullOrEmpty(loginName))
+						{
+							<li class="nav-item ms-3">
+								<a class="nav-link custom-btn custom-border-btn btn" asp-area="" asp-controller="Home" asp-action="Logout">登出會員</a>
+							</li>
+						}
+						else
+						{
+							<li class="nav-item ms-3">
+								<a class="nav-link custom-btn custom-border-btn btn" asp-area="" asp-controller="Home" asp-action="Login">登入會員</a>
+
+							</li>
+						}
+					}
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<main>
+		@*    <section class="hero-section hero-section-full-height">
+		<div class="container-fluid">
+		<div class="row">*@
+		@RenderBody()
+		@*            </div>
+		</div>*@
+		</section>
+	</main>
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-12 mb-4">
+					<img src="images/logo.png" class="logo img-fluid" alt="">
+				</div>
+
+				<div class="col-lg-4 col-md-6 col-12 mb-4">
+					<h5 class="site-footer-title mb-3">第三組組員</h5>
+
+					<ul class="footer-menu">
+						<li class="footer-menu-item"><a href="#" class="footer-menu-link">吳育瑛</a></li>
+
+						<li class="footer-menu-item"><a href="#" class="footer-menu-link">嚴于婷</a></li>
+
+						<li class="footer-menu-item"><a href="#" class="footer-menu-link">楊尊全</a></li>
+
+						<li class="footer-menu-item"><a href="#" class="footer-menu-link">吳國豪</a></li>
+
+						<li class="footer-menu-item"><a href="#" class="footer-menu-link">此為Demo作品，版權方面若有疑慮請聯繫我們</a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-4 col-md-6 col-12 mx-auto">
+					<h5 class="site-footer-title mb-3">聯絡資訊</h5>
+
+					<p class="text-white d-flex mb-2">
+						<i class="bi-telephone me-2"></i>
+
+						<a href="tel: 09-1234-5678" class="site-footer-link">
+							09-1234-5678
+						</a>
+					</p>
+
+					<p class="text-white d-flex">
+						<i class="bi-envelope me-2"></i>
+
+						<a href="mailto:hookcare@company.com" class="site-footer-link">
+							hookcare@company.com
+						</a>
+					</p>
+
+					<p class="text-white d-flex mt-3">
+						<i class="bi-geo-alt me-2"></i>
+						730臺南市新營區仁愛街32號
+					</p>
+
+					<a href="https://goo.gl/maps/ZjmRRHwgsF8vPWNi8" class="custom-btn btn mt-3">前往</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="site-footer-bottom">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-6 col-md-7 col-12">
+						<p class="copyright-text mb-0">
+							Copyright © 2036 <a href="#">Kind Heart</a> Charity Org.
+							Design: <a href="https://templatemo.com" target="_blank">TemplateMo</a><br>Distribution:
+							<a href="https://themewagon.com">ThemeWagon</a>
+						</p>
+					</div>
+
+					<div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
+						<ul class="social-icon">
+							<li class="social-icon-item">
+								<a href="#" class="social-icon-link bi-twitter"></a>
+							</li>
+
+							<li class="social-icon-item">
+								<a href="#" class="social-icon-link bi-facebook"></a>
+							</li>
+
+							<li class="social-icon-item">
+								<a href="#" class="social-icon-link bi-instagram"></a>
+							</li>
+
+							<li class="social-icon-item">
+								<a href="#" class="social-icon-link bi-linkedin"></a>
+							</li>
+
+							<li class="social-icon-item">
+								<a href="https://youtube.com/templatemo" class="social-icon-link bi-youtube"></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<!-- JAVASCRIPT FILES -->
+	<script src="~/js/jquery.min.js"></script>
+	<script src="~/js/bootstrap.min.js"></script>
+	<script src="~/js/jquery.sticky.js"></script>
+	@*<script src="~/js/click-scroll.js"></script>*@
+	<script src="~/js/counter.js"></script>
+	<script src="~/js/custom.js"></script>
+
+	@await RenderSectionAsync("Scripts", required: false)
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script>
+		//$('#patientLogin').click(function (event) {
+		//	console.log(1)
+		//	if (localStorage.getItem('memberId') === null) {
+		//		event.preventDefault();
+		//		connectLoginPage()
+		//	}
+
+
+
+		//});
+
+		//function connectLoginPage() {
+		//	window.location.assign("/Home/Login");
+		//}
+
+
+	</script>
+</body>
+</html>

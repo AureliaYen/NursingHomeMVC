@@ -1,0 +1,446 @@
+﻿
+@section Styles
+    {
+    <link rel="stylesheet" type="text/css" href="/css/OutSideInSideTable.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
+
+    <link rel="stylesheet" href="/css/uikit.min.css">
+    <link rel="stylesheet" href="~/css/jquery.dataTables.min.css">
+
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-buttons/css/buttons.bootstrap4.min.css">
+}
+
+
+<div class="formContainerOst">
+    <div id="searchName" class="topForOutSideTable">
+        <p class="control-label">搜尋欄位</p>
+        <input type="text" id="searchData" oninput="searchPatientData()">
+    </div>
+    <div class="tableTitle">
+        <p class="control-label">院外狀況表</p>
+    </div>
+    <div class="topOst">
+        <table id="outSideTable" class="table table-bordered table-striped" style="width: 100%;">
+        </table>
+    </div>
+    <div class="tableTitle">
+        <p class="control-label">院內狀況表</p>
+    </div>
+    <div class="bottomOst">
+        <table id="inSideTable" class="table table-bordered table-striped" style="width: 100%;">
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.3/dataRender/datetime.js"></script>
+    <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.16/sorting/datetime-moment.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script> 
+    <script>
+        const webApiBaseAddress = 'https://localhost:7171';
+        let checkApplicationForm = [];    
+        let searchEmployeeId;
+
+        function SearchEmployeeId(EmployeeNumber){
+                fetch(`${webApiBaseAddress}/api/ApplicationForm/apiSearchEmployeeId/${EmployeeNumber}`, {
+                    method: "GET",
+                }).then(result => {
+                    if (result.ok) {
+                        return result.text();
+                    }
+                }).then(data => {
+                    searchEmployeeId = parseInt(data, 10);                
+                    console.log(data);
+                }).catch(err => {
+                    alert(err);
+                });
+                console.log(1);
+                setTimeout(disbutton, 1000);
+                console.log(2);
+        }
+
+        function SearchTodayApplicationForm() {
+            const webApiBaseAddress = 'https://localhost:7171';
+            fetch(`${webApiBaseAddress}/api/ApplicationForm/SearchTodayApplicationForm`, {
+                method: "GET",
+            }).then(result => {
+                if (result.ok) {
+                    return result.text();
+                }
+            }).then(data => {
+                checkApplicationForm.length = 0;
+                checkApplicationForm = data
+                console.log('checkApplicationForm' + checkApplicationForm);
+            }).catch(err => {
+                alert(err);
+            });           
+        }
+
+        function disbutton() {
+            $("button").each(function () {
+                for (let i = 0; i < checkApplicationForm.length; i++) {
+                    $('button').each(function () {
+                        if (this.id == checkApplicationForm[i]) {
+                            $(this).prop('disabled', false);
+                        }
+                    })
+                }
+            });
+        }
+
+        let employeeId
+        $(document).ready(function () {
+                employeeId = localStorage.getItem('employeeId');
+                createOutSideTable()
+                createInsideTable()
+                SearchTodayApplicationForm();
+                SearchEmployeeId(employeeId)
+        });
+        
+        
+
+    function createOutSideTable(){
+            const webApiBaseAddress = 'https://localhost:7171';
+            $('#outSideTable').DataTable({
+                "drawCallBack": function (settings) {
+                    console.log('DataTables has finished drawing.');                  
+                },
+                ajax: {
+                    type: 'GET',
+                    url: `${webApiBaseAddress}/api/ApplicationForm/OutSide`,
+                    dataSrc: function (data) {
+                        return data;
+                    }
+                },
+                columns: [
+                    { data: 'appId', title: '編號' },
+                    { data: 'p姓名', title: '住民姓名' },
+                    { data: 'app陪同人員', title: '陪同人' },
+                    { data: 'app聯絡方式', title: '聯絡方式' },
+                    { data: 'app事由', title: '事由' },
+                    { data: 'app地點', title: '地點' },
+                    {
+                        data: 'app出發時間', title: '出發時間', render: function (data) {                           
+                            return new Date(data).toLocaleTimeString().slice(0, 6);
+                        }
+                    },
+                    {
+                        data: 'app外出日期', title: '外出日期', render: function (data) {
+                            let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                            let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);
+
+                            return localISOTime.slice(5, 10)
+                        }
+                    },
+                    { data: 'app預計外出時間', title: '預計外出時間' },
+                    {
+                        data: null, title: "返回確認",  
+                        render: function (data, type, row) {
+                            return `<button type="button" class="btn btn-warning btn-sm" id=${data.appId}">確認</button> `
+                        }
+                    },
+                ],
+                columnDefs: [{ "className": "dt-center", "targets": "_all" },],
+                "language": {
+                    "search": "搜尋",
+                    "paginate": {
+                        "previous": "上一頁",
+                        "next": "下一頁"
+                    }
+                },
+                "searching": false,
+                "bLengthChange": false,
+                "bInfo": false,
+                "autoWidth": false,
+            });
+    }
+
+
+    function createInsideTable(){
+            const webApiBaseAddress = 'https://localhost:7171';
+            $('#inSideTable').DataTable({
+                ajax: {
+                    type: 'GET',
+                    url: `${webApiBaseAddress}/api/ApplicationForm/InSide`,
+                    dataSrc: function (data) {
+                        return data;
+                    }
+                },
+                columns: [
+                    { data: 'p姓名', title: '住民姓名' },
+                    { data: 'e員工姓名', title: '員工姓名' },
+                    { data: 'b床號', title: '床號' },
+                    {
+                        data: null, title: "外出確認",  
+                        render: function (data, type, row) {
+                            return `<button type="button" disabled class="btn btn-warning btn-sm" id=${data.pId}>確認</button> `
+                        }
+                    },
+                ],
+                columnDefs: [{ "className": "dt-center", "targets": "_all" },],
+                "searching": false,
+                "language": {
+                    "search": "搜尋",
+                    "paginate": {
+                        "previous": "上一頁",
+                        "next": "下一頁"
+                    }
+                },
+                "bLengthChange": false,
+                "bInfo": false,
+                "autoWidth": false,
+                "pageLength": 10,
+                drawCallback: function (settings) {
+                    setTimeout(disbutton, 1000);
+                }
+            });
+    }
+
+        let searchPatientDataAnswer='';
+        function searchPatientData() {
+            let searchPatientName = $('#searchData').val();
+            console.log(1234456)
+            if(searchPatientName.length != 0){
+                const webApiBaseAddress = 'https://localhost:7171'
+                fetch(`${webApiBaseAddress}/api/ApplicationForm/apiSearchPatientData/${searchPatientName}`, {
+                    method: "GET",
+                }).then(result => {
+                    if (result.ok) {
+                        return result.text();
+                    }
+                }).then(data => {
+                    console.log(data)
+                    if (data === 'NotFoundPeople') {
+                    }
+                    else if (data === 'NotFound') {
+                        $('#inSideTable').DataTable().destroy();
+                        inSideForSearch(searchPatientName);
+                    } else if (data === 'Found') {
+                        $('#outSideTable').DataTable().destroy();
+                        outSideForSearch(searchPatientName)
+                    }
+                }).catch(err => {
+                    alert(err);
+                });
+            }else{
+                $('#inSideTable').DataTable().destroy();
+                $('#outSideTable').DataTable().destroy();
+                createOutSideTable();
+                createInsideTable();
+            }           
+        }
+
+
+        function inSideForSearch(patientName) {
+            $('#inSideTable').DataTable({
+                ajax: {
+                    type: 'GET',
+                    url: `${webApiBaseAddress}/api/ApplicationForm/InSideForSearch/${patientName}`,
+                    dataSrc: function (data) {
+                        return data;
+                    }
+                },
+                columns: [
+                    { data: 'p姓名', title: '住民姓名' },
+                    { data: 'e員工姓名', title: '員工姓名' },
+                    { data: 'b床號', title: '床號' },
+                    {
+                        data: null, title: "外出確認", 
+                        render: function (data, type, row) {
+                            return `<button type="button" disabled class="btn btn-warning btn-sm" id=${data.pId}>確認</button> `
+                        }
+                    },
+                ],
+                "searching": false,
+                "language": {
+                    "search": "搜尋",
+                    "paginate": {
+                        "previous": "上一頁",
+                        "next": "下一頁"
+                    }
+                },
+                "bLengthChange": false,
+                "bInfo": false,
+                "autoWidth": false,
+            });
+        }
+
+
+
+        function outSideForSearch(patientName){
+            const webApiBaseAddress = 'https://localhost:7171';
+            $('#outSideTable').DataTable({
+                ajax: {
+                    type: 'GET',
+                    url: `${webApiBaseAddress}/api/ApplicationForm/OutSideForSearch/${patientName}`,
+                    dataSrc: function (data) {
+                        return data;
+                    }
+                },
+                columns: [
+                    { data: 'appId', title: '編號' },
+                    { data: 'p姓名', title: '住民姓名' },
+                    { data: 'app陪同人員', title: '陪同人' },
+                    { data: 'app聯絡方式', title: '聯絡方式' },
+                    { data: 'app事由', title: '事由' },
+                    { data: 'app地點', title: '地點' },
+                    {
+                        data: 'app出發時間', title: '出發時間', render: function (data) {
+                            return new Date(data).toLocaleTimeString().slice(0, 22);
+                        }
+                    },
+                    {
+                        data: 'app外出日期', title: '外出日期', render: function (data) {
+                            return new Date(data).toISOString().slice(0, 10);
+                        }
+                    },
+                    { data: 'app預計外出時間', title: '預計外出時間' },
+                    {
+                        data: null, title: "返回確認",  
+                        render: function (data, type, row) {
+                            return `<button type="button" class="btn btn-warning btn-sm" id=${data.appId}">確認</button> `
+                        }
+                    },
+                ],
+                "language": {
+                    "search": "搜尋",
+                    "paginate": {
+                        "previous": "上一頁",
+                        "next": "下一頁"
+                    }
+                },
+                "searching": false,
+                "bLengthChange": false,
+                "bInfo": false,
+                "autoWidth": false,
+            });
+        }
+
+    function UpdateReturnTime(d) {
+        fetch(`${webApiBaseAddress}/api/ApplicationForm/UpdateReturnTime`, {
+            method: 'Put',
+            body: JSON.stringify(d),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        }).then(result => {
+            if (result.ok) {
+                return result.text();
+            }
+        }).then(data => {
+            alert(data)
+        }).catch(err => {
+            alert(err);
+        });
+            setTimeout(updateReturn, 1000);
+    };
+
+    let returnAns;
+    function SearchApplicationForm(pId) {
+        fetch(`${webApiBaseAddress}/api/ApplicationForm/SearchApplicationForm/${pId}`, {
+            method: 'Get',
+        }).then(result => {
+            if (result.ok) {
+                return result.text();
+            }
+        }).then(data => {
+            returnAns = data;
+        }).catch(err => {
+        });
+    }
+
+    let EidInApplicationForm;
+        function SearchEid(pId) {
+            fetch(`${webApiBaseAddress}/api/ApplicationForm/SearchEidInApplicationForm/${pId}`, {
+                method: 'Get',
+            }).then(result => {
+                if (result.ok) {
+                    return result.text();
+                }
+            }).then(data => {
+                EidInApplicationForm = data;
+            }).catch(err => {
+            });
+    }
+
+    function UpdateStartTime(d) {
+        fetch(`${webApiBaseAddress}/api/ApplicationForm/UpdateStartTime`, {
+            method: 'Put',
+            body: JSON.stringify(d),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        }).then(result => {
+            if (result.ok) {
+                return result.text();
+            }
+        }).then(data => {
+            alert(data)
+        }).catch(err => {
+            alert(err);
+        });
+            setTimeout(updateStart, 1000);
+    }
+
+        function updateStart() {           
+            $('#inSideTable').DataTable().ajax.reload();        
+            $('#outSideTable').DataTable().ajax.reload();            
+            setTimeout(SearchTodayApplicationForm, 100);
+            setTimeout(disbutton, 1000);
+            console.log(1);
+        }
+        function updateReturn() {
+            $('#outSideTable').DataTable().ajax.reload();
+            $('#inSideTable').DataTable().ajax.reload();     
+            setTimeout(SearchTodayApplicationForm, 100);
+            setTimeout(disbutton, 1000);
+            console.log(1);
+        }
+
+        $(document).on('click', 'button', function () {
+            buttonId = $(this).attr('id');
+            if (buttonId === 'createAp') {
+                window.location.assign("/ApplicationForm/ApplicationForm");
+            } else if (buttonId === 'checkAp') {
+                window.location.assign("/ApplicationForm/Check");
+            } else if (buttonId === 'calendar') {
+                window.location.assign("/Calendar/Calendar");
+            } else if (buttonId === 'StartCheckImage') {
+                window.location.assign("/ApplicationForm/StartCheckImage");
+            } else if (buttonId === 'ReturnCheckImage') {
+                window.location.assign("/ApplicationForm/ReturnCheckImage");
+            }
+            else {
+                let data = parseInt(buttonId, 10);
+                console.log('按鈕編號:' + data);
+                let pId = data;
+                let idData = {
+                    tableId: data,
+                    eId: searchEmployeeId
+                };
+                if (data >= 10000) {
+                    UpdateReturnTime(idData);
+                } else if (data <= 100) {
+                    SearchApplicationForm(pId)
+                    SearchEid(pId)
+                    idData.tableId = parseInt(returnAns, 10)
+                    if (returnAns !== undefined) {
+                        UpdateStartTime(idData);           
+                    } else {
+                    }
+                }
+            }
+        });
+    </script>
+}

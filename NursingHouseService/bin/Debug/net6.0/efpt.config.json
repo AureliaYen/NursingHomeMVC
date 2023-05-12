@@ -1,0 +1,129 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "fpdb2Context",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "NursingHouseService",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[tActivity]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tActivityCollect]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tActivityComment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tActivityMessage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tActivityOrder]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tApplicationForm]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tBed]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tEmployee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tFamilyMembers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tImages]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tMeal]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tMember]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tNursingRecord]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tOffService]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tOrder]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tOrderMeal]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tPatientInfo]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tProduct]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tRoombed]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tShift]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tSupplier]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tTake]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[checkPatient]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "DESKTOP-4SLEBF2.fpdb2",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

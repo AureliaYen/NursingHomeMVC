@@ -1,0 +1,508 @@
+﻿
+@section Styles
+    {
+	<link rel="stylesheet" type="text/css" href="/css/ApplicationForm.css" />
+}
+<div class="formContainerAnm" style="">
+        <div>
+            <h3 class="txtApplication">外出申請單</h3>
+        </div>
+        <div>
+            <div class="itemAnm">
+                <div class="itemLeftAnm">
+                    <p class="control-label">申請日期</p>
+                    <p id="createDate"></p> 
+                </div>
+                <div class="itemRightAnm">
+                    <p id="errCreateDate" class="control-label"></p>
+                </div>
+            </div>
+            <div class="itemAnm">
+                <div class="itemLeftAnm">
+                    <p class="control-label">外出日期</p>
+                    <input type="date" name="" id="outSideDate">
+                </div>
+                <div class="itemRightAnm">
+                    <p id="errOutSideDate" class="control-label"></p>
+                </div>
+            </div>
+            <div class="itemAnm">
+                <div class="itemLeftAnm">
+                    <p class="control-label">申請人</p>
+                    <input type="text" name="" id="createPerson">
+                </div>
+                <div class="itemRightAnm">
+                    <p id="errCreatePerson" class="control-label"></p>
+                </div>
+            </div>
+            <div class="itemAnm">
+                <div class="itemLeftAnm">
+                    <p class="control-label">住民姓名</p>
+                    <input type="text" name="" id="patientName">
+                </div>
+                <div class="itemRightAnm">
+                    <p id="errPatientName" class="control-label"></p>
+                </div>
+            </div>
+            <div class="itemAnm">
+                <div class="itemLeftAnm">
+                    <p class="control-label">陪同人員</p>
+                    <input type="text" name="" id="people">
+                </div>
+                <div class="itemRightAnm">
+                    <p id="errPeople" class="control-label"></p>
+                </div>
+            </div>
+            <div class="itemAnm">
+                <div class="itemLeftAnm">
+                    <p class="control-label">聯絡方式</p>
+                    <input type="text" name="" id="phone">
+                </div>
+                <div class="itemRightAnm">
+                    <p id="errPhone" class="control-label"></p>
+                </div>
+            </div>
+            <div class="itemAnm">
+                <div class="itemLeftAnm">
+                    <p class="control-label">事由</p>
+                    <input type="text" name="" id="reason">
+                </div>
+                <div class="itemRightAnm">
+                    <p id="errReason" class="control-label"></p>
+                </div>
+            </div>
+            <div class="itemAnm">
+                <div class="itemLeftAnm">
+                    <p class="control-label">地點</p>
+                    <input type="text" name="" id="location">
+                </div>
+                <div class="itemRightAnm">
+                    <p id="errLocation" class="control-label"></p>
+                </div>
+            </div>
+            <div class="itemAnm">
+                <div class="itemLeftAnm">
+                    <p class="control-label">預計外出時間</p>
+                    <input type="number" name="" id="hour" min="1" max="12">
+                </div>
+                <div class="itemRightAnm">
+                    <p id="errHour" class="control-label"></p>
+                </div>
+            </div>
+            <div class="itemAnm">
+                <div class="itemLeftAnm">
+                    <p class="control-label">備註</p>
+                    <input type="text" name="" id="notice">
+                </div>
+                <div class="itemRightAnm">
+                    <p id="errNotice" class="control-label"></p>
+                </div>
+            </div>
+            <div class="itemBtnAnm">
+                <button type="submit" id="createApplicationForm" class="btn btn-outline-secondary">新增</button>
+                <button type="submit" id="cancel" class="btn btn-outline-secondary">取消</button>
+            </div>
+        </div>
+
+</div>
+<div id="test">    
+    <button id="btnTest1" class="btn btn-outline-secondary">測試資料</button>
+    <button id="btnTest2" class="btn btn-outline-secondary">測試資料2</button>
+    <button id="btnTest3" class="btn btn-outline-secondary">測試資料3</button>
+</div>
+
+
+<dialog id="infoModal">
+    <p>資料有誤</p>
+    <button id="close1" class="btn btn-outline-secondary">關閉</button>
+</dialog>
+<dialog id="infoModal2">
+    <p>新增成功</p>
+    <button id="close2" class="btn btn-outline-secondary">關閉</button>
+</dialog>
+
+
+
+
+
+
+
+
+
+@section Scripts{  
+    <script src="/js/jquery.js"></script>
+    <script>
+        let infoModal = document.querySelector("#infoModal");
+        let infoModal2 = document.querySelector("#infoModal2");
+
+        $('#close1').click(function (e) {
+            infoModal.close();
+        })
+
+        $('#close2').click(function (e) {
+            infoModal2.close();
+            setTimeout(reDirection, 1000);
+        })
+
+        let createDate;
+        let outSideDate;
+        let createPerson;
+        let patientName;
+        let people;
+        let phone;
+        let reason;
+        let loc;
+        let hour;
+        let notice;
+
+        $(document).ready(function () {
+            let currentDate = new Date().toJSON().slice(0, 10);
+            console.log(currentDate);
+            $("#createDate").text(currentDate)
+        });
+
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            return [year, month, day].join('-');
+        }
+
+        function initialData() {
+         let tempdate = $("#createDate").text()
+            createDate = formatDate(tempdate);
+            tempdate = $("#outSideDate").val()
+            outSideDate = formatDate(tempdate);
+            createPerson = $("#createPerson").val()
+            patientName = $("#patientName").val()
+            people = $("#people").val()
+            phone = $("#phone").val()
+            reason = $("#reason").val()
+            loc = $("#location").val()
+            hour = $("#hour").val()
+            notice = $("#notice").val()
+            console.log(createDate);
+            console.log(outSideDate);
+            console.log(createPerson);
+            console.log(patientName);
+            console.log(people);
+            console.log(phone);
+            console.log(reason);
+            console.log(loc);
+            console.log(hour);
+            console.log(notice);
+        }
+
+
+        $('#btn').on('click', function () {
+            initialData();
+            console.log(createDate);
+            console.log(outSideDate);
+            console.log(createPerson);
+            console.log(patientName);
+            console.log(people);
+            console.log(phone);
+            console.log(reason);
+            console.log(loc);
+            console.log(hour);
+            console.log(notice);
+        });
+
+        
+        $("#patientName").blur(function () {
+            // 執行檢查function
+        });
+
+
+        let checkIndex = 0;
+        $("#createApplicationForm").click(function (e) {
+            initialData();
+            e.preventDefault();
+            var formData = {
+                appId: 0,
+                paId: 0,
+                emId: 0,
+                famId: 0,
+                oId:0,
+                p姓名: patientName,
+                app申請人: createPerson,
+                app陪同人員: people,
+                app聯絡方式: phone,
+                app申請日期: createDate,
+                app外出日期: outSideDate,
+                app事由: reason,
+                app地點: loc,
+                app預計外出時間: hour,
+                app備註: notice
+            };
+            let cDate = $('#createDate').text();
+            let oDate = $('#outSideDate').val();
+            console.log(formData);
+            
+            checkLength();
+            console.log(checkIndex);
+            const webApiBaseAddress = 'https://localhost:7171';
+            if (checkIndex == 7 && (cDate <= oDate)) {
+                fetch(`${webApiBaseAddress}/api/ApplicationForm/CreateApplicationForm`, {
+                    method: "POST",
+                    body: JSON.stringify(formData),
+                    headers: {
+                        'Accept': 'application/json',
+                        "content-type": "application/json"
+                    }
+                }).then(result => {
+                    if (result.ok) {
+                        return result.text();
+                    }
+                }).then(data => {
+                    console.log(data);
+                    infoModal2.showModal();
+                }).catch(err => {
+                    alert(err);
+                })
+            }else{
+                infoModal.showModal();
+            }
+        })
+       
+        function reDirection() {
+            window.location.assign("/ApplicationForm/OutSideInSideTable");
+        }
+        function changeDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = ('0' + (today.getMonth() + 1)).slice(-2);
+            const date = ('0' + today.getDate()).slice(-2);
+            const currentDate = year + '-' + month + '-' + date;
+            console.log(currentDate); 
+            document.getElementById("createDate").min = `${currentDate}`;
+            document.getElementById("outSideDate").min = `${currentDate}`;
+        }
+
+        changeDate();
+        $("#cancel").click(function (e) {
+            e.preventDefault();
+            window.location.assign("/ApplicationForm/OutSideInSideTable");
+        });
+
+        //===========================================================================
+        //輸入檢查 外出日期  不可早於申請日期
+        $('#outSideDate').blur(function () {
+            let data = $('#createDate').val();
+            let dataCreateDate = $('#outSideDate').val();
+            // console.log(data);
+            if (dataCreateDate.length == 0) {
+                $('#errOutSideDate').text('輸入不可為空白');
+                $('#errOutSideDate').show();
+            }else{
+                checkIndex++;
+            }
+            console.log(checkIndex);
+            if (data > dataCreateDate) {
+                console.log(123);
+                $('#errOutSideDate').text('外出日期不可早於申請日期');
+                $('#errOutSideDate').show();
+                checkIndex--;
+            }
+        });
+        $('#outSideDate').click(function () {
+            $('#errOutSideDate').hide();
+        });
+
+        //===========================================================================
+        //申請人
+        $('#createPerson').blur(function () {
+            let data = $('#createPerson').val();
+            //let idCreatePerson = document.getElementById("idCreatePerson");
+            let patternName = /^[\u4e00-\u9fa5]{0,}$/g
+            if (data.length == 0) {
+                $('#errCreatePerson').text('輸入不可為空白');
+                $('#errCreatePerson').show();
+            }else{
+                checkIndex++;
+            }
+            console.log(checkIndex);
+        });
+        $('#createPerson').click(function () {
+            $('#errCreatePerson').hide();
+        });
+
+        //===========================================================================
+        //住民姓名
+        $('#patientName').blur(function () {
+            let data = $('#patientName').val();
+            //let idCreatePerson = document.getElementById("idCreatePerson");
+            let patternName = /^[\u4e00-\u9fa5]{0,}$/g
+            if (data.length == 0) {
+                $('#errPatientName').text('輸入不可為空白');
+                $('#errPatientName').show();
+            }else{
+                checkIndex++;
+            }
+            console.log(checkIndex);
+        });
+        $('#patientName').click(function () {
+            $('#errPatientName').hide();
+        });
+
+        //===========================================================================
+        //陪同人員
+        $('#people').blur(function () {
+            let data = $('#people').val();
+            //let idCreatePerson = document.getElementById("idCreatePerson");
+            let patternName = /^[\u4e00-\u9fa5]{0,}$/g
+            if (data.length == 0) {
+                $('#errPeople').text('輸入不可為空白');
+                $('#errPeople').show();
+            }else{
+                checkIndex++;
+            }
+            console.log(checkIndex);
+        });
+        $('#people').click(function () {
+            $('#errPeople').hide();
+        });
+
+        //===========================================================================
+        //聯絡方式
+        $('#phone').blur(function () {
+            let data = $('#phone').val();
+            let patternName = /^09[0-9]{8}$/g;
+            if (data.length == 0) {
+                $('#errPhone').text('輸入不可為空白');
+                $('#errPhone').show();
+            } else {
+                if (patternName.test(data)) {
+                    checkIndex++;
+                } else {
+                    $('#errPhone').text("不符合手機格式");
+                    $('#errPhone').show();
+                }
+            }
+            console.log(checkIndex);
+        });
+        $('#phone').click(function () {
+            $('#errPhone').hide();
+        });
+
+        //===========================================================================
+        //事由
+        $('#reason').blur(function () {
+            let data = $('#reason').val();
+            let patternName = /^[\u4e00-\u9fa5]{0,}$/g
+            if (data.length == 0) {
+                $('#errReason').text('輸入不可為空白');
+                $('#errReason').show();
+            } else {
+                if (patternName.test(data)) {
+                    checkIndex++;
+                } else {
+                    $('#errReason').text("必須全部為中文");
+                    $('#errReason').show();
+                }
+            }
+            console.log(checkIndex);
+        });
+        $('#reason').click(function () {
+            $('#errReason').hide();
+        });
+
+        //===========================================================================
+        //地點
+        $('#location').blur(function () {
+            let data = $('#location').val();
+            let patternName = /^[\u4e00-\u9fa5]{0,}$/g
+            if (data.length == 0) {
+                $('#errLocation').text('輸入不可為空白');
+                $('#errLocation').show();
+            } else {
+                if (patternName.test(data)) {
+                    checkIndex++;
+                } else {
+                    $('#errLocation').text("必須全部為中文");
+                    $('#errLocation').show();
+                }
+            }
+            console.log(checkIndex);
+        });
+        $('#location').click(function () {
+            $('#errLocation').hide();
+        });
+
+
+        function checkLength(){
+            checkIndex = 0;
+            let od = $('#outSideDate').val();  
+            console.log(typeof od)
+            if(od.length != 0){
+                checkIndex++;
+            }
+            let cp = $('#createPerson').val(); 
+            if (cp.length != 0) {
+                checkIndex++;
+            }
+            let pn = $('#patientName').val(); 
+            if (pn.length != 0) {
+                checkIndex++;
+            }
+            let pe = $('#people').val(); 
+            if (pe.length != 0) {
+                checkIndex++;
+            }
+            let ph = $('#phone').val();
+            if (ph.length != 0) {
+                checkIndex++;
+            }
+            let re = $('#reason').val();
+            if (re.length != 0) {
+                checkIndex++;
+            }
+            let lo = $('#location').val();
+            if (lo.length != 0) {
+                checkIndex++;
+            }
+        }
+
+        $('#btnTest1').click(function () {
+            $("#outSideDate").val('2023-04-03')
+            $("#createPerson").val('江坤宇')
+            $("#patientName").val('趙採樂')
+            $("#people").val('江坤宇')
+            $("#phone").val('0929880558')
+            $("#reason").val('復健')
+            $("#location").val('成大')
+            $("#hour").val(3)
+            $("#notice").val('')
+        });
+        $('#btnTest2').click(function () {
+            $("#outSideDate").val('2023-04-01')
+            $("#createPerson").val('陳鏞基')
+            $("#patientName").val('劉保淳')
+            $("#people").val('陳鏞基')
+            $("#phone").val('0960687176')
+            $("#reason").val('復健')
+            $("#location").val('成大')
+            $("#hour").val(3)
+            $("#notice").val('')
+        });
+        $('#btnTest3').click(function () {
+            $("#outSideDate").val('2023-04-09')
+            $("#createPerson").val('林岱安')
+            $("#patientName").val('劉尚森')
+            $("#people").val('林岱安')
+            $("#phone").val('0958063840')
+            $("#reason").val('復健')
+            $("#location").val('成大')
+            $("#hour").val(3)
+            $("#notice").val('')
+        });
+    </script>
+
+}

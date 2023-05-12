@@ -1,0 +1,29 @@
+﻿
+
+
+.tableContainer {
+
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    height: 30px;
+}
+
+    .item p {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+
+
+.itemTextUse{
+    width:80%;
+    margin:auto;
+    margin-top:30px;
+    text-align:center;
+    font-size:30px;
+}

@@ -1,0 +1,338 @@
+﻿@section Styles
+	{
+	<link rel="stylesheet" href="/css/EditFillData.css" />
+}
+
+<div class="formContainerEd">
+	<div class="topEditFillDataEd">
+		<p id="topic" class="control-label">活動名稱</p>
+	</div>
+	<div class="addEd">
+		<button id="addPeople" class="btn btn-outline-secondary">增加人數</button>
+		<button id="reducePeople" class="btn btn-outline-secondary">減少人數</button>
+	</div>
+	<div class="middleEd">
+		<p class="control-label">姓名:</p> <input type="text" name="" id="memberName" class="nameC">
+		<p class="control-label">電話:</p><input type="text" name="" id="memberPhone" class="phoneC">
+		<p class="control-label">Email:</p><input type="text" name="" id="memberEmail" class="emailC">
+	</div>
+	<div id="addPop" class="addpopEd"></div>
+	<div class="buttomEd">
+		<div class="buttomLeft">
+			<p class="control-label">
+				活動注意事項
+			</p>
+			<p id="notice" class="control-label">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum, at?t consectetur adipisicing
+				elit. Laborum, at?t consectetur adipisicing elit. Laborum, at?t consectetur adipisicing elit.
+				Laborum, at?t consectetur adipisicing elit. Laborum, at?t consectetur adipisicing elit. Laborum, at?
+			</p>
+		</div>
+	</div>
+	<div class="detailEd">
+		<p class="control-label">總人數:</p>
+		<p id="totalPeople" class="control-label"> 1</p>
+		<p class="control-label">總金額:</p>
+		<p id="totalMoney" class="control-label"> ???</p>
+		<button id="submitOrder" class="btn btn-outline-secondary">送出</button>
+		<button id="OrderListForClient" class="btn btn-outline-secondary">取消</button>
+		<button id="returnIndex" class="btn btn-outline-secondary">回首頁</button>
+	</div>
+</div>
+<dialog id="infoModal">
+	<p>資料有誤</p>
+	<button id="close1" class="btn btn-outline-secondary">關閉</button>
+</dialog>
+<dialog id="infoModal2">
+	<p>修改成功</p>
+	<button id="close2" class="btn btn-outline-secondary">關閉</button>
+</dialog>
+
+
+@section Scripts{	
+	<script src="/js/jquery.min.js"></script>
+	<script>
+		let memberId = parseInt(localStorage.getItem('memberId'), 10)
+		let activityId = parseInt(localStorage.getItem('activityId'), 10)
+		let employeeId = parseInt(localStorage.getItem('eId'), 10)
+		let oId = parseInt(localStorage.getItem('oId'), 10)
+		let infoModal = document.querySelector("#infoModal");
+		let infoModal2 = document.querySelector("#infoModal2");
+
+		$('#close1').click(function (e) {
+			infoModal.close();
+		})
+
+		$('#close2').click(function (e) {
+			infoModal2.close();
+			setTimeout(reDirection, 1000);
+		})
+
+		let orderId;
+		let actId;
+		let a編號;
+		let a活動名稱;
+		let a活動日期;
+		let a地點;
+		let a報名截止日;
+		let a價格;
+		let a主講人;
+		let a主講人描述;
+		let a注意事項;
+		let a已報名人數;
+		let a最大人數;
+		let a參與人數;
+		let m手機;
+		let m姓名;
+		let mEmail;
+		let countPeople;
+		let addCount = 1;
+
+		$('#addPeople').on('click', function () {
+			if (addCount < countPeople) {
+				$('#addPop').append(`<div id="dv${addCount}" class="dvC">
+											<p>姓名:</p><input type="text" name="" id="" class="nameC">
+											<p>電話:</p><input type="text" name="" id="" class="phoneC">
+											<p>Email:</p><input type="text" name="" id="" class="emailC">
+											</div>`)
+				$('#addPop').css({
+					'margin-bottom': '20px',
+				})
+				$('#totalPeople').text(`${addCount + 1}`)
+				$('#totalMoney').text(`${(addCount + 1) * (a價格 / a參與人數)}`)
+				console.log('before' + addCount);
+				addCount++;
+				console.log('after' + addCount);
+			} else {
+				console.log('超過人數');
+			}		
+		});
+
+		$('#reducePeople').on('click', function () {
+			if (addCount > 1) {
+				$(`#dv${addCount - 1}`).remove()
+				console.log('before --' + addCount);
+				addCount--;
+				console.log('after --' + addCount);
+				$('#totalPeople').text(`${addCount}`)
+				$('#totalMoney').text(`${(addCount) * (a價格 / a參與人數)}`)
+			} else {
+				addCount = 1;
+			}
+
+			$('#addPop').css({
+				'margin-bottom': '20px',
+			})
+		});
+
+		let activityNumber = 10000;
+		let nameAry =[];
+		let phoneAry = [];
+		let emailAry = [];
+
+		$(document).ready(function () {
+			GetActivityOrderData(oId);
+			deleteDataPeople(oId);
+			GetMemberData(memberId, activityId);
+		});
+
+		function GetActivityOrderData(orderNumber) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/GetActivityOrder/${orderNumber}`, {
+				method: "GET",
+			}).then(result => {
+				if (result.ok) {
+					return result.json();
+				}
+			}).then(data => {
+				console.log(data);
+				orderId = data.aoId
+				actId = data.ao活動編號
+				a編號 = data.act活動編號
+				a活動名稱 = data.act活動名稱
+				a價格 = data.ao金額
+				a已報名人數 = data.act已報名人數
+				a最大人數 = data.act最大人數
+				a參與人數 = data.ao參與人數
+				m手機 = data.ao參加人電話
+				m姓名 = data.ao參加人姓名
+				mEmail = data.ao參加人Email
+
+				countPeople = a最大人數 - a已報名人數
+				$("#topic").text('活動名稱: ' + a活動名稱);
+				$("#notice").text(a注意事項);
+				$("#totalPeople").text();
+				$("#totalMoney").text(a價格);
+				nameAry = m姓名.split(",");
+				phoneAry = m手機.split(",");
+				emailAry = mEmail.split(",");
+				let arySize = nameAry.length;
+				setNewDom(nameAry, phoneAry, emailAry);
+				$("#memberName").val(nameAry[0]);
+				$("#memberPhone").val(phoneAry[0]);
+				$("#memberEmail").val(emailAry[0]);
+				console.log('countPeople' + countPeople);
+				console.log('addCount: ' + addCount);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+		function setNewDom(nameAry, phoneAry, emailAry) {
+			for (let i = 1; i < nameAry.length; i++) {
+				$('#addPop').append(`<div id="dv${addCount}" class="dvC">
+										<p>姓名:</p><input type="text" name="" value=${nameAry[i]} id="" class="nameC">
+										<p>電話:</p><input type="text" name="" value=${phoneAry[i]}  id="" class="phoneC">
+										<p>Email:</p><input type="text" name="" value=${emailAry[i]}  id="" class="emailC">
+									</div>`
+				)
+				$('#addPop').css({
+					'margin-bottom': '20px',
+				})
+				addCount++;
+			}
+			$('#totalPeople').text(`${a參與人數}`)
+			$('#totalMoney').text(`${(addCount) * (a價格 / a參與人數)}`)
+		}
+
+		function GetMemberData(memberId, actId) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/GetMemberData/${memberId}/${activityId}`, {
+				method: "GET",
+			}).then(result => {
+				if (result.ok) {
+					return result.json();
+				}
+			}).then(data => {
+				a注意事項 = data.act注意事項
+				$("#notice").text(a注意事項);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+		let transData = {
+			AoId: oId,
+			Ao會員Id: memberId,
+			Ao參加人姓名: '',
+			Ao參加人電話: '',
+			Ao參加人Email: '',
+			Ao活動編號: activityId,
+			Ao參與人數: '',
+			Ao金額: ''
+		}
+
+		$('#submitOrder').on('click', function () {
+			let number = 1;
+			$('.nameC').each(function () {
+				if (number == 1) {
+					transData.Ao參加人姓名 += $(this).val();
+					number++;
+				} else {
+					transData.Ao參加人姓名 += ',' + $(this).val();
+				}
+			});
+
+			number = 1;
+			$('.phoneC').each(function () {
+				if (number == 1) {
+					transData.Ao參加人電話 += $(this).val()
+					number++;
+				} else {
+					transData.Ao參加人電話 += ',' + $(this).val()
+				}
+			});
+
+			number = 1;
+			$('.emailC').each(function () {
+				if (number == 1) {
+					transData.Ao參加人Email += $(this).val()
+					number++;
+				} else {
+					transData.Ao參加人Email += ',' + $(this).val()
+				}
+			});
+
+			transData.Ao參與人數 = $('#totalPeople').text();
+			transData.Ao金額 = $('#totalMoney').text();
+			putDataPeople(transData.AoId, transData.Ao參與人數);
+			putData(transData);
+			setTimeout(connectOrderListForClient, 1000);
+		});
+
+		function putData(asc) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/UpdateActivityOrder`, {
+				method: 'Put',
+				body: JSON.stringify(asc),
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {
+				console.log(data);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+		function deleteDataPeople(aoId) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/DeleteActivityOrderPeople/${aoId}`, {
+				method: 'Put',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {
+				console.log(data);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+		function putDataPeople(aoId, people) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/UpdateActivityOrderPeople/${aoId}/${people}`, {
+				method: 'Put',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {
+				console.log(data);
+				infoModal2.showModal();
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+		$('#returnIndex').on('click', (event) => {
+			connectIndexPage()
+		});
+
+		$('#OrderListForClient').on('click', (event) => {
+			connectOrderListForClient()
+		});
+
+		function connectIndexPage() {
+			window.location.assign("/Activity/ShowActivity");
+		}
+
+		function connectOrderListForClient() {
+			window.location.assign("/Activity/OrderListForClient");
+		}
+	</script>
+}

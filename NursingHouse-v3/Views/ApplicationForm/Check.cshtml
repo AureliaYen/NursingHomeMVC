@@ -1,0 +1,293 @@
+﻿
+@section Styles
+    {
+	<link rel="stylesheet" type="text/css" href="/css/Check.css" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
+}
+
+<div class="tableContainerCk">
+    <div class="selectCk">
+        <button id="btnCheck" class="btn btn-outline-secondary">審核</button>
+            <input class="rdobutton_radio" type="radio" id="radioId" name="radioName" value="0" checked />
+            <label class="rdobutton_label" for="radioId">未結案</label>
+            <input class="rdobutton_radio" type="radio" id="radioId2" name="radioName" value="1" />
+            <label class="rdobutton_label" for="radioId2">結案</label>
+    </div>
+    <div class="tableAreaCk">
+        <div class="table">         
+            <table id="listCheckTable" class="table table-bordered table-striped" style="width: 100%;">
+            </table>
+            <table id="listOKTable" class="table table-bordered table-striped" style="width: 100%;">
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.3/dataRender/datetime.js"></script>
+    <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.16/sorting/datetime-moment.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js"></script>
+    <script>
+        let searchEmployeeId;
+        function SearchEmployeeId(EmployeeNumber) {
+            const webApiBaseAddress = 'https://localhost:7171';
+            fetch(`${webApiBaseAddress}/api/ApplicationForm/apiSearchEmployeeId/${EmployeeNumber}`, {
+                method: "GET",
+            }).then(result => {
+                if (result.ok) {
+                    return result.text();
+                }
+            }).then(data => {
+                searchEmployeeId = parseInt(data, 10);
+                console.log(data);
+            }).catch(err => {
+                alert(err);
+            });            
+        }
+
+        let updateData = {
+            tableId: 0,
+            EId: 0
+        };
+        $(document).ready(function () {
+            let employeeId = localStorage.getItem('employeeId');
+            SearchEmployeeId(employeeId)
+            listCheckTable();
+            listOKTable();
+            $('#listOKTable').parents('div.dataTables_wrapper').first().hide();
+            stateCheck = $('input[name=radioName]:checked').val()           
+            $('#radioId').on('change', function () {
+                updateListCheckTable()
+                updateListOKTable()
+                $('#btnCheck').show()
+                $('#listOKTable').parents('div.dataTables_wrapper').first().hide();
+                $('#listCheckTable').parents('div.dataTables_wrapper').first().show();
+            });
+            $('#radioId2').on('change', function () {
+                updateListCheckTable()
+                updateListOKTable()
+                $('#btnCheck').hide()
+                $('#listCheckTable').parents('div.dataTables_wrapper').first().hide();
+                $('#listOKTable').parents('div.dataTables_wrapper').first().show();
+            });
+        });
+
+        
+        function updateListCheck(data) {
+            const webApiBaseAddress = 'https://localhost:7171';
+            fetch(`${webApiBaseAddress}/api/ApplicationForm/UpdateListCheck`, {
+                method: 'Put',
+                body: JSON.stringify(data),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            }).then(result => {
+                if (result.ok) {
+                    console.log(11);
+                    return result.text();
+                }
+            }).then(data => {
+                console.log(data);
+                alert(data)
+            }).catch(err => {
+                console.log(33);
+                alert(err);
+            });
+        };
+
+
+        function listCheckTable() {
+            let id = 1;
+            let sid = 1;
+            const webApiBaseAddress = 'https://localhost:7171';
+            $('#listCheckTable').DataTable({
+                ajax: {
+                    type: 'GET',
+                    url: `${webApiBaseAddress}/api/ApplicationForm/ListCheck/${id}`,
+                    dataSrc: function (data) {
+                        console.log(data);
+                        return data;
+                    }
+                },
+                columns: [
+                    {
+                        data: null, title: "",  
+                        render: function (data, type, row) {
+                            sid++;
+                            return `<input type="checkbox" name="" id="${data.appId}" class="checkbox"> `
+                        },
+                        width: 20
+                    },
+                    { data: 'appId', title: '申請單編號' },
+                    { data: 'p姓名', title: '住民姓名' },
+                    { data: 'app申請人', title: '申請人' },
+                    { data: 'app陪同人員', title: '陪同人' },
+                    { data: 'app聯絡方式', title: '聯絡方式' },
+                    {
+                        data: 'app申請日期', title: '申請日期', render: function (data) {
+                            let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                            let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);
+
+                            return localISOTime.slice(5, 10)
+                        }
+                    },
+                    {
+                        data: 'app外出日期', title: '外出日期', render: function (data) {
+                            let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                            let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);                            
+                            
+                            return localISOTime.slice(5, 10)
+                        }
+                    },
+                    { data: 'app事由', title: '事由' },
+                    { data: 'app地點', title: '地點' },
+                    { data: 'app預計外出時間', title: '預計外出時間' },
+                    {
+                        data: 'app審核', title: '審核', render: function (data) {
+                            if (data == 1) {
+                                return "已審核"
+                            } else {
+                                return "未審核"
+                            }
+                        }
+                    },
+                    {
+                        data: null, title: "操作功能", 
+                        render: function (data, type, row) {                            
+                            return `<button type="button" class="btn btn-warning btn-sm" id=${data.appId}>編輯</button>`
+                        }
+                    },
+                ],
+                "bLengthChange": false,
+                "bInfo": false,
+                "bAutoWidth": false,           
+                columnDefs: [
+                    {
+                        'targets': 0,
+                        'checkboxes': {
+                            'selectRow': true
+                        }
+                    },
+                    { "targets": 0, "searchable": false, "orderable": false }
+                ],
+                'select': {
+                    'style': 'multi'
+                },
+                'order': [[1, 'asc']],             
+                "language": {
+                    "search": "搜尋",
+                    "paginate": {
+                        "previous": "上一頁",
+                        "next": "下一頁"
+                    }
+                },
+
+            });
+        };
+
+
+        function listOKTable() {
+            const webApiBaseAddress = 'https://localhost:7171';
+            let eId = 1;
+            $('#listOKTable').DataTable({
+                ajax: {
+                    type: 'GET',
+                    url: `${webApiBaseAddress}/api/ApplicationForm/ListOK/${eId}`,
+                    dataSrc: function (data) {
+                        console.log(data);
+                        return data;
+                    }
+                },
+                columns: [
+                    { data: 'appId', title: '申請單編號' },
+                    { data: 'p姓名', title: '住民姓名' },
+                    { data: 'app申請人', title: '申請人' },
+                    { data: 'app陪同人員', title: '陪同人' },
+                    { data: 'app聯絡方式', title: '聯絡方式' },
+                    {
+                        data: 'app申請日期', title: '申請日期', render: function (data) {
+                            let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                            let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);
+                            return localISOTime.slice(5, 10)                           
+                        }
+                    },
+                    {
+                        data: 'app外出日期', title: '外出日期', render: function (data) {
+                            let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                            let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);
+
+                            return localISOTime.slice(5, 10)
+                        }
+                    },
+                    { data: 'app事由', title: '事由' },
+                    { data: 'app地點', title: '地點' },
+                    {
+                        data: 'app預計外出時間', title: '預計外出時間'
+                    },
+                ],
+                "bLengthChange": false,
+                "bInfo": false,
+                "autoWidth": false,
+                columnDefs: [
+                ],
+                "language": {
+                    "search": "搜尋",
+                    "paginate": {
+                        "previous": "上一頁",
+                        "next": "下一頁"
+                    }
+                },              
+            });
+        };
+
+        function updateListCheckTable() {
+            $('#listCheckTable').DataTable().ajax.reload();
+        }
+
+        function updateListOKTable() {
+            $('#listOKTable').DataTable().ajax.reload();
+        }
+       
+
+        $(document).on('click', 'button', function () {
+            btnData = $(this).attr('id');
+            if (btnData === 'createAp') {
+                window.location.assign("/ApplicationForm/ApplicationForm");
+            } else if (btnData === 'outInside') {
+                window.location.assign("/ApplicationForm/OutSideInSideTable");
+            } else if (btnData === 'btnCheck') {
+                updateCheck();
+            } else if (btnData === 'calendar') {
+                window.location.assign("/Calendar/Calendar");
+            } else{
+                localStorage.setItem('appId', btnData);
+                connectPage()
+            }
+        });
+    
+        let dataAry = [];
+        function updateCheck(){
+            $('.checkbox').each(function () {
+                if ($(this).is(':checked')) {                    
+                    updateData.tableId = $(this).attr('id')
+                    updateData.EId = searchEmployeeId;
+                    updateListCheck(updateData);
+                    setTimeout(updateListCheckTable, 1000);
+                }
+            });
+        }
+
+        function connectPage() {
+            window.location.assign("/ApplicationForm/EditApplicationForm");
+        }
+    </script>
+}

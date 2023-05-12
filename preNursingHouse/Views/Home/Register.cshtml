@@ -1,0 +1,90 @@
+﻿@model preNursingHouse.Models.TMember
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<section class="cta-section section-padding section-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                <h2 class=" mb-4">加入會員</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <form asp-action="Create" enctype="multipart/form-data" class="custom-form volunteer-form mb-5 mb-lg-0">
+                            <h5 class="mb-4">加入會員</h5>
+
+                            <div class="row">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="col-12">
+                            <label asp-for="M手機" class="control-label"></label>
+                            <input asp-for="M手機" class="form-control" pattern="^09\d{8}$" placeholder="09********" title="手機格式輸入錯誤" />
+                            <span asp-validation-for="M手機" class="text-danger"></span>
+                        </div>
+                            <div class="col-12">
+                            <label asp-for="M密碼" class="control-label"></label>
+                            <input asp-for="M密碼" class="form-control" type="password" pattern="^(?=.*[a-zA-Z])(?=.*[\d])[^\s]{6,12}$" placeholder="請輸入6-12碼包含中英文的密碼" title="請輸入6-12碼包含中英文的密碼" />
+                            <span asp-validation-for="M密碼" class="text-danger"></span>
+                        </div>
+                            <div class="col-12">
+                            <label asp-for="M姓名" class="control-label"></label>
+                            <input asp-for="M姓名" class="form-control" required/>
+                            <span asp-validation-for="M姓名" class="text-danger"></span>
+                        </div>
+                            <div class="col-12">
+                            <label asp-for="M性別" class="control-label"></label>
+                            <input asp-for="M性別" class="form-control" id="SexInput" hidden  />
+                            <select class="form-control" name="M性別" id="SexSelect">
+                                <optgroup label="性別">
+                                    <option selected disabled hidden>--請選擇性別--</option>
+                                    <option value="true">男</option>
+                                    <option value="false">女</option>
+                                </optgroup>
+                            </select>
+                            <span asp-validation-for="M性別" class="text-danger"></span>
+                        </div>
+
+
+                            <div class="col-12">
+                            <label asp-for="MEmail" class="control-label"></label>
+                            <input asp-for="MEmail" class="form-control" type="email" required/>
+                            <span asp-validation-for="MEmail" class="text-danger"></span>
+                        </div>
+                            <div class="col-12">
+                                <label asp-for="M照片" class="control-label"></label>
+                                <input type="file" name="photo" class="form-control form-control-lg" required />
+                            <span asp-validation-for="M照片" class="text-danger"></span>
+                        </div>
+                            <div class="col-12">
+                            <label asp-for="M住址" class="control-label"></label>
+                            <input asp-for="M住址" class="form-control" required/>
+                            <span asp-validation-for="M住址" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                        <div class="row">
+                            <div class="col-6 mt-1">
+                                <button type="submit" class="form-control col-lg-6" asp-action="Register">新增</button>
+                            </div>
+                            <div class="col-6 mt-1">
+                                <a asp-action="Login" class="form-control col-lg-6" style="color:white; background-color:#597081;border-radius:50px;text-align:center;font-weight:bold">上一頁</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+                
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+
+        $("#SexSelect").change(() => {
+            $("#SexInput").val($("#SexSelect").val());
+        });
+    </script>
+}

@@ -1,0 +1,168 @@
+﻿@model NursingHouse_v3.ViewModel.CMealViewModel
+
+@{
+    ViewData["Title"] = "MealEdit";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+    </style>
+}
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">修改餐點</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+        <form asp-action="MealEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-body">
+
+            <input type="hidden" name="MeId" value="@Model.MeId" />
+            @*<div class="form-group">
+                <label asp-for="MeId" class="control-label"></label>
+                <input asp-for="MeId" class="form-control" />
+                <span asp-validation-for="MeId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Meal.SuId" class="control-label" hidden></label>
+                <input asp-for="Meal.SuId" class="form-control" id="SupplierNameInput" hidden />
+                <label class="control-label">廠商</label>
+                <select id="SupplierNameSelected" name="OffService.PId" class="form-select">
+                    <optgroup label="請選擇廠商">
+                        <option selected disabled hidden>請選擇廠商</option>
+                        @{
+                            foreach (var item in Model.廠商表單)
+                            {
+                                <option value=@item.SuId> @item.廠商名稱</option>
+                            }
+                        }
+                    </optgroup>
+                </select>
+                <span asp-validation-for="Meal.SuId" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="月" class="control-label"></label>
+                <input asp-for="月" class="form-control" id="MonthInput" hidden />
+                <select id="MonthSelected" name="月" class="form-select">
+                    <optgroup label="請選擇月份">
+                        <option selected disabled hidden>請選擇月份</option>
+                        <option value="1月">1月</option>
+                        <option value="2月">2月</option>
+                        <option value="3月">3月</option>
+                        <option value="4月">4月</option>
+                        <option value="5月">5月</option>
+                        <option value="6月">6月</option>
+                        <option value="7月">7月</option>
+                        <option value="8月">8月</option>
+                        <option value="9月">9月</option>
+                        <option value="10月">10月</option>
+                        <option value="11月">11月</option>
+                        <option value="12月">12月</option>
+                        
+
+                    </optgroup>
+                </select>
+                <span asp-validation-for="月" class="text-danger"></span>
+            </div>
+               <div class="form-group">
+                <label asp-for="餐種" class="control-label"></label>
+                <input asp-for="餐種" class="form-control" id="MealInput" hidden />
+                <select id="MealSelected" name="餐種" class="form-select">
+                    <optgroup label="請選擇餐種">
+                        <option selected disabled hidden>請選擇餐種</option>
+                       <option value="普通餐">普通餐</option>
+                        <option value="糖尿病餐">糖尿病餐</option>
+                        <option value="腎臟病餐">腎臟病餐</option>
+                        <option value="癌症餐">癌症餐</option>
+
+                    </optgroup>
+                </select>
+                <span asp-validation-for="餐種" class="text-danger"></span>
+            </div>
+                        <div class="form-group">
+                            <label asp-for="餐別" class="control-label"></label>
+                            <input asp-for="餐別" class="form-control" id="MealTypeInput" hidden />
+                            <select id="MealTypeSelected" name="餐別" class="form-select">
+                                <optgroup label="請選擇餐別">
+                                    <option selected disabled hidden>請選擇餐別</option>
+                                    <option value="精緻套餐">精緻套餐</option>
+                                    <option value="養生套餐">養生套餐</option>
+                                    <option value="低GI套餐">低GI套餐</option>
+                                    <option value="低普林餐">低普林餐</option>
+                                    <option value="低氮套餐">低氮套餐</option>
+                                    <option value="低醣套餐">低醣套餐</option>
+                                    <option value="化療套餐">化療套餐</option>
+                                </optgroup>
+                            </select>
+                            <span asp-validation-for="餐別" class="text-danger"></span>
+                        </div>
+            <div class="form-group">
+                <label asp-for="價位" class="control-label"></label>
+                <input asp-for="價位" class="form-control" />
+                <span asp-validation-for="價位" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <label asp-for="建立人" class="control-label"></label>
+                <input asp-for="建立人" class="form-control" />
+                <span asp-validation-for="建立人" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                            <label asp-for="備註" class="control-label"></label>
+                            <textarea asp-for="備註" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <span asp-validation-for="備註" class="text-danger"></span>
+                        </div>
+                    
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="存檔" class="btn btn-warning" />
+                        <a asp-action="MealList" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        let SupplierNameSelected = document.querySelector("#SupplierNameSelected");
+        let SupplierNameInput = document.querySelector("#SupplierNameInput");
+        SupplierNameSelected.addEventListener("change", function () {
+            SupplierNameInput.value = SupplierNameSelected.value;
+        })
+
+    </script>
+    <script>
+        @* // 獲取<select id="PatientGenderSelected">標籤*@
+            let MealTypeSelected = document.querySelector("#MealTypeSelected");
+        @* // 獲取<input asp-for="PatientGender" class="form-control" id="PatientGenderInput" hidden /> 標籤*@
+            let MealTypeInput = document.querySelector("#MealTypeInput");
+        MealTypeSelected.addEventListener("change", function () {
+            MealTypeInput.value = MealTypeSelected.value;
+        })
+    </script>
+    <script>
+        @* // 獲取<select id="PatientGenderSelected">標籤*@
+            let MealSelected = document.querySelector("#MealSelected");
+        @* // 獲取<input asp-for="PatientGender" class="form-control" id="PatientGenderInput" hidden /> 標籤*@
+            let MealInput = document.querySelector("#MealInput");
+        MealSelected.addEventListener("change", function () {
+            MealInput.value = MealSelected.value;
+        })
+    </script>
+    <script>
+        @* // 獲取<select id="PatientGenderSelected">標籤*@
+            let MonthSelected = document.querySelector("#MonthSelected");
+        @* // 獲取<input asp-for="PatientGender" class="form-control" id="PatientGenderInput" hidden /> 標籤*@
+            let MonthInput = document.querySelector("#MonthInput");
+        MonthSelected.addEventListener("change", function () {
+            MonthInput.value = MonthSelected.value;
+        })
+    </script>
+}

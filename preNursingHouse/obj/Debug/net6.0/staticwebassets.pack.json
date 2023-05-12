@@ -1,0 +1,613 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\preNursingHouse.bundle.scp.css",
+      "PackagePath": "staticwebassets\\preNursingHouse.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\CreateActivityOrder.css",
+      "PackagePath": "staticwebassets\\css\\CreateActivityOrder.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\EditFillData.css",
+      "PackagePath": "staticwebassets\\css\\EditFillData.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\FillData.css",
+      "PackagePath": "staticwebassets\\css\\FillData.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\OrderListForClient.css",
+      "PackagePath": "staticwebassets\\css\\OrderListForClient.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\ShowActivity.css",
+      "PackagePath": "staticwebassets\\css\\ShowActivity.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\ShowActivity000.css",
+      "PackagePath": "staticwebassets\\css\\ShowActivity000.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\ShowAllData.css",
+      "PackagePath": "staticwebassets\\css\\ShowAllData.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\bootstrap-icons.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-icons.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\frontLoginForPatient.css",
+      "PackagePath": "staticwebassets\\css\\frontLoginForPatient.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\jquery-ui.min.css",
+      "PackagePath": "staticwebassets\\css\\jquery-ui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\jquery.dataTables.min.css",
+      "PackagePath": "staticwebassets\\css\\jquery.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\templatemo-kind-heart-charity.css",
+      "PackagePath": "staticwebassets\\css\\templatemo-kind-heart-charity.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\css\\uikit.min.css",
+      "PackagePath": "staticwebassets\\css\\uikit.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\fonts\\Metropolis\\Metropolis-Bold.woff",
+      "PackagePath": "staticwebassets\\fonts\\Metropolis\\Metropolis-Bold.woff"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\fonts\\Metropolis\\Metropolis-Bold.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Metropolis\\Metropolis-Bold.woff2"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\fonts\\Metropolis\\Metropolis-Light.woff",
+      "PackagePath": "staticwebassets\\fonts\\Metropolis\\Metropolis-Light.woff"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\fonts\\Metropolis\\Metropolis-Light.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Metropolis\\Metropolis-Light.woff2"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\fonts\\Metropolis\\Metropolis-Regular.woff",
+      "PackagePath": "staticwebassets\\fonts\\Metropolis\\Metropolis-Regular.woff"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\fonts\\Metropolis\\Metropolis-Regular.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Metropolis\\Metropolis-Regular.woff2"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\fonts\\Metropolis\\Metropolis-SemiBold.woff",
+      "PackagePath": "staticwebassets\\fonts\\Metropolis\\Metropolis-SemiBold.woff"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\fonts\\Metropolis\\Metropolis-SemiBold.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Metropolis\\Metropolis-SemiBold.woff2"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\fonts\\bootstrap-icons.woff",
+      "PackagePath": "staticwebassets\\fonts\\bootstrap-icons.woff"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\fonts\\bootstrap-icons.woff2",
+      "PackagePath": "staticwebassets\\fonts\\bootstrap-icons.woff2"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\activities\\2023-3-20-22-30-58.jpg",
+      "PackagePath": "staticwebassets\\images\\activities\\2023-3-20-22-30-58.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\activities\\2023-3-20-23-8-32.jpg",
+      "PackagePath": "staticwebassets\\images\\activities\\2023-3-20-23-8-32.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\activities\\diabetes.jpg",
+      "PackagePath": "staticwebassets\\images\\activities\\diabetes.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\avatar\\portrait-beautiful-young-woman-standing-grey-wall.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\portrait-beautiful-young-woman-standing-grey-wall.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\avatar\\portrait-young-beautiful-woman-gesticulating.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\portrait-young-beautiful-woman-gesticulating.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\avatar\\portrait-young-redhead-bearded-male.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\portrait-young-redhead-bearded-male.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\avatar\\pretty-blonde-woman-wearing-white-t-shirt.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\pretty-blonde-woman-wearing-white-t-shirt.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\avatar\\studio-portrait-emotional-happy-funny.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\studio-portrait-emotional-happy-funny.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\causes\\african-woman-pouring-water-recipient-outdoors.jpg",
+      "PackagePath": "staticwebassets\\images\\causes\\african-woman-pouring-water-recipient-outdoors.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\causes\\group-african-kids-paying-attention-class.jpg",
+      "PackagePath": "staticwebassets\\images\\causes\\group-african-kids-paying-attention-class.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\causes\\poor-child-landfill-looks-forward-with-hope.jpg",
+      "PackagePath": "staticwebassets\\images\\causes\\poor-child-landfill-looks-forward-with-hope.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\different-people-doing-volunteer-work.jpg",
+      "PackagePath": "staticwebassets\\images\\different-people-doing-volunteer-work.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\group-people-volunteering-foodbank-poor-people.jpg",
+      "PackagePath": "staticwebassets\\images\\group-people-volunteering-foodbank-poor-people.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\icons\\bingo.png",
+      "PackagePath": "staticwebassets\\images\\icons\\bingo.png"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\icons\\elderly.png",
+      "PackagePath": "staticwebassets\\images\\icons\\elderly.png"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\icons\\hands.png",
+      "PackagePath": "staticwebassets\\images\\icons\\hands.png"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\icons\\heart.png",
+      "PackagePath": "staticwebassets\\images\\icons\\heart.png"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\icons\\nurse.png",
+      "PackagePath": "staticwebassets\\images\\icons\\nurse.png"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\icons\\receive.png",
+      "PackagePath": "staticwebassets\\images\\icons\\receive.png"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\icons\\scholarship.png",
+      "PackagePath": "staticwebassets\\images\\icons\\scholarship.png"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\_39ceb048-ff3e-4c74-be57-c506481cebe0.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\_39ceb048-ff3e-4c74-be57-c506481cebe0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-andrea-piacquadio-3768114.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-andrea-piacquadio-3768114.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-dimitri-dim-1845844.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-dimitri-dim-1845844.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-kampus-production-7551607.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-kampus-production-7551607.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-kampus-production-7551614.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-kampus-production-7551614.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-kampus-production-7551627.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-kampus-production-7551627.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-kampus-production-7551646.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-kampus-production-7551646.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-kampus-production-8949916.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-kampus-production-8949916.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-mart-production-7330913.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-mart-production-7330913.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-matthias-zomer-339620.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-matthias-zomer-339620.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-pixabay-276551.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-pixabay-276551.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-tristan-le-1642883.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-tristan-le-1642883.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\index\\pexels-vlada-karpovich-5790837.jpg",
+      "PackagePath": "staticwebassets\\images\\index\\pexels-vlada-karpovich-5790837.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\news\\africa-humanitarian-aid-doctor.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\africa-humanitarian-aid-doctor.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\news\\close-up-happy-people-working-together.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\close-up-happy-people-working-together.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\news\\close-up-volunteer-oganizing-stuff-donation.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\close-up-volunteer-oganizing-stuff-donation.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\news\\medium-shot-people-collecting-foodstuff.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\medium-shot-people-collecting-foodstuff.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\news\\medium-shot-volunteers-with-clothing-donations.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\medium-shot-volunteers-with-clothing-donations.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\portrait-volunteer-who-organized-donations-charity.jpg",
+      "PackagePath": "staticwebassets\\images\\portrait-volunteer-who-organized-donations-charity.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\slide\\medium-shot-people-collecting-donations.jpg",
+      "PackagePath": "staticwebassets\\images\\slide\\medium-shot-people-collecting-donations.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\slide\\volunteer-helping-with-donation-box.jpg",
+      "PackagePath": "staticwebassets\\images\\slide\\volunteer-helping-with-donation-box.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\slide\\volunteer-selecting-organizing-clothes-donations-charity.jpg",
+      "PackagePath": "staticwebassets\\images\\slide\\volunteer-selecting-organizing-clothes-donations-charity.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\images\\smiling-casual-woman-dressed-volunteer-t-shirt-with-badge.jpg",
+      "PackagePath": "staticwebassets\\images\\smiling-casual-woman-dressed-volunteer-t-shirt-with-badge.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\img\\12.jpg",
+      "PackagePath": "staticwebassets\\img\\12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\click-scroll.js",
+      "PackagePath": "staticwebassets\\js\\click-scroll.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\counter.js",
+      "PackagePath": "staticwebassets\\js\\counter.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\custom.js",
+      "PackagePath": "staticwebassets\\js\\custom.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\datatables.min.js",
+      "PackagePath": "staticwebassets\\js\\datatables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\datetime-moment.js",
+      "PackagePath": "staticwebassets\\js\\datetime-moment.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\datetime.js",
+      "PackagePath": "staticwebassets\\js\\datetime.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\jquery-1.11.0.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-1.11.0.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\jquery-migrate-1.2.1.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-migrate-1.2.1.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\jquery.dataTables.js",
+      "PackagePath": "staticwebassets\\js\\jquery.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\jquery.sticky.js",
+      "PackagePath": "staticwebassets\\js\\jquery.sticky.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\moment.min.js",
+      "PackagePath": "staticwebassets\\js\\moment.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\slick.min.js",
+      "PackagePath": "staticwebassets\\js\\slick.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\templatemo.js",
+      "PackagePath": "staticwebassets\\js\\templatemo.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\js\\templatemo.min.js",
+      "PackagePath": "staticwebassets\\js\\templatemo.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\OneDrive\\桌面\\0403全哥整合\\MyFinalReport\\preNursingHouse\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.preNursingHouse.props",
+      "PackagePath": "build\\preNursingHouse.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.preNursingHouse.props",
+      "PackagePath": "buildMultiTargeting\\preNursingHouse.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.preNursingHouse.props",
+      "PackagePath": "buildTransitive\\preNursingHouse.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.preNursingHouse.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

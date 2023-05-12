@@ -1,0 +1,80 @@
+﻿
+
+/*button {
+    height: 21px;
+}*/
+
+.formContainerFd {
+    width: 60%;
+    margin: auto;
+    /*border: 1px solid black;*/
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.topFillDataFd {
+    text-align: center;
+}
+
+.addFd {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+    .addFd button {
+        margin-left: 20px;
+    }
+.middleFd {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* height: 150px; */
+    align-items: center;
+    margin-bottom: 5px;
+}
+    .middleFd p {
+        margin: 0;
+    }
+
+.buttomFd {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.detailFd {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+    .detailFd p {
+        margin: 0;
+    }
+
+input {
+    height: 21px;
+}
+
+.dvCFd {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: center;
+    margin-bottom: 5px;
+    height: max-content;
+}
+    .dvCFd p {
+        margin: 0;
+    }
+
+.addpopFd {
+    height: max-content;
+}
+/*.adddd p {
+    margin: 0;
+}*/
+

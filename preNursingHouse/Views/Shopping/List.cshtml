@@ -1,0 +1,166 @@
+﻿@model IEnumerable<preNursingHouse.Models.TMeal>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+
+<p>
+    <a asp-action="CartView">檢視購物車</a>
+</p>
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SuId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.月)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.餐種)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.餐別)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.價位)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.建立時間)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.修改時間)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.建立人)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.備註)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SuId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.月)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.餐種)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.餐別)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.價位)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.建立時間)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.修改時間)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.建立人)
+            </td>
+            <td>
+               @Html.ActionLink("加入購物車", "AddToCart", new { id = item.MeId })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+@foreach (var item in Model)
+{
+    <input type="hidden" name="MeId" value="@item.MeId" />
+    <div class="col-md-3">
+        <div class="card mb-3 product-wap rounded-0">
+            <div class="card rounded-0">
+                 @foreach (var image in item.TImages)
+                    {
+                    <img class="card-img rounded-0 img-fluid" src="@Url.Content("https://localhost:7105/images/" + image.早圖)">
+                    <img class="card-img rounded-0 img-fluid" src="">
+                       
+                    }
+              @*  <img class="card-img rounded-0 img-fluid" src="~/img/12.jpg">*@
+                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                    <ul class="list-unstyled">                          
+                    @*    <li>
+                            <a class="btn btn-success text-white" href="shop-single.html">
+                                <i class="bi bi-heart"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn btn-success text-white mt-2" href="shop-single.html">
+                                <i class="bi bi-eye" ></i>
+                            </a>
+                        </li>                      
+                        <li>
+                            <a class="btn btn-success text-white mt-2" href="shop-single.html">
+                                <i class="bi bi-bag-check"></i>
+                            </a>*@
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body">
+                <a href="shop-single.html" class="h3 text-decoration-none">@Html.DisplayFor(modelItem => item.餐種)</a>
+                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                    <li>@Html.DisplayFor(modelItem => item.餐別)</li>
+                    <li>@Html.DisplayFor(modelItem => item.SuIdNavigation)</li>
+
+               
+                    <li class="pt-2">
+                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                    </li>
+                </ul>
+
+                <p class="text-center mb-0"> @Html.DisplayFor(modelItem => item.價位)</p>
+            </div>
+            <p >@Html.ActionLink("", "Detail", new {  id=item.MeId },new{@class="bi bi-eye"} )</p>
+            <p>@Html.ActionLink("", "AddToCart", new {  id=item.MeId },new{@class="bi bi-bag-check"})</p>
+            
+        </div>
+    </div>
+  @*  <td>
+        @Html.ActionLink("加入購物車", "AddToCart", new { id = item.MeId })
+    </td>*@
+  @*  <tr>
+       <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("", "Detail", new {  id=item.MeId },new{@class="bi bi-eye"}) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>*@
+}
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+	<script src="~/js/jquery-1.11.0.min.js"></script>
+	<script src="~/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="~/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/templatemo.js"></script>
+	<script src="~/js/templatemo.min.js"></script>
+	<script src="~/js/custom.js"></script>
+}
+

@@ -1,0 +1,63 @@
+﻿@model preNursingHouse.Models.TOrderMeal
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TOrderMeal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OmId" class="control-label"></label>
+                <input asp-for="OmId" class="form-control" />
+                <span asp-validation-for="OmId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MeId" class="control-label"></label>
+                <input asp-for="MeId" class="form-control" />
+                <span asp-validation-for="MeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="訂購人" class="control-label"></label>
+                <input asp-for="訂購人" class="form-control" />
+                <span asp-validation-for="訂購人" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="訂購人電話" class="control-label"></label>
+                <input asp-for="訂購人電話" class="form-control" />
+                <span asp-validation-for="訂購人電話" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="訂餐起始日" class="control-label"></label>
+                <input asp-for="訂餐起始日" class="form-control" />
+                <span asp-validation-for="訂餐起始日" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="訂餐結束日" class="control-label"></label>
+                <input asp-for="訂餐結束日" class="form-control" />
+                <span asp-validation-for="訂餐結束日" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="總價" class="control-label"></label>
+                <input asp-for="總價" class="form-control" />
+                <span asp-validation-for="總價" class="text-danger"></span>
+            </div>          
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,161 @@
+﻿@model preNursingHouse.Models.TMeal
+
+@{
+    ViewData["Title"] = "AddToCart";
+}
+<style>
+
+    .section-padding {
+        padding-top: 100px;
+        padding-bottom: 270px;
+    }
+
+    .hero-section-full-height {
+        height: 680px;
+        min-height: 680px;
+        position: relative;
+    }
+
+    h4 {
+        float: left;
+        /*display: inline-block;*/
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 10px;
+        margin-right: 10px;
+        width: 300px;
+    }
+
+    .form-group {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 30px;
+        margin-right: 10px;
+    }
+
+    .form-select option {
+        font-size: 20px;
+    }
+
+    .card {
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+        }
+
+    .botn {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 30px;
+        margin-right: 10px;
+    }
+</style>
+
+<section class="cta-section section-padding section-bg">
+    @*<div class="container">*@
+
+    <div class="col-12 text-center mx-auto">
+        <h2 class=" mb-4">選擇訂餐日期區間</h2>
+
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <section class="">
+            @*<div class="form-horizontal">     *@
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <input type="hidden" name="txtMeId" value="@ViewBag.MeId" />
+            @*     <input type="hidden" name="tMeId" value="@Model.MeId" />*@
+            @*vvvvv*@
+            @*<div class="form-group">
+        <label for="meal-id" class="control-label">餐點ID</label>
+        <div class="col-md-10">
+        <input id="meal-id" type="text" class="form-control" value="@ViewBag.MeId" readonly>
+        </div>
+        </div>*@
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mx-auto" id="form">
+                        <div class="form-group">
+                            <label for="customer-name" class="control-label col-md-6 align-self-center">訂購人</label>
+                            <div class="col-md-6">
+                                <input id="customer-name" type="text" class="form-control" value="@CpNHMLock.LoginUserName" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone" class="control-label col-md-6 align-self-center">聯絡電話</label>
+                            <div class="col-md-6">
+                                <input id="contact-phone" type="tel" class="form-control" value="@CpNHMLock.LoginMphone" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="start-date" class="control-label col-md-6 align-self-center">訂餐起始日期</label>
+                            <div class="col-md-6">
+                                <input id="start-date" type="date" class="form-control" name="txt訂餐起始日">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="end-date" class="control-label col-md-6 align-self-center">訂餐結束日期</label>
+                            <div class="col-md-6">
+                                <input id="end-date" type="date" class="form-control" name="txt訂餐結束日">
+                            </div>
+                        </div>
+                        
+                        <p id="loginErr" style="color:red">@ViewBag.LoginErr</p>
+                    </div>
+                </div>
+                </div>
+                <div class="d-flex justify-content-center">
+  <div class="mx-5">
+    <input type="submit" class="btn btn-outline-success btn-block btn-lg" style="border-radius: 20px; width: 150%;" value="訂購">
+  </div>
+  <div class="mx-5">
+    <button type="button" class="btn btn-outline-danger btn-block btn-lg" style="border-radius: 20px; width: 150%;" onclick="window.history.back();">取消</button>
+  </div>
+</div>
+
+
+            @* <div class="form-group">
+        天數
+        <div class="col-md-10">
+        @Html.TextBox("txtDays", Model.Days, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+        </div>*@
+
+
+
+            @*<div class="form-group">
+        <div class="col-md-offset-0 col-md-10">
+        <input type="submit" value="購買" class="btn btn-default" />
+
+        @Html.ActionLink("取消", "MealList")
+        </div>
+        </div>*@
+
+            @*</div>*@
+        </section>
+    }
+
+</section>
+
+
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/js/custom.js"></script>
+<script src="~/js/jquery-migrate-1.2.1.min.js"></script>

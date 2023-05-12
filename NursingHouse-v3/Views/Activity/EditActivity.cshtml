@@ -1,0 +1,400 @@
+﻿
+
+@section Styles
+	{
+	<link rel="stylesheet" href="/css/EditActivity.css" />
+}
+<div class="formContainerEai">
+	<div class="topicEai">
+		<h3>修改活動</h3>
+	</div>
+	<div class="detailEai">
+		<div class="stageEai">
+			<div>
+				<div class="stageItemEai">
+					<p id="" class="control-label">活動名稱</p>
+					<input type="text" name="" id="activityName">
+				</div>
+				<div class="errMessage">
+					<p id="erractivityName" class="control-label">111</p>
+				</div>
+				<div class="stageItemEai">
+					<p class="control-label">活動地點</p>
+					<input type="text" name="" id="activityLocation">
+				</div>
+				<div class="errMessage">
+					<p id="erractivityName" class="control-label">111</p>
+				</div>
+				<div class="stageItemEai">
+					<P class="control-label">價格</P>
+					<input type="text" name="" id="acvitityPrice">
+				</div>
+				<div class="errMessage">
+					<p id="erracvitityPrice" class="control-label">111</p>
+				</div>
+			</div>
+			<div>
+				<div class="stageItemEai">
+					<p class="control-label">活動日期</p>
+					<input type="date" name="" id="activityDate">
+				</div>
+				<div class="errMessage">
+				</div>
+				<div class="stageItemEai">
+					<p class="control-label">報名截止日</p>
+					<input type="date" name="" id="stopDate">
+				</div>
+				<div class="errMessage">
+				</div>
+				<div class="stageItemEai">
+					<P class="control-label">最大人數</P>
+					<input type="number" name="" id="countPeople" max="30" min="1">
+				</div>
+				<div class="errMessage">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="stage4Eai">
+		<p class="control-label">活動說明</p>
+		<textarea id="txtExplain" name="" rows="4" cols="50"></textarea>
+	</div>
+
+	<div class="stage5Eai">
+		<p class="control-label">主講人</p>
+		<input type="text" name="" id="speaker">
+	</div>
+	<div class="stage4Eai">
+		<p class="control-label">主講人描述</p>
+		<textarea id="speakerBackground" name="" rows="4" cols="50"></textarea>
+	</div>
+	<div class="stage4Eai">
+		<p class="control-label">注意事項</p>
+		<textarea id="notice" name="" rows="4" cols="50"></textarea>
+	</div>
+	<div id="dropzone">	
+		<img id="image" src="">
+	</div>
+	<div class="stage6Eai">
+		<P class="control-label">公開狀態</P>
+		<input type="checkbox" name="" id="checkPublic">
+		<button id="submit" class="btn btn-outline-secondary">送出</button>
+		<button id="returnActivityItemList" class="btn btn-outline-secondary">回活動列表</button>
+		<button id="returnOrderList" class="btn btn-outline-secondary">回訂單列表</button>
+	</div>
+</div>
+
+<dialog id="infoModal">
+	<p>資料有誤</p>
+	<button id="close1" class="btn btn-outline-secondary">關閉</button>
+</dialog>
+<dialog id="infoModal2">
+	<p>修改成功</p>
+	<button id="close2" class="btn btn-outline-secondary">關閉</button>
+</dialog>
+
+
+@section Scripts{
+	<script src="/js/jquery.js"></script>
+	<script>
+
+		let activityId = parseInt(localStorage.getItem('activityId'), 10)
+		let employeeId = localStorage.getItem('employeeId');
+		
+		function SearchEmployeeId(EmployeeNumber) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/ApplicationForm/apiSearchEmployeeId/${EmployeeNumber}`, {
+				method: "GET",
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {
+				searchEmployeeId = parseInt(data, 10);
+				console.log(data);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+
+		let infoModal = document.querySelector("#infoModal");
+		let infoModal2 = document.querySelector("#infoModal2");
+		$('#close1').click(function (e) {
+			infoModal.close();
+		})
+
+		$('#close2').click(function (e) {
+			infoModal2.close();
+			setTimeout(connectPageActivityItemList, 2000);
+		})
+
+		$('#acvitityPrice').blur(function () {
+			let data = $('#acvitityPrice').val();			
+			let patternName = /^[1-9][0-9]*$/;
+
+			if (data.length > 0) {
+				if (!patternName.test(data)) {
+					$('#erracvitityPrice').text('輸入錯誤');
+					$('#erracvitityPrice').show();
+				}
+			}
+		});
+
+		$('#acvitityPrice').click(function () {
+			$('#erracvitityPrice').hide();
+		});
+
+		function changeDate() {
+			const today = new Date();
+			const year = today.getFullYear();
+			const month = ('0' + (today.getMonth() + 1)).slice(-2);
+			const date = ('0' + today.getDate()).slice(-2);
+			const currentDate = year + '-' + month + '-' + date;
+			document.getElementById("activityDate").min = `${currentDate}`;
+			document.getElementById("stopDate").min = `${currentDate}`;
+		}
+
+		let searchEmployeeId;
+
+		$(document).ready(function () {
+			SearchEmployeeId(employeeId)
+			changeDate();
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/GetActivity/${activityId}`, {
+				method: "GET",
+			}).then(result => {
+				if (result.ok) {
+					return result.json();
+				}
+			}).then(data => {
+				$('#activityName').val(data.act活動名稱);
+				$('#activityLocation').val(data.act地點);
+				$('#acvitityPrice').val(data.act價格);
+				let year = data.act活動日期.slice(0, 4);
+				let date = data.act活動日期.slice(8, 10);
+				let month = data.act活動日期.slice(5, 7);
+				let today = year + "-" + (month) + "-" + (date);
+				$('#activityDate').val(today);
+				year = data.act報名截止日.slice(0, 4);
+				date = data.act報名截止日.slice(8, 10);
+				month = data.act報名截止日.slice(5, 7);
+				today = year + "-" + (month) + "-" + (date);
+				$('#stopDate').val(today);
+				if (data.act已報名人數 === 0) {
+					$('#countPeople').val(1);
+				} else {
+					$('#countPeople').val(data.Acty最大人數 - data.Act已報名人數);
+				}
+				$('#txtExplain').val(data.act活動說明);
+				$('#speaker').val(data.act主講人);
+				$('#speakerBackground').val(data.act主講人描述);
+				$('#notice').val(data.act注意事項);
+				console.log(data.act活動圖片);
+				originPicName = data.act活動圖片;				
+				let img = document.getElementById("image");
+				img.src = `@Url.Content("https://localhost:7171/images/${originPicName}")`;
+				if (data.act公開狀態 === 1) {
+					console.log(1);
+					$('#checkPublic').prop('checked', true);
+				} else {
+					$('#checkPublic').prop('checked', false);
+				}
+				$('#countPeople').val(data.act最大人數);
+				console.log(JSON.stringify(data));
+			}).catch(err => {
+				alert(err);
+			});
+		});
+
+		let checkIndex = 0;
+		function checkLength() {
+			checkIndex = 0;
+			let an = $('#activityName').val()
+			if (an.length != 0) {
+				checkIndex++;
+			}
+			let te = $('#txtExplain').val()
+			if (te.length != 0) {
+				checkIndex++;
+			}
+			if ($('#image').attr('src')) {
+				checkIndex++;
+			}
+			let ad = $('#activityDate').val()
+			if (ad.length != 0) {
+				checkIndex++;
+			}
+			let al = $('#activityLocation').val()
+			if (al.length != 0) {
+				checkIndex++;
+			}
+			let sd = $('#stopDate').val()
+			if (sd.length != 0) {
+				checkIndex++;
+			}
+			let ap = $('#acvitityPrice').val()
+			if (ap.length != 0) {
+				checkIndex++;
+			}
+			let sk = $('#speaker').val()
+			if (sk.length != 0) {
+				checkIndex++;
+			}
+			let sb = $('#speakerBackground').val()
+			if (sb.length != 0) {
+				checkIndex++;
+			}
+			let nt = $('#notice').val()
+			if (nt.length != 0) {
+				checkIndex++;
+			}
+			let cpl = $('#countPeople').val()
+			if (cpl.length != 0) {
+				checkIndex++;
+			}
+			console.log(checkIndex)
+		}
+
+		let updatePicName;
+		let originPicName;
+		const webApiBaseAddress = 'https://localhost:7171';
+		function updtaeActivityItem() {
+			checkLength()
+			SearchEmployeeId(employeeId)
+			if (checkIndex == 11){
+				let pub = 0;
+				if ($('#checkPublic').is(':checked')) {
+					pub = 1;
+				} else {
+					pub = 0;
+				}
+				let sendData = {
+					ActId: activityId,
+					EId: searchEmployeeId,
+					Act活動名稱: $('#activityName').val(),
+					Act活動說明: $('#txtExplain').val(),
+					Act活動圖片: '',
+					Act活動日期: $('#activityDate').val(),
+					Act地點: $('#activityLocation').val(),
+					Act報名截止日: $('#stopDate').val(),
+					Act價格: $('#acvitityPrice').val(),
+					Act主講人: $('#speaker').val(),
+					Act主講人描述: $('#speakerBackground').val(),
+					Act注意事項: $('#notice').val(),
+					Act公開狀態: pub,
+					Act最大人數: $('#countPeople').val(),
+					Act備註: ''
+				};
+
+				if (updatePicName == null) {
+					sendData.Act活動圖片 = originPicName;
+				} else {
+					sendData.Act活動圖片 = updatePicName;
+				}
+				console.log(sendData);
+				fetch(`${webApiBaseAddress}/api/Activity/EditActivityItem`, {
+					method: 'PUT',
+					body: JSON.stringify(sendData),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					}
+				}).then(result => {
+					if (result.ok) {
+						return result.json();
+					}
+				}).then(data => {
+					console.log(data);
+					infoModal2.showModal();
+				}).catch(err => {
+					alert(err);
+				});
+
+			}else{
+				infoModal.showModal();
+			}
+		}
+
+
+
+		const dropzone = document.getElementById('dropzone');
+
+		dropzone.addEventListener('dragover', (event) => {
+			event.preventDefault();
+			dropzone.classList.add('dragging');
+		});
+
+		dropzone.addEventListener('dragleave', (event) => {
+			dropzone.classList.remove('dragging');
+		});
+
+		dropzone.addEventListener('drop', (event) => {
+			event.preventDefault();
+			dropzone.classList.remove('dragging');
+			const file = event.dataTransfer.files[0];			
+			let today = new Date(); // 創建一個表示當前日期和時間的 Date 對象
+			let year = today.getFullYear(); // 獲取當前年份
+			let month = today.getMonth() + 1; // 獲取當前月份（注意 JavaScript 中月份是從 0 開始的，所以要加 1）
+			let day = today.getDate(); // 獲取當前日期
+			let hour = today.getHours(); // 獲取當前小時
+			let minute = today.getMinutes(); // 獲取當前分鐘
+			let second = today.getSeconds(); // 獲取當前秒數
+			let date = year + '-' + month + '-' + day + '-' + hour + '-' + minute + '-' + second; // 將年、月、日組合成一個字符串
+
+			file.name = date;
+			updatePicName = date + '.jpg';
+			console.log(date);
+			let readFile = new FileReader()
+			readFile.readAsDataURL(file)
+			readFile.addEventListener('load', function () {
+				document.getElementById('image').src = readFile.result
+			})
+
+			const formData = new FormData();
+			formData.append('files', file, `${date}.jpg`);
+
+			fetch(`${webApiBaseAddress}/api/Activity/CreateActivityPicture`, {
+				method: 'POST',
+				body: formData,
+			}).then(response => response.ok)
+				.then(data => console.log(data))
+				.catch(error => console.error(error));
+		});
+
+		$(document).on('click', 'button', function () {
+			btnData = $(this).attr('id');
+			console.log(btnData)
+			if (btnData === 'submit') {
+				updtaeActivityItem()
+			} else if (btnData === 'returnActivityItemList') {
+				window.location.assign("/Activity/ActivityItemList");
+			} else if (btnData === 'returnOrderList') {
+				window.location.assign("/Activity/OrderListForEmployee");
+			}
+			let idData = {
+				tableId: btnData,
+				eId: 1
+			};
+		});
+
+		function connectPageEditActivity() {
+			window.location.assign("/Activity/EditActivity");
+		}
+
+		function connectPageActivityItemList() {
+			window.location.assign("/Activity/ActivityItemList");
+		}
+
+
+		$("#returnActivityItemList").click(function (e) {
+			e.preventDefault();
+			window.location.assign("/Activity/ActivityItemList");
+		});
+
+		$("#returnOrderList").click(function (e) {
+			e.preventDefault();
+			window.location.assign("/Activity/OrderListForEmployee");
+		});
+	</script>
+}

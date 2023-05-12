@@ -1,0 +1,223 @@
+﻿@model IEnumerable<NursingHouse_v3.Models.TNursingRecord>
+
+@{
+    ViewData["Title"] = "List";
+}
+@section Styles{
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-buttons/css/buttons.bootstrap4.min.css">
+}
+
+<h1 style="text-align:center">護理紀錄一覽表</h1>
+<p>
+    <a asp-action="NursingRecordCreate" class="btn btn-outline-secondary">新增紀錄</a>
+</p>
+<table id="example1" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+             <th>
+                序
+            </th>
+            <th>
+               姓名
+            </th>
+            <th>
+                身分證字號
+            </th>
+            <th>
+                醫師診斷
+            </th>
+            <th>
+                用藥與指示
+            </th>
+            <th>
+                收縮壓(mmHg)
+            </th>
+            <th>
+                舒張壓(mmHg)
+            </th>
+            <th>
+                體溫(℃)
+            </th>
+            <th>
+                脈搏(次／分)
+            </th>
+            <th>
+                呼吸(次／分)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.N傷口)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.N三管)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.N其他)
+            </th>
+@*            <th>
+                @Html.DisplayNameFor(model => model.N紀錄時間)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.N修改時間)
+            </th>*@
+            <th>
+               記錄人員
+            </th>
+            <th>
+                編輯
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 0; 
+            foreach (var item in Model) {
+                string N收縮壓_color_style = "";
+                string  N舒張壓_color_style = "";
+                string 脈搏_color_style = "";
+                string 呼吸_color_style = "";
+                string 體溫_color_style = "";
+
+                if (Int32.TryParse(item.N收縮壓, out int result1) && result1 >= 130 )
+              {
+                   N收縮壓_color_style = "color:red";
+                  
+              }
+              else
+              {
+                  // do something else
+              }
+                if (Int32.TryParse(item.N舒張壓, out int result2) && result2 <= 90)
+                {
+                    
+                    N舒張壓_color_style = "color:red";
+                }
+                else
+                {
+                    // do something else
+                }
+                   if(Int32.TryParse(item.N脈搏, out int result3) && result3 <= 100 )
+              {
+                    脈搏_color_style = "color:red";
+              }
+                   
+              else
+              {
+                  // do something else
+              }
+                if (Int32.TryParse(item.N呼吸, out int result4) && result4 < 20)
+              {
+                        呼吸_color_style = "color:red";
+                       
+                    }
+              
+              else
+              {
+                  // do something else
+              }
+                if (Int32.TryParse(item.N體溫, out int result5) && result5 <= 10)
+              {
+                   體溫_color_style = "color:red";
+              }
+              else
+              {
+                  // do something else
+              }
+                count++;
+                    <tr>
+                    <td>
+                       @count
+                    </td>
+             
+            <td>
+                 @Html.DisplayFor(modelItem => item.OIdNavigation.PIdNavigation.P姓名)
+             </td>
+            <td>
+                 @Html.DisplayFor(modelItem => item.OIdNavigation.PIdNavigation.P身分證字號)
+            </td>
+            <td>
+                 @Html.DisplayFor(modelItem => item.OIdNavigation.O醫師診斷)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OIdNavigation.O指示與用藥)
+            </td>
+
+             <td style="@N收縮壓_color_style">
+                       @Html.DisplayFor(modelItem => item.N收縮壓)
+              </td>
+                    <td style="@N舒張壓_color_style">
+                    @Html.DisplayFor(modelItem => item.N舒張壓)
+              </td>
+                    <td style="@體溫_color_style">
+                    @Html.DisplayFor(modelItem => item.N體溫)
+                </td>
+                    <td style="@脈搏_color_style">
+                    @Html.DisplayFor(modelItem => item.N脈搏)
+                </td>
+                    <td style="@呼吸_color_style">
+                    @Html.DisplayFor(modelItem => item.N呼吸)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.N傷口)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.N三管)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.N其他)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.N紀錄時間)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.N修改時間)
+                </td>*@
+                 <td>
+                        @Html.DisplayFor(modelItem => item.EIdNavigation.E員工姓名)
+                 </td>
+                <td>
+                        @Html.ActionLink("修改", "NursingRecordEdit", new { id=item.NId }, new { Class = "btn btn-success" })
+                        @Html.ActionLink("細項", "Details", new { id=item.NId }, new { Class = "btn btn-warning" })
+                        @Html.ActionLink("刪除", "Delete", new {  id=item.NId },new{Class = "btn btn-danger",onclick="return confirm('確定要刪除嗎?')",@class="btn btn-danger"})
+                </td>
+            </tr>
+}}
+    </tbody>
+</table>
+@section Scripts
+    {
+            <script>
+
+            </script>
+
+            <!-- DataTables  & Plugins -->
+    @*手寫*@
+            <script src="~/assets/plugins/DataTable/datatables/jquery.dataTables.min.js"></script>
+            <script src="~/assets/plugins/DataTable/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+            <script src="~/assets/plugins/DataTable/datatables-responsive/js/dataTables.responsive.min.js"></script>
+            <script src="~/assets/plugins/DataTable/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+            <script src="~/assets/plugins/DataTable/datatables-buttons/js/dataTables.buttons.min.js"></script>
+            <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+            <script src="~/assets/plugins/jszip/dist/jszip.min.js"></script>
+            <script src="~/assets/plugins/pdfmake/pdfmake.min.js"></script>
+            <script src="~/assets/plugins/pdfmake/vfs_fonts.js"></script>
+            <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.html5.min.js"></script>
+            <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.print.min.js"></script>
+            <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
+            <script>
+            $(function () {
+                $("#example1").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    //"language": {
+                    //        "url": "//cdn.datatables.net/plug-ins/1.13.3/i18n/zh-HANT.json",
+                    //    },
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+            })
+            </script>
+}
+

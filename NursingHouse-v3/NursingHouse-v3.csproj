@@ -1,0 +1,108 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>NursingHouse_v3</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\assets\plugins\DataTable\**" />
+    <Compile Remove="wwwroot\node_modules\**" />
+    <Content Remove="wwwroot\assets\plugins\DataTable\**" />
+    <Content Remove="wwwroot\node_modules\**" />
+    <EmbeddedResource Remove="wwwroot\assets\plugins\DataTable\**" />
+    <EmbeddedResource Remove="wwwroot\node_modules\**" />
+    <None Remove="wwwroot\assets\plugins\DataTable\**" />
+    <None Remove="wwwroot\node_modules\**" />
+    <TypeScriptCompile Remove="wwwroot\assets\plugins\DataTable\**" />
+    <TypeScriptCompile Remove="wwwroot\node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Activity\ActivityItemList.cshtml" />
+    <None Include="Views\Activity\CreateActivity.cshtml" />
+    <None Include="Views\Activity\EditActivity.cshtml" />
+    <None Include="Views\Activity\OrderListForEmployee.cshtml" />
+    <None Include="Views\ApplicationForm\ApplicationForm.cshtml" />
+    <None Include="Views\ApplicationForm\Check.cshtml" />
+    <None Include="Views\ApplicationForm\EditApplicationForm.cshtml" />
+    <None Include="Views\ApplicationForm\OutSideInSideTable.cshtml" />
+    <None Include="Views\Bed\Create.cshtml" />
+    <None Include="Views\Bed\Details.cshtml" />
+    <None Include="Views\Bed\Edit.cshtml" />
+    <None Include="Views\Bed\List.cshtml" />
+    <None Include="Views\Calendar\Calendar.cshtml" />
+    <None Include="Views\Employee\Create.cshtml" />
+    <None Include="Views\Employee\Details.cshtml" />
+    <None Include="Views\Employee\Edit.cshtml" />
+    <None Include="Views\Employee\List.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Login.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\Meal\ImageCreate.cshtml" />
+    <None Include="Views\Meal\ImageEdit.cshtml" />
+    <None Include="Views\Meal\ImagesList.cshtml" />
+    <None Include="Views\Meal\MealCreate.cshtml" />
+    <None Include="Views\Meal\MealEdit.cshtml" />
+    <None Include="Views\Meal\MealList.cshtml" />
+    <None Include="Views\Meal\OrderMealList.cshtml" />
+    <None Include="Views\Meal\SupplierCreate.cshtml" />
+    <None Include="Views\Meal\SupplierEdit.cshtml" />
+    <None Include="Views\Meal\SupplierList.cshtml" />
+    <None Include="Views\Member\Create.cshtml" />
+    <None Include="Views\Member\Edit.cshtml" />
+    <None Include="Views\Member\List.cshtml" />
+    <None Include="Views\NursingRecord\Details.cshtml" />
+    <None Include="Views\NursingRecord\List.cshtml" />
+    <None Include="Views\NursingRecord\NursingRecordCreate.cshtml" />
+    <None Include="Views\NursingRecord\NursingRecordEdit.cshtml" />
+    <None Include="Views\OffService\COffServiceCreate.cshtml" />
+    <None Include="Views\OffService\Details.cshtml" />
+    <None Include="Views\OffService\List.cshtml" />
+    <None Include="Views\OffService\OffServiceEdit.cshtml" />
+    <None Include="Views\Order\Create.cshtml" />
+    <None Include="Views\Order\Edit.cshtml" />
+    <None Include="Views\Order\List.cshtml" />
+    <None Include="Views\Patient\Create.cshtml" />
+    <None Include="Views\Patient\Details.cshtml" />
+    <None Include="Views\Patient\Edit.cshtml" />
+    <None Include="Views\Patient\List.cshtml" />
+    <None Include="Views\Product\Create.cshtml" />
+    <None Include="Views\Product\Edit.cshtml" />
+    <None Include="Views\Product\List.cshtml" />
+    <None Include="Views\Roombed\Create.cshtml" />
+    <None Include="Views\Roombed\Details.cshtml" />
+    <None Include="Views\Roombed\Edit.cshtml" />
+    <None Include="Views\Roombed\List.cshtml" />
+    <None Include="Views\Take\Create.cshtml" />
+    <None Include="Views\Take\Edit.cshtml" />
+    <None Include="Views\Take\List.cshtml" />
+    <None Include="wwwroot\assets\plugins\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\assets\plugins\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\assets\plugins\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\assets\plugins\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\assets\plugins\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\assets\plugins\fontawesome-free\webfonts\fa-solid-900.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.9.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\MemberImages\" />
+  </ItemGroup>
+
+</Project>

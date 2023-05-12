@@ -1,0 +1,276 @@
+﻿
+@section Styles
+	{
+	<link rel="stylesheet" href="/css/OrderListForEmployee.css" />
+
+	<link rel="stylesheet" href="/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="/css/uikit.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.10/dist/css/uikit.min.css" />
+	<link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet" />
+}
+
+<div class="formContainerOfe">
+	<div class="choiceforpageOfe">
+		<button id="btnCheck" class="btn btn-outline-secondary">結案</button>
+		<form action="" id="selectForm">
+			<input class="rdobutton_radio" type="radio" id="radioId" name="radioName" value="0" checked />
+			<label class="rdobutton_label" for="radioId">未結案</label>
+			<input class="rdobutton_radio" type="radio" id="radioId2" name="radioName" value="1" />
+			<label class="rdobutton_label" for="radioId2">結案</label>
+		</form>
+	</div>
+	<div class="tableAreaOfe">
+		<div class="table">		
+			<table id="GetActivityOrderServer" class="table table-bordered table-striped"
+				   style="width: 100%;">
+			</table>
+			<table id="listOKTable" class="table table-bordered table-striped" style="width: 100%;">
+			</table> 
+		</div>
+	</div>
+</div>
+
+@section Scripts{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.10/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.10/dist/js/uikit-icons.min.js"></script>
+	<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.js" data-turbolinks-track="true"></script>
+		
+	<script>
+		let employeeId = localStorage.getItem('employeeId');
+		let searchEmployeeId;
+
+		function SearchEmployeeId(EmployeeNumber) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/ApplicationForm/apiSearchEmployeeId/${EmployeeNumber}`, {
+				method: "GET",
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {
+				searchEmployeeId = parseInt(data, 10);
+				console.log(data);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+		$(document).ready(function () {
+			SearchEmployeeId(employeeId)
+			GetActivityOrderServerStateZero();
+			GetActivityOrderServerStateOne();
+			$('#listOKTable').parents('div.dataTables_wrapper').first().hide();
+
+
+			$('#radioId').on('change', function () {		
+				$('#GetActivityOrderServer').DataTable().ajax.reload();
+				$('#listOKTable').DataTable().ajax.reload();
+				$('#listOKTable').parents('div.dataTables_wrapper').first().hide();
+				$('#GetActivityOrderServer').parents('div.dataTables_wrapper').first().show();
+			});
+			$('#radioId2').on('change', function () {	
+				$('#GetActivityOrderServer').DataTable().ajax.reload();
+				$('#listOKTable').DataTable().ajax.reload();
+				$('#GetActivityOrderServer').parents('div.dataTables_wrapper').first().hide();
+				$('#listOKTable').parents('div.dataTables_wrapper').first().show();
+			});
+		});
+
+
+		function GetActivityOrderServerStateZero() {
+			const webApiBaseAddress = 'https://localhost:7171';		
+			let state = 0;
+			$('#GetActivityOrderServer').DataTable({
+				ajax: {
+					type: 'GET',
+					url: `${webApiBaseAddress}/api/Activity/GetActivityOrderServer/${state}`,
+					dataSrc: function (data) {
+						console.log(data);
+						return data;
+					}
+				},
+				columns: [
+					{
+						data: null, title: "",  
+						render: function (data, type, row) {
+								return `<input type="checkbox" name="settings" id="${data.aoId}" class="checkbox"> `
+						},
+						width: 20
+					},
+					{
+						data: '訂單編號', title: '訂單編號'
+					},					
+					{
+						data: 'ao訂單建立日期', title: '下訂日期', render: function (data) {
+							let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+							let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);
+
+							return localISOTime.slice(5, 10)
+						}
+					},
+					{ data: 'ao訂單進度', title: '訂單進度' },
+					{ data: 'ao金額', title: '金額' },			
+					{ data: 'act活動名稱', title: '活動名稱' },				
+					{
+						data: null, title: '已報名人數/最大人數', render: function (data, type, row) {
+							return `${data.act已報名人數}/${data.act最大人數}`
+						}
+					},
+					{
+						data: null, title: "手動發繳費通知",
+						render: function (data, type, row) {
+							return `<button type="button" class="btn btn-warning btn-sm" id=${data.aoId}>發送</button>`							
+						}						
+					},
+				],
+				"bLengthChange": false,
+				"bInfo": false,
+				"bAutoWidth": false,
+				columnDefs: [
+					{
+						'targets': 0,
+						'checkboxes': {
+							'selectRow': true
+						}
+					},
+					{ "targets": 0, "searchable": false, "orderable": false }
+
+				],
+				'select': {
+					'style': 'multi'
+				},
+				'order': [[1, 'asc']],
+				"language": {
+					"search": "搜尋",
+					"paginate": {
+						"previous": "上一頁",
+						"next": "下一頁"
+					}
+				},				
+			});
+		}
+
+		function GetActivityOrderServerStateOne() {
+			const webApiBaseAddress = 'https://localhost:7171';
+			let state = 1;
+			$('#listOKTable').DataTable({
+				ajax: {
+					type: 'GET',
+					url: `${webApiBaseAddress}/api/Activity/GetActivityOrderServer/${state}`,
+					dataSrc: function (data) {
+						console.log(data);					
+						return data;
+					}
+				},
+				columns: [					
+					{
+						data: '訂單編號', title: '訂單編號'
+					},				
+					{
+						data: 'ao訂單建立日期', title: '下訂日期', render: function (data) {
+							let tzoffset = (new Date()).getTimezoneOffset() * 60000;
+							let localISOTime = new Date(new Date(data) - tzoffset).toISOString().slice(0, -1);
+
+							return localISOTime.slice(5, 10)
+						}
+					},
+					{ data: 'ao訂單進度', title: '訂單進度' },
+					{ data: 'ao金額', title: '金額' },
+					{ data: 'act活動名稱', title: '活動名稱' },					
+					{
+						data: null, title: '已報名人數/最大人數', render: function (data, type, row) {
+							return `${data.act已報名人數}/${data.act最大人數}`
+						}
+					},
+				],
+				"bLengthChange": false,
+				"bInfo": false,
+				"bAutoWidth": false,				
+				'select': {
+					'style': 'multi'
+				},
+				'order': [[1, 'asc']],
+				"language": {
+					"search": "搜尋",
+					"paginate": {
+						"previous": "上一頁",
+						"next": "下一頁"
+					}
+				},
+			});
+		}
+
+		$(document).on('click', 'button', function () {
+			btnData = $(this).attr('id');
+			if (btnData === 'createAc') {
+				window.location.assign("/Activity/CreateActivity");
+			} else if (btnData === 'activityList') {
+				window.location.assign("/Activity/ActivityItemList");
+			} else if (btnData === 'btnCheck') {
+				updateClose();
+			}else if(btnData >= 10000){
+				reSendBill(btnData);
+			}
+		});
+
+		let recordAry = [];
+		let updateData = {
+			tableId: 0,
+			EId: searchEmployeeId
+		};
+
+		function updateClose() {
+			$('.checkbox').each(function () {
+				if ($(this).is(':checked')) {
+					updateData.tableId = $(this).attr('id');
+					updateData.EId = searchEmployeeId;		
+					deleteActivity(updateData)
+					setTimeout(updateGetActivityOrderServer, 1000);
+				}
+			});
+		}
+
+		function updateGetActivityOrderServer() {
+			$('#GetActivityOrderServer').DataTable().ajax.reload();
+		}
+
+		function deleteActivity(asc) {
+			const webApiBaseAddress = 'https://localhost:7171';			
+			fetch(`${webApiBaseAddress}/api/Activity/DeleteActivityOrder`, {
+				method: 'Put',
+				body: JSON.stringify(asc),
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {
+				console.log(data);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+
+
+		function reSendBill(orderId) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/SendBill/${orderId}`, {
+				method: "GET",
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {				
+				console.log(data);
+			}).catch(err => {
+				alert(err);
+			});
+		}
+	</script>
+}

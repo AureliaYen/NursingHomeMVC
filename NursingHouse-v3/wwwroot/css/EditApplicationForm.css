@@ -1,0 +1,59 @@
+﻿
+.formContainerEaf {
+    width: 65%;
+    padding: 10px;
+    /*border: 1px solid black;*/
+    margin: auto;
+}
+
+.txtEdApplicationForm {
+    text-align: center;
+}
+.reasonEaf {
+    /*border: 1px solid black;*/
+    height: 100px;
+}
+
+.itemEaf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    height: 30px;
+}
+
+.itemBtnEaf {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.itemLeftEaf {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    margin-left: 25px;
+}
+
+    .itemLeftEaf p {
+        margin: 0;
+    }
+
+    .itemLeftEaf input {
+        margin-left: 5%;
+        width: 13em;
+    }
+
+.itemRightEaf {
+    width: 15%;
+    margin-left: 20px;
+}
+
+    .itemRightEaf p {
+        display: none;
+        font-size: 8px;
+    }
+
+
+h2 {
+    text-align: center;
+}

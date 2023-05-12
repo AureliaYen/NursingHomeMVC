@@ -1,0 +1,143 @@
+﻿@model IEnumerable<NursingHouse_v3.Models.TOrderMeal>
+
+@{
+    ViewData["Title"] = "OrderMealList";
+}
+
+<h1 style="text-align:center">訂單一覽表</h1>
+
+@*<p>
+    <a asp-action="Create" class="btn btn-outline-secondary">新增訂單</a>
+</p>*@
+@section Styles{
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-buttons/css/buttons.bootstrap4.min.css">
+}
+<table id="example1" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+           @* <th>
+                @Html.DisplayNameFor(model => model.OmId)
+            </th>*@
+          @*  <th>
+                @Html.DisplayNameFor(model => model.MeId)
+            </th>*@
+            <th>
+                序
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.訂購人)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.訂購人電話)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.訂餐起始日)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.訂餐結束日)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.總價)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.結帳狀態)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.建立時間)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.修改時間)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.修改人員)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.備註)
+            </th>
+            <th>編輯</th>
+
+        </tr>
+    </thead>
+    <tbody>
+@{
+            int count = 0; 
+            foreach (var item in Model) {
+                count++;
+                <tr>
+                <td>
+                   @count
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.訂購人)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.訂購人電話)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.訂餐起始日)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.訂餐結束日)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.總價)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.結帳狀態)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.建立時間)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.修改時間)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.修改人員)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.備註)
+            </td>
+            <td>
+                        @Html.ActionLink("編輯","OrderMealEdit", new {  id=item.OmId }, new { Class = "btn btn-success" })
+                        @Html.ActionLink("訂單完成", "OrderMealDelete", new {  id=item.OmId },new{Class = "btn btn-danger",onclick="return confirm('確認訂單完成嗎?')",@class="btn btn-danger"})
+            </td>
+        </tr>
+}}
+    </tbody>
+</table>
+@section Scripts
+    {
+        <script>
+
+        </script>
+
+        <!-- DataTables  & Plugins -->
+    @*手寫*@
+        <script src="~/assets/plugins/DataTable/datatables/jquery.dataTables.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+        <script src="~/assets/plugins/jszip/dist/jszip.min.js"></script>
+        <script src="~/assets/plugins/pdfmake/pdfmake.min.js"></script>
+        <script src="~/assets/plugins/pdfmake/vfs_fonts.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.html5.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.print.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+        <script>
+            $(function () {
+                $("#example1").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    //"language": {
+                    //        "url": "//cdn.datatables.net/plug-ins/1.13.3/i18n/zh-HANT.json",
+                    //    },
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+            })
+        </script>
+}

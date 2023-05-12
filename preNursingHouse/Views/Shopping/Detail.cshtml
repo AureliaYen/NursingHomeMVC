@@ -1,0 +1,318 @@
+﻿ @model preNursingHouse.Models.TMeal
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+@*<h1>Detail</h1>
+
+<div>
+    <h4>TMeal</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MeId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MeId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SuId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SuId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.月)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.月)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.餐種)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.餐種)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.餐別)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.餐別)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.價位)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.價位)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.建立時間)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.建立時間)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.修改時間)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.修改時間)
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>*@
+@foreach (var image in Model.TImages)
+{
+    <!-- Open Content -->
+    <section class="bg-light">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-5 mt-5">
+                    <div class="card mb-3">
+                        <img class="card-img img-fluid" src="@Url.Content("https://localhost:7105/images/" + image.早圖)" alt="Card image cap"
+                             id="product-detail">
+                    </div>
+                    <div class="row">
+                        <!--Start Controls-->
+                        <div class="col-1 align-self-center">
+                            <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                                <i class="text-dark fas fa-chevron-left"></i>
+                            @*<span >@Html.DisplayNameFor(model => model.MeId) </span>*@
+                            </a>
+                        </div>
+                        <!--End Controls-->
+                        <!--Start Carousel Wrapper-->
+                        <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item"
+                             data-bs-ride="carousel">
+                            <!--Start Slides-->
+                            <div class="carousel-inner product-links-wap" role="listbox">
+
+                                <!--First slide-->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="@Url.Content("https://localhost:7105/images/" + image.午圖)"
+                                                     alt="Product Image 1">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="@Url.Content("https://localhost:7105/images/" + image.晚圖)"
+                                                     alt="Product Image 2">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="@Url.Content("https://localhost:7105/images/" + image.月圖)"
+                                                     alt="Product Image 3">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/.First slide-->
+                                <!--Second slide-->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="@Url.Content("https://localhost:7105/images/" + image.圖一)"
+                                                     alt="Product Image 4">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="@Url.Content("https://localhost:7105/images/" + image.圖二)"
+                                                     alt="Product Image 5">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="@Url.Content("https://localhost:7105/images/" + image.圖三)"
+                                                     alt="Product Image 6">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/.Second slide-->
+                                <!--Third slide-->
+                              @*  <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="assets/img/product_single_07.jpg"
+                                                     alt="Product Image 7">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="assets/img/product_single_08.jpg"
+                                                     alt="Product Image 8">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="assets/img/product_single_09.jpg"
+                                                     alt="Product Image 9">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>*@
+                                <!--/.Third slide-->
+                            </div>
+                            <!--End Slides-->
+                        </div>
+                        <!--End Carousel Wrapper-->
+                        <!--Start Controls-->
+                        <div class="col-1 align-self-center">
+                            <a href="#multi-item-example" role="button" data-bs-slide="next">
+                                <i class="text-dark fas fa-chevron-right"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <!--End Controls-->
+                    </div>
+                </div>
+                <!-- col end -->
+                <div class="col-lg-7 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <input type="hidden" name="MeId" value="@Model.MeId" />
+                        <h1 class="h2"> @Html.DisplayFor(model => model.餐別)</h1>
+                            <p class="h3 py-2">$25.00</p>
+                            <p class="py-2">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                               @* <span class="list-inline-item text-dark">Rating 4.8 | 36 Comments</span>
+                            </p>*@
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <h6>餐種:</h6>
+                                </li>
+                                <li class="list-inline-item">
+                                <p class="text-muted"><strong>@Html.DisplayFor(model => model.餐種)</strong></p>
+                                </li>
+                            </ul>
+
+                            <h6>介紹:</h6>
+                            <p>
+                            @Html.DisplayFor(model => model.備註)
+                            </p>                                
+
+                            <form action="" method="GET">
+                                @*<input type="hidden" name="product-title" value="Activewear">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <ul class="list-inline pb-3">
+                                            <li class="list-inline-item">
+                                                Size :
+                                                <input type="hidden" name="product-size" id="product-size" value="S">
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="btn btn-success btn-size">S</span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="btn btn-success btn-size">M</span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="btn btn-success btn-size">L</span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="btn btn-success btn-size">XL</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-auto">
+                                        <ul class="list-inline pb-3">
+                                            <li class="list-inline-item text-right">
+                                                Quantity
+                                                <input type="hidden" name="product-quanity" id="product-quanity"
+                                                       value="1">
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="btn btn-success"
+                                                      id="btn-minus">-</span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="badge bg-secondary"
+                                                      id="var-value">1</span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="btn btn-success"
+                                                      id="btn-plus">+</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>*@
+                                <div class="row pb-3">
+                                    <div class="col d-grid">
+                                        
+                                        <button type="submit" class="btn btn-success btn-lg" asp-action="AddToCart" name="submit"
+                                                value="buy">
+                                            @*<button type="submit" class="btn btn-success btn-lg" asp-action="create" name="submit"
+                                                value="buy">*@
+                                            Buy
+                                        </button>
+                                    </div>
+                                   
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+    <!-- Close Content -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/custom.js"></script>
+<script src="~/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <script src="~/js/slick.min.js"></script>
+	<script src="~/js/templatemo.js"></script>
+	<script src="~/js/templatemo.min.js"></script>
+    <script>
+        $('#carousel-related-product').slick({
+            infinite: true,
+            arrows: false,
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            dots: true,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 3
+                }
+            }
+            ]
+        });
+
+    </script>
+}

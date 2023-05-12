@@ -1,0 +1,162 @@
+﻿@section Styles
+    {
+    <link rel="stylesheet" href="/css/CreateActivityOrder.css" />
+    <style>
+        p {
+            font-size: 20px;
+        }
+    </style>
+}
+
+<div class="row" style="background-color:#f0f8ff">
+    <div class="col-5 mt-5">
+        <div class="classImgCo">
+            <img src="" alt="" id="activityImg">
+        </div>
+    </div>
+    <div class="col-7 m-auto mt-5">
+        <div class=" custom-text-box me-5 ps-0 pe-0">
+            <div class="topCo">
+                <h2 style="text-align:center">活動資訊</h2>
+                <div class="topItemCo mt-4 ">
+                    <p id="activityName" class="control-label">活動名稱:</p>
+                </div>
+                <div class="topItemCo">
+                    <p id="activityDay" class="control-label">舉辦日期:</p>
+                </div>
+                <div class="topItemCo">
+                    <div>
+                        <p id="activityLocation" class="control-label">地點:</p>
+                    </div>
+                </div>
+                <div>
+                    <p id="persons" class="control-label">可報名人數</p>
+                </div>
+            </div>
+            <div class="explainCo">
+                <p class="control-label">活動說明: </p>
+                <p id="text" class="control-label"></p>
+            </div>
+            <div class="docCo">
+                <div class="docItemCo control-label">
+                    <p id="doctor" class="control-label">主講人姓名</p>
+                </div>
+                <div class="docItemCo">
+                    <p id="doctorExplain" class="docExpCo control-label">
+                        經歷
+                    </p>
+                </div>
+            </div>
+            <div class="contactCo">
+                <div>
+                    <p id="money" class="control-label">金額</p>
+                </div>
+            </div>
+            <div class="contactCo">
+                <p id="employee" class="control-label">聯絡人</p>
+            </div>
+            <div class="buyCo">
+                <button type="submit" id="buy" class="btn btn-outline-secondary me-3">訂購</button>
+                <button id="returnIndex" class="btn btn-outline-secondary">上一頁</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{  
+    <script src="/js/jquery.min.js"></script>
+    <script>
+        let id;
+        let a編號;
+        let a活動名稱;
+        let a活動日期;
+        let a活動圖片;
+        let a地點;
+        let a報名截止日;
+        let a價格;
+        let a主講人;
+        let a主講人描述;
+        let a注意事項;
+        let a已報名人數;
+        let a最大人數;
+        let e員工姓名;
+        let e電話;
+        let eEmail;
+        let e性別;
+        let activityId = parseInt(localStorage.getItem('activityId'), 10)
+
+        $(document).ready(function () {
+            const webApiBaseAddress = 'https://localhost:7171';
+            fetch(`${webApiBaseAddress}/api/Activity/GetActivityData/${activityId}`, {
+                method: "GET",
+            }).then(result => {
+                if (result.ok) {
+                    return result.json();
+                }
+            }).then(data => {
+                id = data[0].actId
+                a編號 = data[0].act活動編號
+                a活動名稱 = data[0].act活動名稱
+                a活動日期 = data[0].act活動日期
+                a活動說明 = data[0].act活動說明
+                a活動圖片 = data[0].act活動圖片
+                a地點 = data[0].act地點
+                a報名截止日 = data[0].act報名截止日
+                a價格 = data[0].act價格
+                a主講人 = data[0].act主講人
+                a主講人描述 = data[0].act主講人描述
+                a注意事項 = data[0].act注意事項
+                a已報名人數 = data[0].act已報名人數
+                a最大人數 = data[0].act最大人數
+                e員工姓名 = data[0].e員工姓名
+                e電話 = data[0].e電話
+                eEmail = data[0].eEmail
+                e性別 = data[0].e性別
+                $("#activityName").text('活動名稱: ' + a活動名稱);
+                $("#activityDay").text('舉辦日期: ' + a活動日期.slice(0, 10));
+                $('#activityImg').attr('src', `https://localhost:7171/images/${a活動圖片}`);
+                $("#activityLocation").text('地點: ' + a地點);
+                $("#persons").text('可報名人數: ' + (a最大人數 - a已報名人數));
+                $("#text").text(a活動說明);
+                $("#doctor").text('主講人:    ' + a主講人);
+                $("#doctorExplain").text('主講人經歷:    ' + a主講人描述);
+                $("#employee").text('聯絡人:    ' + e員工姓名 + '/' + e電話 + '/' + eEmail);
+                $("#money").text('金額:   ' + a價格);
+                console.log(data);
+            }).catch(err => {
+                alert(err);
+            });
+        });
+
+        $("#buy").click(function (event) {
+            console.log(1);
+            event.preventDefault();
+            if (localStorage.getItem('memberId') === undefined || localStorage.getItem('memberId') === null || localStorage.getItem('memberId') < 10000) {
+                
+                connectLoginPage()
+            }else{
+                connectPageFillData()
+            }           
+        });
+
+        function connectPageFillData() {
+            window.location.assign("/Activity/FillData");
+        }
+
+        $('#returnIndex').on('click', (event) => {
+            connectIndexPage()
+        });
+
+        function connectIndexPage() {
+            window.location.assign("/Activity/ShowActivity");
+        }
+
+        function connectLoginPage(){
+            window.location.assign("/Home/Login");
+        }
+
+    </script>
+}

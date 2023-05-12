@@ -1,0 +1,61 @@
+﻿
+.formContainerOst {
+    /* border: 1px solid black; */
+        width: 95%;
+    margin: auto;
+    /* margin-top: 10%;*/
+}
+
+.dataTables_filter {
+    float: left !important;
+    /*margin-left: 30px;*/
+}
+
+.topOst {
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.bottomOst {
+    margin-top: 30px;
+}
+
+table.dataTable {
+    border: 1px solid black;
+}
+
+table.dataTable td {
+    /*font-size: 8px;*/
+     /*border: 1px solid black;*/ 
+}
+
+
+.reDirectionOst {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    justify-content: flex-end;
+}
+
+    .reDirectionOst button {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+.topForOutSideTable{
+    display:flex;
+}
+.topForOutSideTable p{
+  margin:0;
+  margin-right:15px;
+}
+
+.tableTitle{
+    text-align:center;
+    font-size:40px;
+}
+.formContainerOst tableTitle{
+    align-items:center;
+}

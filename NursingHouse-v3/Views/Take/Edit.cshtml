@@ -1,0 +1,93 @@
+﻿@model NursingHouse_v3.ViewModel.CTakeViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+    </style>
+}
+
+
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">修改領用</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="Edit">
+                    <div class="card-body">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" name="M領取編號" value="@Model.M領取編號" />
+
+                        <div class="form-group">
+                            <label asp-for="Take.EId" class="control-label"></label>
+                            <input asp-for="Take.EId" id="TakeEIdInput" class="form-control" hidden />
+                            <select id="TakeEIdSelected" name="Take.EId" class="form-select">
+                                <optgroup label="領用人員姓名">
+                                    <option selected disabled hidden>@Model.Take.EIdNavigation.E員工姓名</option>
+                                    @{
+                                        foreach (var item in Model.EIdNavigation)
+                                        {
+                                            <option value=@item.EId>@item.E員工姓名</option>
+                                        }
+                                    }
+                                </optgroup>
+                            </select>
+                            <span asp-validation-for="Take.EId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Take.M衛材編號Navigation.M衛材名稱" class="control-label"></label>
+                            <input asp-for="Take.M衛材編號Navigation.M衛材名稱" id="TakePIdInput" class="form-control" readonly="readonly" />
+                            <span asp-validation-for="Take.M衛材編號Navigation.M衛材名稱" class="text-danger"></span>
+                        </div>
+                        <input type="hidden" name="M衛材編號" value="@Model.M衛材編號" />
+
+
+                        <div class="form-group">
+                            <label asp-for="M領取數量" class="control-label"></label>
+                            <input asp-for="M領取數量" class="form-control" min="1" />
+                            <span asp-validation-for="M領取數量" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="M領取時間" class="control-label"></label>
+                            <input asp-for="M領取時間" class="form-control" />
+                            <span asp-validation-for="M領取時間" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="M用途" class="control-label"></label>
+                            <input asp-for="M用途" class="form-control" />
+                            <span asp-validation-for="M用途" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-warning">儲存</button>
+                        <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        let TakeEIdInput = document.querySelector("#TakeEIdInput");
+        let TakeEIdSelected = document.querySelector("#TakeEIdSelected");
+        TakeEIdSelected.addEventListener("change", function () {
+            TakeEIdInput.value = TakeEIdSelected.value;
+        })
+    </script>
+
+}

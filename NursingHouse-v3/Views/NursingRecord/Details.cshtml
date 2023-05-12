@@ -1,0 +1,264 @@
+﻿@model NursingHouse_v3.Models.TNursingRecord
+
+@{
+    ViewData["Title"] = "Details";
+}
+@section Styles
+{
+    <style>
+        #form {
+            margin: auto;
+        }
+        div #row{
+            margin-top:20px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+         .card-header
+        {
+            text-align:center;
+        }
+    </style>
+}
+<div class="col-md-6" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">護理紀錄詳情</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold ">
+                            姓名
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.OIdNavigation.PIdNavigation.P姓名)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            身分證字號
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.OIdNavigation.PIdNavigation.P身分證字號)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            醫生診斷
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.OIdNavigation.O醫師診斷)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            指示與用藥
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.OIdNavigation.O指示與用藥)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.N收縮壓)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.N收縮壓)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.N體溫)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.N體溫)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.N脈搏)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.N脈搏)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.N呼吸)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.N呼吸)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.N傷口)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.N傷口)
+                        </div>
+                    </div>
+                     <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.N三管)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.N三管)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.N其他)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.N其他)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.N紀錄時間)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.N紀錄時間)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.N修改時間)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.N修改時間)
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="card-footer">
+            @Html.ActionLink("修改", "NursingRecordEdit", new { id = Model.NId }, new { @class = "btn btn-warning" }) 
+            <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+            </div>
+        </div>
+    </div>
+</div>
+   
+
+
+@*<h1>護理紀錄詳情</h1>
+
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="row">
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OId)
+        </dd>
+        <dt class="col-sm-2">
+          姓名
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OIdNavigation.PIdNavigation.P姓名)
+        </dd>
+        <dt class="col-sm-2">
+           身分證字號
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OIdNavigation.PIdNavigation.P身分證字號)
+        </dd>
+        <dt class = "col-sm-2">
+           醫生診斷
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OIdNavigation.O醫師診斷)
+        </dd>
+        <dt class="col-sm-2">
+            指示與用藥
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OIdNavigation.O指示與用藥)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.N收縮壓)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.N收縮壓)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.N體溫)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.N體溫)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.N脈搏)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.N脈搏)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.N呼吸)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.N呼吸)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.N傷口)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.N傷口)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.N三管)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.N三管)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.N其他)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.N其他)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.N紀錄時間)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.N紀錄時間)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.N修改時間)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.N修改時間)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("修改", "NursingRecordEdit", new { id = Model.NId }) |
+    <a asp-action="List">回上一頁</a>
+</div>
+*@

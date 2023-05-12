@@ -1,0 +1,180 @@
+﻿
+.formContainerSAD {
+    /* border: 1px solid black; */
+    width:80%;
+    margin:auto;
+}
+
+.containerTAB{
+
+}
+.updateTime {
+  align-items:center;
+    display:flex;
+    justify-content:flex-end;
+ 
+}
+.updateTime p {
+    margin-right: 15px;
+}
+
+.updateTimetext {
+    font-size: 25px;
+    margin: 0;
+}
+
+.barHeader {
+    /* border: 1px solid black; */
+}
+
+/* ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        /* font-size 預設16px */
+li {
+    float: right;
+    margin: 0px 10px;
+    font-size: 20px;
+}
+/*
+ .item {
+     border: 1px solid black; 
+}
+
+        1vw = 1% of viewport width
+        1vh = 1% of viewport height 
+        */
+
+.itemBasic {
+    /* border: 1px solid black; */
+    /*width: 50vw;*/
+    /* height: 50px; */
+    display: flex;
+}
+
+.itemBasicLeft {
+    /* background-color: bisque; */
+    height: 250px;
+    width: 70vw;
+    display:flex;
+    justify-content:space-between;
+}
+
+
+.itemDetail {
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+    margin-right: 10px;
+    margin-bottom: 40px;
+}
+
+
+    
+
+
+
+
+
+
+
+
+
+    .itemBasicRight {
+        display: flex;
+        /*justify-content:flex-end;*/
+        background-color: burlywood;
+        height: 250px;
+        width: 18vw;
+    }
+
+.diagnosis {
+    /* border: 1px solid black; */
+    height: 50px;
+    height: max-content;
+    width: 60%;
+    margin-bottom:20px;
+}
+
+.diagnosisP {
+    word-break: normal;
+    white-space: pre-warp;
+    word-wrap: break-word;
+}
+
+.medicine {
+    /* border: 1px solid black; */
+    height: max-content;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.medLeft {
+    /* height: 50px; */
+    width: 50%;
+    /* background-color: aquamarine; */
+    word-break: normal;
+    white-space: pre-warp;
+    word-wrap: break-word;
+}
+
+.medRight {
+    word-break: normal;
+    white-space: pre-warp;
+    word-wrap: break-word;
+    /* height: 50px; */
+    width: 50%;
+    /* background-color: azure; */
+}
+
+.history {
+    /* border: 1px solid black; */
+    /* height: 50px; */
+    height: max-content;
+    margin-bottom: 20px;
+}
+
+.historyP {
+    word-break: normal;
+    white-space: pre-warp;
+    word-wrap: break-word;
+}
+
+.notice {
+    /* border: 1px solid black; */
+    height: 50px;
+}
+
+/* ul {
+            display: flex;
+            justify-content: flex-end;
+        } */
+
+.dataChart{
+    /*text-align:center*/
+}
+
+.dataChart div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logoutbtn {
+    display: flex;
+    justify-content:flex-end;
+    /*float: right;*/
+    /*width: 15%;*/
+    margin-right:10%;
+    /*font-size: 16px;*/
+    text-align: right;
+}
+    .logoutbtn button {
+        margin-top:25px;
+        margin-bottom:25px;
+       width:15%;
+    }

@@ -1,0 +1,103 @@
+﻿@model preNursingHouse.Models.TMember
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@{
+    string sex = "";
+    if ((bool)@Model.M性別)
+    {
+        sex = "男";
+    }
+    else
+    {
+        sex = "女";
+    }
+
+        <section class="donate-section">
+            <div class="section-overlay"></div>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12 mx-auto">
+                    <form asp-action="Edit" enctype="multipart/form-data" class="custom-form donate-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <h3 class="mb-4">編輯會員資料</h3>
+            <input type="hidden" name="MId" value="@Model.MId" />
+            <div class=" col-12 mt-2">
+            <label class="control-label mt-1">照片</label>
+            <div class="input-group input-group-file">
+                <label asp-for="M照片" class="input-group-text" for="inputGroupFile02" style="width: 356px; height: 24px;">上傳檔案</label>
+                <input name="photo" type="file" class="form-control" id="inputGroupFile02" />
+                <i class="bi-cloud-arrow-up ms-auto"></i>
+                <span asp-validation-for="M照片" class="text-danger"></span>
+            </div>
+            <div class=" col-12 mt-2">
+                <label asp-for="M姓名" class="control-label"></label>
+                <input asp-for="M姓名" class="form-control" required />
+                <span asp-validation-for="M姓名" class="text-danger"></span>
+            </div>
+            <div class=" col-12 mt-2">
+                <label asp-for="M性別" class="control-label"></label>
+                <input asp-for="M性別" class="form-control" id="SexInput" hidden />
+                <select class="form-control" name="M性別" id="SexSelect">
+                    <optgroup label="性別">
+                        <option selected disabled hidden>@sex</option>
+                        <option value="true">男</option>
+                        <option value="false">女</option>
+                    </optgroup>
+                </select>
+                <span asp-validation-for="M性別" class="text-danger"></span>
+            </div>
+            <div class=" col-12 mt-2">
+                <label asp-for="M手機" class="control-label"></label>
+                    <input asp-for="M手機" class="form-control" pattern="^09\d{8}$"  title="手機格式輸入錯誤" />
+                <span asp-validation-for="M手機" class="text-danger"></span>
+            </div>
+            <div class=" col-12 mt-2">
+                <label asp-for="M密碼" class="control-label"></label>
+                    <input asp-for="M密碼" class="form-control"  pattern="^(?=.*[a-zA-Z])(?=.*[\d])[^\s]{6,12}$" title="請輸入6-12碼包含中英文的密碼" />
+                <span asp-validation-for="M密碼" class="text-danger"></span>
+            </div>
+           
+
+            <div class=" col-12 mt-2">
+                <label asp-for="MEmail" class="control-label"></label>
+                <input asp-for="MEmail" class="form-control" type="email" required />
+                <span asp-validation-for="MEmail" class="text-danger"></span>
+            </div>
+
+            
+
+            <div class=" col-12 mt-2">
+                <label asp-for="M住址" class="control-label"></label>
+                <input asp-for="M住址" class="form-control" required/>
+                <span asp-validation-for="M住址" class="text-danger"></span>
+            </div>
+
+            <div class="row mt-4">
+                 <div class=" col-6 mt-2">
+                    <!--<input type="submit" value="儲存" class="form-control mt-4" />-->
+                    <button type="submit" value="儲存" class="form-control col-lg-6">儲存</button>
+                 </div>
+                 <div class=" col-6 mt-2">
+                <a asp-controller="PreMember" asp-action="Detail" class="form-control col-lg-6" style="color:white; background-color:#597081;border-radius:50px;text-align:center;font-weight:bold">上一頁</a>
+                </div>
+            </div>
+        </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+}
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $("#SexSelect").change(() => {
+            $("#SexInput").val($("#SexSelect").val());
+        });
+    </script>
+}

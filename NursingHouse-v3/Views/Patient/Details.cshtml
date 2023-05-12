@@ -1,0 +1,224 @@
+﻿@model NursingHouse_v3.Models.TPatientInfo
+
+@{
+    ViewData["Title"] = "Details";
+}
+@section Styles
+{
+    <style>
+        #form {
+            margin: auto;
+        }
+        div #row{
+            margin-top:20px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+}
+
+<div class="col-md-6" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">住民詳細資料</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold ">
+                            @Html.DisplayNameFor(model => model.P照片)
+                        </div>
+                        <div class="col-sm-8">
+                            <img src="~/images/PatientImages/@Model.P照片" width="200" height="180">
+                        </div>
+                    </div>
+                @*    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                             @Html.DisplayNameFor(model => model.PId)
+                        </div>
+                         <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.PId)
+                        </div>
+                    </div>*@
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P編號)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P編號)
+                        </div>
+                    </div>
+                  @*  <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.EId)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.EId)
+                        </div>
+                    </div>*@
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P姓名)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P姓名)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P性別)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P性別)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P身分證字號)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P身分證字號)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P出生日期)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P出生日期)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P地址)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P地址)
+                        </div>
+                    </div>
+                     <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P聯絡電話)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P聯絡電話)
+                        </div>
+                    </div> <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P聯絡人)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P聯絡人)
+                        </div>
+                    </div> 
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P電話2)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P電話2)
+                        </div>
+                    </div> 
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P餐點)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P餐點)
+                        </div>
+                    </div> 
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P醫師診斷)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P醫師診斷)
+                        </div>
+                    </div>
+                     <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P主訴)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P主訴)
+                        </div>
+                    </div> 
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.現在病史)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.現在病史)
+                        </div>
+                    </div> 
+                    <div class="row mt-2">
+
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.過去病史)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.過去病史)
+                        </div>
+                    </div> 
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.家族病史)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.家族病史)
+                        </div>
+                    </div>
+                     <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.檢查)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.檢查)
+                        </div>
+                    </div>                    
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.指示與用藥)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.指示與用藥)
+                        </div>
+                    </div>                   
+                    <div class="row mt-2">
+
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P建立)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P建立)
+                        </div>
+                    </div>                    
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.P更新)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.P更新)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            記錄人員
+                        </div>
+                     <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.EIdNavigation.E員工姓名)
+                    </div>
+                    </div>
+                </div>
+                    <div class="card-footer">
+                        @Html.ActionLink("修改", "Edit", new { id=Model.PId }, new { @class = "btn btn-warning" })
+                        <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

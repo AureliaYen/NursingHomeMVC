@@ -1,0 +1,49 @@
+﻿
+<p>測試Email</p>
+
+
+@section Scripts{
+	<script>
+
+       
+        sendEmail()
+        function sendEmail() {
+            const webApiBaseAddress = 'https://localhost:7171';
+            let emailAddress = {
+                memberId : '10000'
+            }
+            fetch(`${webApiBaseAddress}/api/Mail/SendEmail`, {
+                method: 'POST',
+                body: JSON.stringify(emailAddress),
+                headers: {                  
+                    'Content-Type': 'application/json',
+                }
+            }).then(result => {
+                if (result.ok) {
+                    console.log(11);
+                    return result.text();
+                }
+            }).then(data => {
+                console.log(data);
+            }).catch(err => {
+                console.log(33);               
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+}

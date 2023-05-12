@@ -1,0 +1,416 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    int? userID = Context.Session.GetInt32("USERID");
+    if (userID!=null)
+    {
+    <p id="getId" style="display: none;"> @userID </p>
+    }
+}
+
+
+
+                <div class="col-lg-12 col-12 p-0">
+                    <div id="hero-slide" class="carousel carousel-fade slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="~/images/slide/volunteer-helping-with-donation-box.jpg"
+                                     class="carousel-image img-fluid" alt="...">
+
+                                <div class="carousel-caption d-flex flex-column justify-content-end">
+                                    <h1>專業團隊</h1>
+
+                                    <p>全方位的醫療照護</p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="~/images/index/pexels-dimitri-dim-1845844.jpg"
+                                     class="carousel-image img-fluid" alt="...">
+
+                                <div class="carousel-caption d-flex flex-column justify-content-end">
+                                    <h1>相互分享</h1>
+
+                                    <p>多元活動，分享生活</p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="~/images/index/pexels-matthias-zomer-339620.jpg"
+                                     class="carousel-image img-fluid" alt="...">
+
+                                <div class="carousel-caption d-flex flex-column justify-content-end">
+                                    <h1>特製化照護</h1>
+
+                                    <p>針對每位住民提供生活及飲食建議</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#hero-slide"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+
+                        <button class="carousel-control-next" type="button" data-bs-target="#hero-slide"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-10 col-12 text-center mx-auto">
+                    <h2 class="mb-5">歡迎來到 HOOK CARE</h2>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                    <div class="featured-block d-flex justify-content-center align-items-center">
+                    <a href="https://localhost:7287/Home/Login" class="d-block">
+                            <img src="~/images/icons/hands.png" class="featured-block-image img-fluid" alt="">
+
+                            <p class="featured-block-text">加入 <strong>HOOK CARE</strong></p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
+                    <div class="featured-block d-flex justify-content-center align-items-center">
+                        <a href="" class="d-block">
+                            <img src="~/images/icons/elderly.png" class="featured-block-image img-fluid" alt="" height="128px" width="128px">
+
+                            <p class="featured-block-text"><strong>特製化</strong>  健康餐點</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
+                    <div class="featured-block d-flex justify-content-center align-items-center">
+                    <a href="https://localhost:7287/Activity/ShowActivity" class="d-block">
+                            <img src="~/images/icons/bingo.png" class="featured-block-image img-fluid" alt="" height="128px" width="128px">
+
+                            <p class="featured-block-text"> <strong>定期</strong> 娛樂活動</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                    <div class="featured-block d-flex justify-content-center align-items-center">
+                        <a href="" class="d-block">
+                            <img src="~/images/icons/nurse.png" class="featured-block-image img-fluid" alt="" height="128px" width="128px">
+
+                            <p class="featured-block-text"><strong>專業</strong> 護理團隊</p>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg" id="section_2">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                    <img src="~/images/group-people-volunteering-foodbank-poor-people.jpg"
+                         class="custom-text-box-image img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-6 col-12">
+                    <div class="custom-text-box">
+                        <h2 class="mb-2">關於我們</h2>
+
+                        <h5 class="mb-3">台南專業護理之家，鄰近各照護站與醫院</h5>
+
+                        <p class="mb-0">我們致力於年長者照護提供專業的照護和支持，讓年長者能夠在舒適、溫馨的環境中度過他們的晚年。團隊由經驗豐富的專業人員組成，包括護理師、醫師、社工、職能治療師等，專門照顧身體虛弱或患有長期病痛的年長者，提供個性化的護理計劃，包括醫療、飲食、運動和社交活動等方面，致力於提供一個家一般的環境，讓年長者感到溫馨、舒適和安心，同時也照顧到他們的身心健康和社交需求，同時也讓他們的家人放心，知道他們的親人得到了最好的照顧。</p>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="custom-text-box mb-lg-0">
+                                <h5 class="mb-3">我們的目標</h5>
+
+                                <p>醫療照護數位化，結合網頁技術，定即時更新住院家屬的身體狀況。</p>
+
+                                <ul class="custom-list mt-2">
+                                    <li class="custom-list-item d-flex">
+                                        <i class="bi-check custom-text-box-icon me-2"></i>
+                                        每日基本健康數據
+                                    </li>
+
+                                    <li class="custom-list-item d-flex">
+                                        <i class="bi-check custom-text-box-icon me-2"></i>
+                                        醫院回診數據
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="custom-text-box d-flex flex-wrap d-lg-block mb-lg-0">
+                            <div class="counter-thumb">
+                                <div class="d-flex">
+                                    <span class="counter-number" data-from="1" data-to="2009"
+                                          data-speed="1000"></span>
+                                    <span class="counter-number-text"></span>
+                                </div>
+
+                                <span class="counter-text">接待人數</span>
+                            </div>
+
+                            <div class="counter-thumb mt-4">
+                                <div class="d-flex">
+                                    <span class="counter-number" data-from="1" data-to="124"
+                                          data-speed="1000"></span>
+                                    <span class="counter-number-text"></span>
+                                </div>
+
+                                <span class="counter-text">舉辦活動</span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about-section section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-5 col-12">
+                    <img src="~/images/index/\_39ceb048-ff3e-4c74-be57-c506481cebe0.jpg"
+                         class="about-image ms-lg-auto bg-light shadow-lg img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-5 col-md-7 col-12">
+                    <div class="custom-text-block">
+                        <h2 class="mb-0">陳 筱琦</h2>
+
+                        <p class="text-muted mb-lg-4 mb-md-4">Hook Care 創建者</p>
+
+                        <p>
+                        我是一名有豐富經驗的護理之家創建者，致力於提供高品質的護理照護服務，為需要護理照護的人們帶來舒適和關愛。我擁有豐富的行業經驗和優秀的管理技能，能夠有效地協調和管理各種人員和資源，並始終保持對品質的高度關注。
+
+                        </p>
+
+                    <p>
+                        專業技能包含，護理照護服務管理、團隊建立和領導、資源規劃和管理、預算管理和財務控制、監督和執行政策和程序
+                    </p>
+
+                        <ul class="social-icon mt-4">
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-twitter"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-facebook"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-instagram"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="news-section section-padding" id="section_5">
+        <div class="container">
+        <div class="row col-12">
+            <div class="col-12 ">
+                    <h2 style="text-align:center" class="mb-4">最新消息與活動</h2>
+                </div>
+                <div class="col-lg-12 col-12">
+                <div class="row justify-content-center col-12">
+                    <div class="col-md-6">
+                            <div class="news-block">
+                                <div class="news-block-top">
+                                    <a href="news-detail.html">
+                                    @*<img src="~/images/activities/2023-3-20-22-30-58.jpg" class="news-image img-fluid" alt="" >*@
+                                    <img src="~/images/activities/diabetes.jpg" class="news-image img-fluid" alt="">
+                                    </a>
+                                    <div class="news-category-block">
+                                        <a href="#" class="category-block-link">
+                                        糖尿病
+                                        </a>
+
+                                        <a href="#" class="category-block-link">
+                                          講座
+                                        </a>
+                                    </div>
+                                </div>
+                        <div class="news-block-info">
+                            <div class="d-flex mt-2">
+                                <div class="news-block-date">
+                                    <p>
+                                        <i class="bi-calendar4 custom-icon me-1"></i>
+                                        Apr 12, 2023
+                                    </p>
+                                </div>
+
+                                <div class="news-block-author mx-5">
+                                    <p>
+                                        <i class="bi-person custom-icon me-1"></i>
+                                        周培賢
+                                    </p>
+                                </div>
+
+                                <div class="news-block-comment">
+                                    <p>
+                                        <i class="bi-chat-left custom-icon me-1"></i>
+                                        6 Comments
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="news-block-title mb-2">
+                                <h4>
+                                    <a href="news-detail.html" class="news-block-title-link">
+                                        甜蜜人生:老年人糖尿病防治講座
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div class="news-block-body">
+                                <p>
+                                    介紹老年人糖尿病風險、症狀及有效的預防方法
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="news-block">
+                        <div class="news-block-top">
+                            <a href="news-detail.html">
+                                    <img src="~/images/activities/2023-3-20-23-8-32.jpg" class="news-image img-fluid" alt="">
+                            </a>
+                            <div class="news-category-block">
+                                <a href="#" class="category-block-link">
+                                    復健回復
+                                </a>
+
+                                <a href="#" class="category-block-link">
+                                    講座
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="news-block-info">
+                            <div class="d-flex mt-2">
+                                <div class="news-block-date">
+                                    <p>
+                                        <i class="bi-calendar4 custom-icon me-1"></i>
+                                        Apr 12, 2023
+                                    </p>
+                                </div>
+
+                                <div class="news-block-author mx-5">
+                                    <p>
+                                        <i class="bi-person custom-icon me-1"></i>
+                                        王宗欣
+                                    </p>
+                                </div>
+
+                                <div class="news-block-comment">
+                                    <p>
+                                        <i class="bi-chat-left custom-icon me-1"></i>
+                                        7 Comments
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="news-block-title mb-2">
+                                <h4>
+                                        <a href="news-detail.html" class="news-block-title-link">老有所健:老年人復健講座</a>
+                                </h4>
+                            </div>
+
+                            <div class="news-block-body">
+                                <p>
+                                    特邀美國南加州大學運動保健博士來台講述老年人復健的重要性，並教導如何有效率的提升老年身體機能與生活品質
+
+                                </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            <section class="contact-section section-padding" style="background-color:#f0f8ff" id="section_6">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-12 col-12 ms-auto mb-5 mb-lg-0">
+                                <div class="contact-info-wrap">
+                                    <h2 style="text-align:center" class="mb-4">聯絡我們</h2>
+
+                                    @*<div class="contact-image-wrap d-flex flex-wrap col-12">*@
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-4">
+                                        <img src="~/images/avatar/pretty-blonde-woman-wearing-white-t-shirt.jpg"
+                                             class="img-fluid avatar-image m-auto" style="height:400px;width:400px; border-radius:20px;" alt="">
+                                            <div class="contact-info">
+                                                <h5 class="mb-4 m-auto" style="text-align:center">聯絡資訊</h5>
+                                                <p class="d-flex mb-2">
+                                                    <i class="bi bi-person me-2"></i>
+                                                    護理長  何嘉仁
+                                                </p>
+                                                <p class="d-flex mb-2">
+                                                    <i class="bi-geo-alt me-2"></i>
+                                                    730臺南市新營區仁愛街32號
+                                                </p>
+
+                                                <p class="d-flex mb-2">
+                                                    <i class="bi-telephone me-2"></i>
+
+                                                    <a href="tel: 305-240-9671">
+                                                        305-240-9671
+                                                    </a>
+                                                </p>
+                                                <p class="d-flex">
+                                                    <i class="bi-envelope me-2"></i>
+
+                                                    <a href="mailto:info@yourgmail.com">
+                                                        hookcare@charity.org
+                                                    </a>
+                                                </p>
+                                            </div>
+
+                                    </div>
+                                    <div class="col-md-8 d-flex justify-content-center ">
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14657.144632921487!2d120.3050425697754!3d23.305374099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e85d959003aab%3A0xd55f8f50341f874a!2zNzMw5Y-w5Y2X5biC5paw54ef5Y2A5LuB5oSb6KGXMzLomZ8!5e0!3m2!1szh-TW!2stw!4v1679765190123!5m2!1szh-TW!2stw" width="800" height="600" class="ms-5 " style="border:0; border-radius:20px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+       
+           

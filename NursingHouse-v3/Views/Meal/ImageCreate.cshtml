@@ -1,0 +1,138 @@
+﻿@model NursingHouse_v3.ViewModel.ClmagesViewModel
+
+@{
+    ViewData["Title"] = "ImageCreate";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+    </style>
+}
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">新增餐點照片</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+        <form asp-action="ImageCreate" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-body">
+
+            @*<div class="form-group">
+                <label asp-for="MaId" class="control-label"></label>
+                <input asp-for="MaId" class="form-control" />
+                <span asp-validation-for="MaId" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="MeId" class="control-label"></label>
+                <input asp-for="MeId" class="form-control" />
+                <span asp-validation-for="MeId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Image.MeId" class="control-label" hidden></label>
+                <input asp-for="Image.MeId" class="form-control" id="ImageNameInput" hidden />
+                <label class="control-label">餐點</label>
+                <select id="ImageNameSelected" name="Image.MeId" class="form-select">
+                    <optgroup label="請選擇餐點">
+                        <option selected disabled hidden>請選擇餐點</option>
+                        @{
+                            foreach (var item in Model.餐點表單)
+                            {
+                                <option value=@item.MeId> @item.餐種,@item.餐別</option>
+                            }
+                        }
+                    </optgroup>
+                </select>
+                <span asp-validation-for="Image.MeId" class="text-danger"></span>
+            </div>
+         @*   <div class="form-group">
+                <label asp-for="月圖" class="control-label"></label>
+                <input asp-for="月圖" class="form-control" />
+                <span asp-validation-for="月圖" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="早圖" class="control-label"></label>
+                <input asp-for="早圖" class="form-control" />
+                <span asp-validation-for="早圖" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="午圖" class="control-label"></label>
+                <input asp-for="午圖" class="form-control" />
+                <span asp-validation-for="午圖" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="晚圖" class="control-label"></label>
+                <input asp-for="晚圖" class="form-control" />
+                <span asp-validation-for="晚圖" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="圖一" class="control-label"></label>
+                <input asp-for="圖一" class="form-control" />
+                <span asp-validation-for="圖一" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="圖二" class="control-label"></label>
+                <input asp-for="圖二" class="form-control" />
+                <span asp-validation-for="圖二" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="圖三" class="control-label"></label>
+                <input asp-for="圖三" class="form-control" />
+                <span asp-validation-for="圖三" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label class="control-label">月圖</label>
+                <input type="file" class="form-control" name="photo" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">早圖</label>
+                <input type="file" class="form-control" name="photo2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">午圖</label>
+                <input type="file" class="form-control" name="photo3" />
+            </div>
+               <div class="form-group">
+                <label class="control-label">晚圖</label>
+                <input type="file" class="form-control" name="photo4" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">圖一</label>
+                <input type="file" class="form-control" name="photo5" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">圖二</label>
+                <input type="file" class="form-control" name="photo6" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">圖三</label>
+                <input type="file" class="form-control" name="photo7" />
+            </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-warning">新增</button>
+                        <a asp-action="ImagesList" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        let ImageNameSelected = document.querySelector("#ImageNameSelected");
+        let ImageNameInput = document.querySelector("#ImageNameInput");
+        ImageNameSelected.addEventListener("change", function () {
+            ImageNameInput.value = ImageNameSelected.value;
+        })
+
+    </script>
+}

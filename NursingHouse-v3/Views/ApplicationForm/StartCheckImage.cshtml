@@ -1,0 +1,93 @@
+﻿@section Styles{
+    <link rel="stylesheet" href="/css/barcode.css">
+}
+
+<svg id="barcode"></svg>
+<div id="main">
+    <div id="reader"></div>
+    <div id="result"></div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.7/html5-qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
+    <script>
+        let str = 'testString'
+        function barcode(str) {
+            JsBarcode("#barcode", `${str}`,
+                {
+                    format: "CODE128",
+                    lineColor: '#000000',
+                    width: '2',
+                    height: '100',
+                    displayValue: true,
+                    font: 'monospace',
+                    fontSize: '20',
+                    textAlign: 'center',
+                    textPosition: 'bottom',
+                    background: '#ffffff',
+                });
+        }
+
+        barcode(str)
+        const scanner = new Html5QrcodeScanner('reader', {
+            // Scanner will be initialized in DOM inside element with id of 'reader'
+            qrbox: {
+                width: 250,
+                height: 250,
+            },  // Sets dimensions of scanning box (set relative to reader element width)
+            fps: 20, // Frames per second to attempt a scan
+        });
+
+        scanner.render(success, error);
+        // Starts scanner
+
+        //掃描成功跳轉頁面 送 UpdateStartCheck
+        function success(result) {
+            document.getElementById('result').innerHTML = `
+                                <h2>Success!</h2>
+                                <p><a href="${result}">${result}</a></p>
+                                `;
+            // Prints result as a link inside result element
+            //將解析出來的文字轉成number
+            UpdateStartTime(number)
+            setTimeout(direction, 1000);
+
+            scanner.clear();
+            // Clears scanning instance
+
+            document.getElementById('reader').remove();
+            // Removes reader element from DOM since no longer needed
+        }
+
+        //  失敗後跳出訊息 後重來
+        function error(err) {
+            console.error(err);
+            // Prints any errors to the console
+        }
+
+        function direction() {
+            window.location.assign("/ApplicationForm/OutSideInSideTable");
+        }
+
+        function UpdateStartTime(d) {
+            fetch(`${webApiBaseAddress}/api/ApplicationForm/UpdateStartTime`, {
+                method: 'Put',
+                body: JSON.stringify(d),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            }).then(result => {
+                if (result.ok) {
+                    return result.text();
+                }
+            }).then(data => {
+                alert(data)
+            }).catch(err => {
+                alert(err);
+            });
+            setTimeout(updateStart, 1000);
+        }
+    </script>
+}

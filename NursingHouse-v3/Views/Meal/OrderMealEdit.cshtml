@@ -1,0 +1,112 @@
+﻿@model NursingHouse_v3.Models.TOrderMeal
+
+@{
+    ViewData["Title"] = "OrderMealEdit";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+    </style>
+}
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">修改餐點訂單</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+        <form asp-action="OrderMealEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-body">
+
+            <input type="hidden" name="OmId" value="@Model.OmId" />
+            <input type="hidden" name="MeId" value="@Model.MeId" />
+           @* <div class="form-group">
+                <label asp-for="OmId" class="control-label"></label>
+                <input asp-for="OmId" class="form-control" />
+                <span asp-validation-for="OmId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MeId" class="control-label"></label>
+                <input asp-for="MeId" class="form-control" />
+                <span asp-validation-for="MeId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="訂購人" class="control-label"></label>
+                <input asp-for="訂購人" class="form-control" />
+                <span asp-validation-for="訂購人" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="訂購人電話" class="control-label"></label>
+                <input asp-for="訂購人電話" class="form-control" />
+                <span asp-validation-for="訂購人電話" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="訂餐起始日" class="control-label"></label>
+                <input asp-for="訂餐起始日" class="form-control" />
+                <span asp-validation-for="訂餐起始日" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="訂餐結束日" class="control-label"></label>
+                <input asp-for="訂餐結束日" class="form-control" />
+                <span asp-validation-for="訂餐結束日" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="總價" class="control-label"></label>
+                <input asp-for="總價" class="form-control" />
+                <span asp-validation-for="總價" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="結帳狀態" class="control-label"></label>
+                <input asp-for="結帳狀態" class="form-control" id="orderstatusInput" hidden />
+                <select id="orderstatusSelected" name="結帳狀態" class="form-select">
+                    <optgroup label="請選擇訂單狀態">
+                        <option selected disabled hidden>請選擇訂單狀態</option>
+                        <option value="未結帳">未結帳</option>
+                        <option value="已付款">已付款</option>
+                    </optgroup>
+                    <span asp-validation-for="結帳狀態" class="text-danger"></span>
+                 </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="建立時間" class="control-label"></label>
+                <input readonly="readonly" asp-for="建立時間" class="form-control" />
+                <span asp-validation-for="建立時間" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="修改人員" class="control-label"></label>
+                <input asp-for="修改人員" class="form-control" />
+                <span asp-validation-for="修改人員" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="備註" class="control-label"></label>
+                <input asp-for="備註" class="form-control" />
+                <span asp-validation-for="備註" class="text-danger"></span>
+            </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="存檔" class="btn btn-warning" />
+                        <a asp-action="OrderMealList" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        @* // 獲取<select id="PatientGenderSelected">標籤*@
+            let orderstatusSelected = document.querySelector("#orderstatusSelected");
+        @* // 獲取<input asp-for="PatientGender" class="form-control" id="PatientGenderInput" hidden /> 標籤*@
+            let orderstatusInput = document.querySelector("#orderstatusInput");
+        orderstatusSelected.addEventListener("change", function () {
+            orderstatusInput.value = orderstatusSelected.value;
+        })
+    </script>
+}

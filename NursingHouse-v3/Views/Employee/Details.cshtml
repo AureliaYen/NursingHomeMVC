@@ -1,0 +1,188 @@
+﻿@model NursingHouse_v3.Models.TEmployee
+
+@{
+    ViewData["Title"] = "Details";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+
+        div #row {
+            margin-top: 20px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+}
+
+<div class="col-md-6" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">員工詳細資料</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+        @*<div class="col-sm-4 bold " >
+            @Html.DisplayNameFor(model => model.EId)
+        </div>
+        <div class="col-sm-8">
+            @Html.DisplayFor(model => model.EId)
+        </div>*@
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E員工編號)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E員工編號)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.EImagePath)
+            </div>
+            <div class="col-sm-8">
+                <img src="~/Images/@Model.EImagePath" width="200" height="180">
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E員工姓名)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E員工姓名)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E電話)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E電話)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.EEmail)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.EEmail)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E地址)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E地址)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E密碼)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E密碼)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E性別)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E性別)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E身分證號)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E身分證號)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E職稱)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E職稱)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E到職日期)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E到職日期)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E離職日期)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E離職日期)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E建立日期)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E建立日期)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E建立者工號)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E建立者工號)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E修改日期)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E修改日期)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E修改者工號)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E修改者工號)
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 bold ">
+                @Html.DisplayNameFor(model => model.E員工生日)
+            </div>
+            <div class="col-sm-8">
+                @Html.DisplayFor(model => model.E員工生日)
+            </div>
+        </div>
+
+        @*<div class="col-sm-4 bold " >
+            @Html.DisplayNameFor(model => model.E權限)
+        </div>
+        <div class="col-sm-8">
+            @Html.DisplayFor(model => model.E權限)
+        </div>*@
+        </div>
+        <div class="card-footer">
+                    @Html.ActionLink("修改", "Edit", new { id = Model.EId }, new { @class = "btn btn-warning" })
+                    <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

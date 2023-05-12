@@ -1,0 +1,85 @@
+﻿@section Styles
+	{
+	<link rel="stylesheet" href="/css/ShowActivity.css" />
+}
+
+<div id="test" class="formContainerSh">
+
+</div>
+
+@section Scripts{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
+	<script>
+		$('p').each(function () {
+			$('p').on('click', function () {
+				console.log(1);
+			});
+		});
+
+		$('#test').on('click', function (event) {
+			var aid = $(event.target).attr('id');
+			console.log(aid);
+		});
+
+		let activityId = [];
+		let activityName = [];
+		let activityText = [];
+		let activityPicture = [];
+		let activityDate = [];
+
+		$(document).ready(function () {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/Activity/GetActivitList`, {
+				method: "GET",
+			}).then(result => {
+				if (result.ok) {
+					return result.json();
+				}
+			}).then(data => {
+				for (let i = 0; i < data.length; i++) {
+					activityId.push(data[i].actId);
+					activityName.push(data[i].act活動名稱);
+					activityText.push(data[i].act活動說明);
+					activityPicture.push(data[i].act活動圖片);
+					activityDate.push(data[i].act活動日期);
+				}
+				console.log(data);
+				let date = '';
+				for (let i = 0; i < activityId.length; i++) {
+					date = activityDate[i].slice(5, 7)
+					date1 = activityDate[i].slice(8, 10)
+					$('#test').append(`<div class="picBoxSh" >
+											<div class="actImgSh">
+												<img id="${activityId[i]}" src="@Url.Content("https://localhost:7171/images/${activityPicture[i]}")" alt="找不到圖片" >
+											</div>
+											<div class="topicSh">
+												<p id=${activityId[i]} class="control-label">${activityName[i]}</p>
+											</div>
+											<div class="topicSh">
+												<p id=${activityId[i]} class="control-label">日期: ${date}/${date1}</p>
+											</div>
+											<div class="actTextSh">
+												<p id=${activityId[i]} class="control-label">${activityText[i]}</p>
+											</div>
+										</div>`)
+				}
+			}).catch(err => {
+				alert(err);
+			});
+		});
+
+		function connectPage() {
+			window.location.assign("/Activity/CreateActivityOrder");
+		}
+
+		$(document).on('click', 'p, img', function () {
+			transId = $(this).attr('id');
+			let idData = {
+				tableId: transId,
+				eId: 1
+			};
+			localStorage.setItem('activityId', transId);
+			connectPage();
+		});
+	</script>
+}

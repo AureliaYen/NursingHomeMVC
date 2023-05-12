@@ -1,0 +1,162 @@
+﻿@model IEnumerable<preNursingHouse.Models.TMember>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-buttons/css/buttons.bootstrap4.min.css">
+}
+<h1>活動會員表</h1>
+<p>
+    <a asp-action="Create">新增會員</a>
+</p>
+<table id="example1" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                序號
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M手機)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M密碼)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M姓名)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M性別)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M照片)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M住址)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M加入時間)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M修改時間)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M最後登入時間)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M備註)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M權限)
+            </th>
+            <th>編輯</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 0;
+            string sex = "";
+            foreach (var item in Model)
+            {
+                count++;
+                if ((bool)item.M性別)
+                {
+                    sex = "男";
+                }
+                else
+                {
+                    sex = "女";
+                }
+                <tr>
+                    <td>
+                        @count
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M手機)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M密碼)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M姓名)
+                    </td>
+                    <td>
+                        @sex
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M照片)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M住址)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M加入時間)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M修改時間)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M最後登入時間)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M備註)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M權限)
+                    </td>
+                    <td>
+                        @Html.ActionLink("修改", "Edit", new { id=item.MId}) |
+                        @Html.ActionLink("刪除", "Delete", "Member", new { id = item.MId },new { onclick = "return confirm('確定要刪除嗎?')" })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+@section Scripts
+    {
+
+    <!-- DataTables  & Plugins -->
+    @*手寫*@
+    <script src="~/assets/plugins/DataTable/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/plugins/DataTable/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/assets/plugins/DataTable/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/assets/plugins/DataTable/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/assets/plugins/DataTable/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/assets/plugins/jszip/dist/jszip.min.js"></script>
+    <script src="~/assets/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/assets/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                //"language": {
+                //        "url": "//cdn.datatables.net/plug-ins/1.13.3/i18n/zh-HANT.json",
+                //    },
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+        })
+    </script>
+    }

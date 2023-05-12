@@ -1,0 +1,177 @@
+﻿@model preNursingHouse.Models.TMember
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+@{
+    string sex = "";
+    if ((bool)@Model.M性別)
+    {
+        sex = "男";
+    }
+    else
+    {
+        sex = "女";
+    }
+
+    <section class="donate-section">
+        <div class="section-overlay"></div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-12 mx-auto">
+                    <form asp-action="Edit" enctype="multipart/form-data" class="custom-form donate-form">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <h3 class="mb-4">會員資料</h3>
+                        <div class=" col-12 mt-2">
+                            <label asp-for="MId" class="control-label"></label>
+                            <input asp-for="MId" class="form-control" readonly />
+                        </div>
+                        <div class=" col-12 mt-2">
+                            <label asp-for="M照片" class="control-label col-2"></label>
+                            <img src="@Url.Content("https://localhost:7105/images/MemberImages/"+Model.M照片)" width="120" height="120" alt="會員照片" style="border-radius: 50%;" />
+                        </div>
+                        <div class=" col-12 mt-2">
+                            <label asp-for="M姓名" class="control-label"></label>
+                            <input asp-for="M姓名" class="form-control" readonly />
+                        </div>
+                        <div class=" col-12 mt-2">
+                            <label asp-for="M性別" class="control-label"></label>
+                            <input asp-for="M性別" class="form-control" id="SexInput" value="@sex" readonly />
+                        </div>
+                        <div class=" col-12 mt-2">
+                            <label asp-for="M手機" class="control-label"></label>
+                            <input asp-for="M手機" class="form-control" readonly/>
+                        </div>
+                        <div class=" col-12 mt-2">
+                            @{
+                                var passwordlen = Model.M密碼.Length;
+                                var firstChar = Model.M密碼[0];
+                                var lastChar = Model.M密碼[passwordlen - 1];
+                                var maskedString = new String('*', passwordlen - 2);
+                                var maskedPassword = firstChar + maskedString + lastChar;
+                             }
+                            <label asp-for="M密碼" class="control-label"></label>
+                            <input asp-for="M密碼" class="form-control" value="@maskedPassword" readonly />
+                        </div>
+                        
+
+                        <div class=" col-12 mt-2">
+                            <label asp-for="MEmail" class="control-label"></label>
+                            <input asp-for="MEmail" class="form-control" type="email" readonly />
+                        </div>
+
+                            <div class=" col-12 mt-2">
+                                <label asp-for="M住址" class="control-label"></label>
+                                <input asp-for="M住址" class="form-control" required readonly />
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class=" col-6 mt-2">
+                                @Html.ActionLink("修改", "Edit", new { id = Model.MId },
+                            new { @class = "form-control col-lg-6",
+                            style = "color:white; background-color:#597081;border-radius:50px;text-align:center;font-weight:bold" })
+                                </div>
+                                <div class=" col-6 mt-2">
+                                    <a asp-controller="Home" asp-action="Index" class="form-control col-lg-6" style="color:white; background-color:#597081;border-radius:50px;text-align:center;font-weight:bold">回首頁</a>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+//<div>
+//    <h4></h4>
+//    <hr />
+//    <dl class="row">
+//        <dt class = "col-sm-2">
+//            @Html.DisplayNameFor(model => model.MId)
+//        </dt>
+//        <dd class = "col-sm-10">
+//            @Html.DisplayFor(model => model.MId)
+//        </dd>
+//            <dt class="col-sm-2">
+//                @Html.DisplayNameFor(model => model.M照片)
+//            </dt>
+//            <dd class="col-sm-10">
+//                <img src="@Url.Content("https:localhost:7105/images/MemberImages/" +Model.M照片)" width="120" height="120" />
+//            </dd>
+//        <dt class="col-sm-2">
+//            @Html.DisplayNameFor(model => model.M姓名)
+//        </dt>
+//        <dd class="col-sm-10">
+//            @Html.DisplayFor(model => model.M姓名)
+//        </dd>
+//        <dt class="col-sm-2">
+//            @Html.DisplayNameFor(model => model.M性別)
+//        </dt>
+//        <dd class="col-sm-10">
+//            @sex
+//        </dd>
+
+//        <dt class = "col-sm-2">
+//            @Html.DisplayNameFor(model => model.M手機)
+//        </dt>
+//        <dd class = "col-sm-10">
+//            @Html.DisplayFor(model => model.M手機)
+//        </dd>
+//        <dt class = "col-sm-2">
+//            @Html.DisplayNameFor(model => model.M密碼)
+//        </dt>
+//        <dd class = "col-sm-10">
+//                @{
+//                    var passwordlen = Model.M密碼.Length;
+//                    var firstChar = Model.M密碼[0];
+//                    var lastChar = Model.M密碼[passwordlen - 1];
+//                    var maskedString = new String('*', passwordlen - 2);
+//                    var maskedPassword = firstChar + maskedString + lastChar;
+//        }
+//                @Html.DisplayFor(model => maskedPassword)
+//        </dd>
+
+//        <dt class = "col-sm-2">
+//            @Html.DisplayNameFor(model => model.MEmail)
+//        </dt>
+//        <dd class = "col-sm-10">
+//            @Html.DisplayFor(model => model.MEmail)
+//        </dd>
+
+       
+
+//        <dt class = "col-sm-2">
+//            @Html.DisplayNameFor(model => model.M住址)
+//        </dt>
+//        <dd class = "col-sm-10">
+//            @Html.DisplayFor(model => model.M住址)
+//        </dd>
+//        <dt class = "col-sm-2">
+//            @Html.DisplayNameFor(model => model.M加入時間)
+//        </dt>
+//        <dd class = "col-sm-10">
+//            @Html.DisplayFor(model => model.M加入時間)
+//        </dd>
+//        <dt class = "col-sm-2">
+//            @Html.DisplayNameFor(model => model.M修改時間)
+//        </dt>
+//        <dd class = "col-sm-10">
+//            @Html.DisplayFor(model => model.M修改時間)
+//        </dd>
+//        <dt class = "col-sm-2">
+//            @Html.DisplayNameFor(model => model.M最後登入時間)
+//        </dt>
+//        <dd class = "col-sm-10">
+//            @Html.DisplayFor(model => model.M最後登入時間)
+//        </dd>
+
+
+//    </dl>
+//</div>
+//<div>
+
+//    @Html.ActionLink("修改", "Edit", new { id = Model.MId }) |
+//    <a asp-controller="Home" asp-action="Edit">回首頁</a>
+//</div>
+}

@@ -1,0 +1,128 @@
+﻿@model NursingHouse_v3.Models.TOffService
+
+@{
+    ViewData["Title"] = "Details";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+
+        div #row {
+            margin-top: 20px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .card-header
+        {
+            text-align:center;
+        }
+    </style>
+}
+
+
+<div class="col-md-6" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title ">就醫紀錄詳情</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold ">
+                            姓名
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.PIdNavigation.P姓名)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            身分證字號
+                    </div>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.PIdNavigation.P身分證字號)
+                </div>
+                    </div>
+                    <div class="row mt-2">
+                            <div class="col-sm-4 bold">
+                                出生年月日
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.PIdNavigation.P出生日期)
+                    </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold">
+                            @Html.DisplayNameFor(model => model.O就診日期)
+                    </div>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.O就診日期)
+                    </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold ">
+                            @Html.DisplayNameFor(model => model.O回診日期)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.O回診日期)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold ">
+                            @Html.DisplayNameFor(model => model.O醫師診斷)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.O醫師診斷)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold ">
+                            @Html.DisplayNameFor(model => model.O指示與用藥)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.O指示與用藥)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold ">
+                        @Html.DisplayNameFor(model => model.O建立)
+                        </div>
+                        <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.O建立)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold ">
+                            @Html.DisplayNameFor(model => model.O更新)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DisplayFor(model => model.O更新)
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-4 bold ">
+                            記錄人員
+                        </div>
+                        <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.EIdNavigation.E員工姓名)
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="card-footer">
+                        @Html.ActionLink("修改", "OffServiceEdit", new { id = Model.OId }, new { @class = "btn btn-warning" })
+                        <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

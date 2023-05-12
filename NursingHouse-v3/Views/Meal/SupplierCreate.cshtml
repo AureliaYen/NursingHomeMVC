@@ -1,0 +1,86 @@
+﻿@model NursingHouse_v3.Models.TSupplier
+
+@{
+    ViewData["Title"] = "SupplierCreate";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+    </style>
+}
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">新增供應廠商</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+        <form asp-action="SupplierCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-body">
+
+                        @*<div class="form-group">
+                <label asp-for="SuId" class="control-label"></label>
+                <input asp-for="SuId" class="form-control" />
+                <span asp-validation-for="SuId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="廠商名稱" class="control-label"></label>
+                <input asp-for="廠商名稱" class="form-control" />
+                <span asp-validation-for="廠商名稱" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="廠商地址" class="control-label"></label>
+                <input asp-for="廠商地址" class="form-control" />
+                <span asp-validation-for="廠商地址" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="廠商email" class="control-label"></label>
+                <input asp-for="廠商email" class="form-control" />
+                <span asp-validation-for="廠商email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="廠商電話" class="control-label"></label>
+                <input asp-for="廠商電話" class="form-control" />
+                <span asp-validation-for="廠商電話" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="廠商聯絡人" class="control-label"></label>
+                <input asp-for="廠商聯絡人" class="form-control" />
+                <span asp-validation-for="廠商聯絡人" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="聯絡人email" class="control-label"></label>
+                <input asp-for="聯絡人email" class="form-control" />
+                <span asp-validation-for="聯絡人email" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="建立人" class="control-label"></label>
+                <input asp-for="建立人" class="form-control" />
+                <span asp-validation-for="建立人" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="備註" class="control-label"></label>
+                <input asp-for="備註" class="form-control" />
+                <span asp-validation-for="備註" class="text-danger"></span>
+            </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-warning">新增</button>
+                        <a asp-action="SupplierList" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

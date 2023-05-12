@@ -1,0 +1,156 @@
+﻿@model NursingHouse_v3.ViewModel.COffServiceViewModel
+
+@{
+    ViewData["Title"] = "OffServiceEdit";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+    </style>
+}
+
+
+
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">修改就醫紀錄</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+        <form asp-action="OffServiceEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+               <div class="card-body">
+            <input type="hidden" name="OId" value="@Model.OId" />        
+           @* <div class="form-group">
+                <label asp-for="OId" class="control-label"></label>
+                <input asp-for="OId" class="form-control" />
+                <span asp-validation-for="OId" class="text-danger"></span>
+            </div>*@
+          @*  <div class="form-group">
+                <label asp-for="EId" class="control-label"></label>
+                <input asp-for="EId" class="form-control" />
+                <span asp-validation-for="EId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PId" class="control-label"></label>
+                <input asp-for="PId" class="form-control" />
+                <span asp-validation-for="PId" class="text-danger"></span>
+            </div>*@
+          @*  <div class="form-group">
+                <label asp-for="O就診日期" class="control-label"></label>
+                <input asp-for="O就診日期" class="form-control" />
+                <span asp-validation-for="O就診日期" class="text-danger"></span>
+            </div>*@         
+           <div class="form-group">
+                <input type="hidden" name="PId" value="@Model.PId" />
+                <label class="control-label">姓名: @Html.DisplayFor(s=>s.姓名)</label>
+            </div>
+						@*    <div class="form-group">
+                <input type="hidden" name="PId" value="@Model.PId" />
+                <label class="control-label">性別: @Html.DisplayFor(s=>s.性別)</label>
+            </div>
+           <div class="form-group">
+                <input type="hidden" name="PId" value="@Model.PId" />
+                <label class="control-label">身分證字號: @Html.DisplayFor(s=>s.身分證字號)</label>
+            </div>*@
+            <div class="form-group">
+                <input type="hidden" name="PId" value="@Model.PId" />
+                <label class="control-label">出生年月日: @Html.DisplayFor(s=>s.出生年月日)</label>
+            </div>
+                        <div class="form-group">
+                            <input type="hidden" name="O就診日期" value="@Model.O就診日期" />
+                            <label class="control-label">就診日期: @Html.DisplayFor(s=>s.O就診日期)</label>
+                        </div>
+            <div class="form-group">
+                <label asp-for="O回診日期" class="control-label"></label>
+                <input asp-for="O回診日期" class="form-control" />
+                <span asp-validation-for="O回診日期" class="text-danger"></span>
+            </div>           
+
+          @*  <div class="form-group">
+                <label asp-for="姓名" class="control-label"></label>
+                <input asp-for="姓名" class="form-control" />
+                <span asp-validation-for="姓名" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="身分證字號" class="control-label"></label>
+                <input asp-for="身分證字號" class="form-control" />
+                <span asp-validation-for="身分證字號" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="性別" class="control-label"></label>
+                <input asp-for="性別" class="form-control" />
+                <span asp-validation-for="性別" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="出生年月日" class="control-label"></label>
+                <input asp-for="出生年月日" class="form-control" />
+                <span asp-validation-for="出生年月日" class="text-danger"></span>
+            </div>*@
+                        <div class="form-group">
+                            <label asp-for="O醫師診斷" class="control-label"></label>
+                            <textarea asp-for="O醫師診斷" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <span asp-validation-for="O醫師診斷" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="O指示與用藥" class="control-label"></label>
+                            <textarea asp-for="O指示與用藥" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <span asp-validation-for="O指示與用藥" class="text-danger"></span>
+                        </div>
+          @*  <div class="form-group">
+                <label asp-for="O建立" class="control-label"></label>
+                <input asp-for="O建立" class="form-control" />
+                <span asp-validation-for="O建立" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="O更新" class="control-label"></label>
+                <input asp-for="O更新" class="form-control" />
+                <span asp-validation-for="O更新" class="text-danger"></span>
+            </div>*@
+          @*  <div class="form-group">
+                <label asp-for="紀錄人員" class="control-label"></label>
+                <input asp-for="紀錄人員" class="form-control" />
+                <span asp-validation-for="紀錄人員" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="OffService.EId" class="control-label" hidden></label>
+                <input asp-for="OffService.EId" class="form-control" id="EmployeeNameInput" hidden />
+                <label class="control-label">會員</label>
+                <select id="EmployeeNameSelected" name="OffService.EId" class="form-select">
+                    <optgroup label="記錄人員">
+                        <option selected disabled hidden>選擇記錄人員</option>
+                        @{
+                            foreach (var item in Model.員工表單)
+                            {
+                                <option value=@item.EId> @item.E員工姓名</option>
+                            }
+                        }
+                    </optgroup>
+                </select>
+                <span asp-validation-for="OffService.EId" class="text-danger"></span>
+            </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="存檔" class="btn btn-warning" />
+                        <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        let EmployeeNameSelected = document.querySelector("#EmployeeNameSelected");
+        let EmployeeNameInput = document.querySelector("#EmployeeNameInput");
+        EmployeeNameSelected.addEventListener("change", function () {
+            EmployeeNameInput.value = EmployeeNameSelected.value;
+        })
+    </script>
+}

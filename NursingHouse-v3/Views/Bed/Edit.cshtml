@@ -1,0 +1,111 @@
+﻿@model NursingHouse_v3.ViewModel.CBedViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+    </style>
+}
+
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">修改床位登記</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-body">
+
+        <input type="hidden" name="BId" value="@Model.BId"/>
+        <input type="hidden" name="PId" value="@Model.PId"/>
+           @* <div class="form-group">
+                <label asp-for="BId" class="control-label"></label>
+                <input asp-for="BId" class="form-control" />
+                <span asp-validation-for="BId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PId" class="control-label"></label>
+                <input asp-for="PId" class="form-control" />
+                <span asp-validation-for="PId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RbId" class="control-label"></label>
+                <input asp-for="RbId" class="form-control" />
+                <span asp-validation-for="RbId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Bed.RbId" class="control-label" hidden></label>
+                <input asp-for="Bed.RbId" class="form-control" id="RbNumInput" hidden />
+                <label class="control-label">床號</label>
+                <select id="RbNumSelected" name="Bed.RbId" class="form-select">
+                    <optgroup label="請選擇床號">
+                        <option selected disabled hidden>請選擇床號</option>
+                        @{
+                            foreach (var item in Model.床位分配表單)
+                            {
+                                <option value=@item.RbId> @item.Rb房型,@item.Rb床號</option>
+                            }
+                        }
+                    </optgroup>
+                </select>
+                <span asp-validation-for="Bed.RbId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="B入住時間" class="control-label"></label>
+                <input asp-for="B入住時間" class="form-control" />
+                <span asp-validation-for="B入住時間" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="B預計退房時間" class="control-label"></label>
+                <input asp-for="B預計退房時間" class="form-control" />
+                <span asp-validation-for="B預計退房時間" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="B建立日期" class="control-label"></label>
+                <input asp-for="B建立日期" class="form-control" />
+                <span asp-validation-for="B建立日期" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="B建立者工號" class="control-label"></label>
+                <input asp-for="B建立者工號" class="form-control" />
+                <span asp-validation-for="B建立者工號" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="B修改日期" class="control-label"></label>
+                <input asp-for="B修改日期" class="form-control" />
+                <span asp-validation-for="B修改日期" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="B修改者工號" class="control-label"></label>
+                <input asp-for="B修改者工號" class="form-control" />
+                <span asp-validation-for="B修改者工號" class="text-danger"></span>
+            </div>*@
+
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="存檔" class="btn btn-warning" />
+                        <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+         <script>
+            let RbNumSelected = document.querySelector("#RbNumSelected");
+            let RbNumInput = document.querySelector("#RbNumInput");
+            RbNumSelected.addEventListener("change", function () {
+                RbNumInput.value = RbNumSelected.value;
+            })
+        </script>
+}

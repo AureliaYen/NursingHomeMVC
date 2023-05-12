@@ -1,0 +1,172 @@
+﻿@model NursingHouse_v3.Models.TEmployee
+
+@{
+    ViewData["Title"] = "Create";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+    </style>
+}
+
+
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">新增員工資料</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-body">
+                 @*<div class="form-group">
+                <label asp-for="E員工編號" class="control-label"></label>
+                <input asp-for="E員工編號" class="form-control" />
+                <span asp-validation-for="E員工編號" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="E員工姓名" class="control-label"></label>
+                <input asp-for="E員工姓名" class="form-control" />
+                <span asp-validation-for="E員工姓名" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="E電話" class="control-label"></label>
+                <input asp-for="E電話" class="form-control" />
+                <span asp-validation-for="E電話" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EEmail" class="control-label"></label>
+                <input asp-for="EEmail" class="form-control" />
+                <span asp-validation-for="EEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="E地址" class="control-label"></label>
+                <input asp-for="E地址" class="form-control" />
+                <span asp-validation-for="E地址" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="E密碼" class="control-label"></label>
+                <input asp-for="E密碼" class="form-control" />
+                <span asp-validation-for="E密碼" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="E性別" class="control-label"></label>
+                <input asp-for="E性別" class="form-control" id="EmployeeGenderInput" hidden />
+                <select id="EmployeeGenderSelected" name="E性別" class="form-select">
+                    <optgroup label="請選擇生理性別">
+                        <option selected disabled hidden>請選擇生理性別</option>
+                        <option value="女">女</option>
+                        <option value="男">男</option>
+                    </optgroup>
+                </select>
+                <span asp-validation-for="E性別" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="E性別" class="control-label"></label>
+                <input asp-for="E性別" class="form-control" />
+                <span asp-validation-for="E性別" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="E身分證號" class="control-label"></label>
+                <input asp-for="E身分證號" class="form-control" />
+                <span asp-validation-for="E身分證號" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="E職稱" class="control-label"></label>
+                <input asp-for="E職稱" class="form-control" id="JobtitleInput" hidden />
+                <select id="JobtitleSelected" name="E職稱" class="form-select">
+                    <optgroup label="請選擇職稱">
+                        <option selected disabled hidden>請選擇職稱</option>
+                        <option value="護理長">護理長</option>
+                        <option value="護理師">護理師</option>
+                        <option value="工務">工務</option>
+                        <option value="司機">司機</option>
+                    </optgroup>
+                </select>            
+                <span asp-validation-for="E職稱" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="E職稱" class="control-label"></label>
+                <input asp-for="E職稱" class="form-control" />
+                <span asp-validation-for="E職稱" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="E到職日期" class="control-label"></label>
+                <input asp-for="E到職日期" class="form-control" />
+                <span asp-validation-for="E到職日期" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="E離職日期" class="control-label"></label>
+                <input asp-for="E離職日期" class="form-control" />
+                <span asp-validation-for="E離職日期" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="E權限" class="control-label"></label>
+                <input asp-for="E權限" class="form-control" />
+                <span asp-validation-for="E權限" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="E建立日期" class="control-label"></label>
+                <input asp-for="E建立日期" class="form-control" />
+                <span asp-validation-for="E建立日期" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="E建立者工號" class="control-label"></label>
+                <input asp-for="E建立者工號" class="form-control" />
+                <span asp-validation-for="E建立者工號" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="E修改日期" class="control-label"></label>
+                <input asp-for="E修改日期" class="form-control" />
+                <span asp-validation-for="E修改日期" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="E修改者工號" class="control-label"></label>
+                <input asp-for="E修改者工號" class="form-control" />
+                <span asp-validation-for="E修改者工號" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="E員工生日" class="control-label"></label>
+                <input asp-for="E員工生日" class="form-control" />
+                <span asp-validation-for="E員工生日" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">照片</label>
+                <input type="file" class="form-control" name="photo" />
+            </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-warning">新增</button>
+                        <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        <script>
+        @* // 獲取<select id="EmployeeGenderSelected">標籤*@
+            let EmployeeGenderSelected = document.querySelector("#EmployeeGenderSelected");
+        @* // 獲取<input asp-for="EmployeeGender" class="form-control" id="EmployeeGenderInput" hidden /> 標籤*@
+            let EmployeeGenderInput = document.querySelector("#EmployeeGenderInput");
+        EmployeeGenderSelected.addEventListener("change", function () {
+            EmployeeGenderInput.value = EmployeeGenderSelected.value;
+            })
+        @* // 獲取<select id="JobtitleSelected">標籤*@
+            let JobtitleSelected = document.querySelector("#JobtitleSelected");
+        @* // 獲取<input asp-for="Jobtitle" class="form-control" id="JobtitleInput" hidden /> 標籤*@
+            let JobtitleInput = document.querySelector("#JobtitleInput");
+        JobtitleSelected.addEventListener("change", function () {
+            JobtitleInput.value = JobtitleSelected.value;
+        })
+        </script>
+}

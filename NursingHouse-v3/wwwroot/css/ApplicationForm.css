@@ -1,0 +1,62 @@
+﻿
+.formContainerAnm {
+    width: 65%;
+    padding: 10px;
+    /*border: 1px solid black;*/
+    
+    margin: auto;
+    margin-top: 5px;
+}
+.txtApplication {
+    text-align: center;
+}
+.reasonAnm {
+    /*border: 1px solid black;*/
+    height: 100px;
+}
+
+.itemAnm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    height: 30px;
+}
+
+.itemBtnAnm {
+    /*height: 21px;*/
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.itemLeftAnm {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    margin-left: 25px;
+}
+
+    .itemLeftAnm p {
+        margin: 0;
+    }
+
+    .itemLeftAnm input {
+        margin-left: 5%;
+        width: 13em;
+    }
+
+.itemRightAnm {
+    width: 15%;
+    margin-left: 20px;
+}
+
+    .itemRightAnm p {
+        display: none;
+        font-size: 8px;
+    }
+
+h2 {
+    text-align: center;
+}
+
+

@@ -1,0 +1,91 @@
+﻿
+.formContainerOf {
+    /* border: 1px solid black; */
+    width: 85%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.choiceforpageOf {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+    .choiceforpageOf button {
+        margin-right: 10px;
+    }
+
+    .choiceforpageOf input {
+        margin-right: 10px;
+    }
+
+    .choiceforpageOf label {
+        margin-right: 10px;
+    }
+
+.tableAreaOf {
+    /*border: 1px solid black;*/
+}
+
+.dataTables_filter {
+    float: left !important;
+    /*margin-left: 30px;*/
+}
+
+table.dataTable td {
+    padding: 10px;
+}
+
+table.dataTable th {
+    padding: 10px;
+}
+
+table.dataTable {
+    width: 90%;
+}
+
+
+
+
+
+
+
+.reDirectionPage {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    justify-content: flex-end;
+}
+
+    .reDirectionPage button {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+.dialogDetail {
+    width: 90%;
+    /*border: 1px solid black;*/
+    display: flex;
+     /*justify-content: space-around;*/ 
+}
+
+.itemLeft {
+    margin-left: 15px;
+}
+
+.itemRight {
+    margin-left: 40px;
+}
+
+.itemexplain {
+    /*width: 50%;*/
+    /* margin-left: 15px; */
+    /*border: 1px solid black;*/
+}
+
+    .itemexplain p {
+        margin-left: 15px;
+    }

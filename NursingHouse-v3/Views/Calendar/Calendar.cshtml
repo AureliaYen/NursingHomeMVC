@@ -1,0 +1,224 @@
+﻿@section Styles
+    {
+	<link rel="stylesheet" type="text/css" href="/css/calendar.css" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+}
+
+<div class="tableContainer">
+    <div id='calendar'></div>
+</div>
+<div class="itemTextUse">  
+
+    <p id="itemText1"></p>
+    <p id="itemText2"></p>
+    <p id="itemText3"></p>
+    <p id="itemText4"></p>
+
+</div>
+
+
+<div id="dialog" title="外出申請單">
+    <div class="dialogContainer">
+        <div class="item">
+            <p>申請日期: </p>
+            <p id="createDate">123</p>
+        </div>
+        <div class="item">
+            <p>外出日期</p>
+            <p id="outSideDate"></p>
+        </div>
+        <div class="item">
+            <p>申請人</p>
+            <p id="createPerson"></p>
+        </div>
+        <div class="item">
+            <p>住民姓名</p>
+            <p id="patientName"></p>
+        </div>
+        <div class="item">
+            <p>陪同人員</p>
+            <p id="people"></p>
+        </div>
+        <div class="item">
+            <p>聯絡方式</p>
+            <p id="phone"></p>
+        </div>
+        <div class="item">
+            <p>事由</p>
+            <p id="reason"></p>
+        </div>
+        <div class="item">
+            <p>地點</p>
+            <p id="location"></p>
+        </div>
+        <div class="item">
+            <p>預計外出時間</p>
+            <p id="hour"></p>
+        </div>
+        <div class="item">
+            <p>備註</p>
+            <p id="notice"></p>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+     <script src="/js/jquery.js"></script>
+    <script src="/js/index.global.min.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/locales-all.global.min.js"></script>
+    <script>
+        let totalData = 0;
+        let eventList = [];
+        let objList = {}
+        let count = 1;
+        let createDate;
+        let outSideDate;
+        let createPerson;
+        let patientName;        
+        let people;
+        let phone;
+        let reason;
+        let loc;
+        let hour;
+        let notice;
+        
+        const webApiBaseAddress = 'https://localhost:7171';
+        let aryItemData=[];
+        $(document).ready(function () {
+            fetch(`${webApiBaseAddress}/api/Calendar/ShowAll`, {
+                method: 'GET',
+            }).then(result => {
+                if (result.ok) {
+                    return result.json();
+                }
+            }).then(data => {
+                console.log(data);
+
+                for (let i = 0; i < data.length; i++) {
+                    totalData += data[i].SqlData.length;
+                    for (let j = 0; j < data[i].SqlData.length; j++) {
+                        let objectData = {};
+                        objectData.id = data[i].SqlData[j].appId;
+                        objectData.title = data[i].SqlData[j].Name;
+                        objectData.allDay = true;
+                        objectData.start = data[i].SqlData[j].外出日期;
+                        objectData.item = data[i].SqlData[j].reason;
+                        aryItemData.push(data[i].SqlData[j].reason);
+                        eventList.push(objectData);
+                    }
+                }
+                calendarData(eventList);
+                setItem(aryItemData)
+            }).catch(err => {
+                alert(err);
+            });
+        });
+
+        let countReturn = 0;
+        let countTrain = 0;
+        let countGoOut = 0;
+        let countOther = 0;
+        function setItem(item){
+            console.log(item);
+            for(let i = 0; i < item.length; i++){
+                if (item[i] === '回診') {
+                    countReturn++;
+                }
+                else if (item[i] === '復健') {
+                    countTrain++;
+                }
+                else if (item[i] === '外出') {
+                    countGoOut++;
+                }else{
+                    countOther++;
+                }
+            }
+
+            $('#itemText1').text(`本月有 ${countReturn} 人次回診`)
+
+            $('#itemText2').text(`${countTrain} 人次復健`)
+
+            $('#itemText3').text(`${countGoOut} 人次外出`)
+
+            $('#itemText4').text(`${countOther} 人次其他`)
+        }
+       
+        function calendarData(events) {
+            console.log(events);
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'zh-tw',
+                height: 700,
+                timeZone: 'Asia/Taipei',
+                dayMaxEvents: 2,
+                events: events,
+                dateClick: function () {
+                   
+                },
+                eventClick: function (info) {                   
+                    console.log(info.event.id);
+                    loadData(info.event.id)
+                    $("#dialog").dialog("open");
+                    info.el.style.borderColor = 'red';
+                }
+            });
+            calendar.render();
+        }
+
+        $(function () {
+            $("#dialog").dialog({ autoOpen: false, width: 400 });
+        });
+
+        function loadData(appId) {
+            const webApiBaseAddress = 'https://localhost:7171';
+            fetch(`${webApiBaseAddress}/api/ApplicationForm/GetApplicationForm/${appId}`, {
+                method: "GET",
+            }).then(result => {
+                if (result.ok) {
+                    return result.json();
+                }
+            }).then(data => {
+                $("#createDate").text(formatDate(data.app申請日期));
+                $("#outSideDate").text(formatDate(data.app外出日期))
+                $("#createPerson").text(data.app申請人)
+                $("#patientName").text(data.p姓名)
+                $("#people").text(data.app陪同人員)
+                $("#phone").text(data.app聯絡方式)
+                $("#reason").text(data.app事由)
+                $("#location").text(data.app地點)
+                $("#hour").text(data.app預計外出時間)
+                $("#notice").text(data.app備註)
+                console.log(data);
+            }).catch(err => {
+                alert(err);
+            });
+        }
+
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            return [year, month, day].join('-');
+        }
+
+        $(document).on('click', 'button', function () {
+            btnData = $(this).attr('id');
+            if (btnData === 'createAp') {
+                window.location.assign("/ApplicationForm/ApplicationForm");
+            } else if (btnData === 'outInside') {
+                window.location.assign("/ApplicationForm/OutSideInSideTable");
+            } else if (btnData === 'checkAp') {
+                window.location.assign("/ApplicationForm/Check");
+            }
+        });
+    </script>
+}

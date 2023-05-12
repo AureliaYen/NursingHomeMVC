@@ -1,0 +1,96 @@
+﻿@section Styles
+	{
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/frontLoginForPatient.css" />
+}
+
+<div class="loginContainerForPatient">
+	<h1 class="mb-4">登入</h1>
+	<div class="form-floating " style="margin-bottom:10px; margin-top:20px;">
+		<input  class="form-control top" id="floatingInput">
+		<label for="floatingInput">請輸入帳號</label>
+	</div>
+	<div class="form-floating " style="margin-bottom:10px; margin-top:20px;">
+		<input type="password" class="form-control dow" id="floatingPassword">
+		<label for="floatingPassword">請輸入密碼</label>
+		<i id="checkEye" class="fas fa-eye"></i>
+	</div>
+	<button class="form-control col-lg-6 top"  id="innn">登入</button>
+	<button class="form-control col-lg-6 dow"  id="rettttturn">返回</button>	
+</div>
+<button class="form-control col-lg-6" style="width:15%" id="testData">測試用資料</button>
+
+@section Scripts{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script>
+		$("#checkEye").click(function () {
+			if ($(this).hasClass('fa-eye')) {
+				$("#floatingPassword").attr('type', 'text');
+			} else {
+				$("#floatingPassword").attr('type', 'password');
+			}
+			$(this).toggleClass('fa-eye').toggleClass('fa-eye-slash');
+		});
+
+		$("#rettttturn").click(function () {
+			connectIndexPage()
+		});
+
+		$("#testData").click(function () {
+			$('#floatingInput').val('劉尚森');
+			$('#floatingPassword').val('0912345678');
+		});
+
+		$('#innn').on('click', function (e) {
+			e.preventDefault()
+			let acc = $('#floatingInput').val()
+			let pas = $('#floatingPassword').val()
+			let accData = {
+				patientName: acc,
+				patientPhone: pas
+			}
+			console.log(acc)
+			console.log(pas)
+			sendData(accData)
+		});
+	
+
+		function sendData(lfp) {
+			const webApiBaseAddress = 'https://localhost:7171';
+			fetch(`${webApiBaseAddress}/api/frontLogin/frontLoginCheck`, {
+				method: "POST",
+				body: JSON.stringify(lfp),
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				},
+			}).then(result => {
+				if (result.ok) {
+					return result.text();
+				}
+			}).then(data => {
+				console.log(data);
+				let name = $('#floatingInput').val()
+				localStorage.setItem('patientName', name);
+				if (data === '"登入成功"'){
+					connectShowAllData()
+				}else{
+					alert("帳號或密碼錯誤");
+				}
+				
+			}).catch(err => {
+				alert(err);
+			});
+		}
+
+		function connectIndexPage() {
+			window.location.assign("/Home/Index");
+		}
+
+		function connectShowAllData() {
+			window.location.assign("/Frontend/ShowAllData");
+		}
+	</script>
+}

@@ -1,0 +1,226 @@
+﻿@model NursingHouse_v3.ViewModel.CNursingRecordViewModel
+
+@{
+    ViewData["Title"] = "NursingRecordEdit";
+}
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+    </style>
+}
+
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">編輯護理紀錄</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="NursingRecordEdit">
+                   <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" name="NId" value="@Model.NId" />
+
+                    <div class="form-group">
+                        <input type="hidden" name="OId" value="@Model.OId  />
+                        <label class="control-label">姓名: @Html.DisplayFor(s=>s.P姓名)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="OId" value="@Model.OId" />
+                        <label class="control-label">身分證字號: @Html.DisplayFor(s=>s.身分證字號)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="OId" value="@Model.OId" />
+                        <label class="control-label">醫師診斷: @Html.DisplayFor(s=>s.醫師診斷)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="OId" value="@Model.OId" />
+                        <label class="control-label">指示與用藥: @Html.DisplayFor(s=>s.指示與用藥)</label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="N舒張壓" class="control-label"></label>(mmHg)
+                        <input asp-for="N舒張壓" class="form-control" />
+                        <span asp-validation-for="N舒張壓" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="N收縮壓" class="control-label"></label>(mmHg)
+                        <input asp-for="N收縮壓" class="form-control" />
+                        <span asp-validation-for="N收縮壓" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="N體溫" class="control-label"></label>(℃)
+                        <input asp-for="N體溫" class="form-control" />
+                        <span asp-validation-for="N體溫" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                            <label asp-for="N脈搏" class="control-label"></label>(次／分)
+                        <input asp-for="N脈搏" class="form-control" />
+                        <span asp-validation-for="N脈搏" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                            <label asp-for="N呼吸" class="control-label"></label>(次／分)
+                        <input asp-for="N呼吸" class="form-control" />
+                        <span asp-validation-for="N呼吸" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="N傷口" class="control-label"></label>
+                        <textarea asp-for="N傷口" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <span asp-validation-for="N傷口" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="N三管" class="control-label"></label>
+                        <textarea asp-for="N三管" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <span asp-validation-for="N三管" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="N其他" class="control-label"></label>
+                        <textarea asp-for="N其他" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <span asp-validation-for="N其他" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="N紀錄時間" class="control-label"></label>
+                        <input readonly="readonly" asp-for="N紀錄時間" class="form-control" />
+                        <span asp-validation-for="N紀錄時間" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="NursingRecord.EId" class="control-label" hidden></label>
+                        <input asp-for="NursingRecord.EId" class="form-control" id="EmployeeNameInput" hidden />
+                        <label class="control-label">會員</label>
+                        <select id="EmployeeNameSelected" name="NursingRecord.EId" class="form-select">
+                            <optgroup label="記錄人員">
+                                <option selected disabled hidden>選擇記錄人員</option>
+                                @{
+                                    foreach (var item in Model.員工表單)
+                                    {
+                                        <option value=@item.EId> @item.E員工姓名</option>
+                                    }
+                                }
+                            </optgroup>
+                        </select>
+                        <span asp-validation-for="NursingRecord.EId" class="text-danger"></span>
+                    </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="存檔" class="btn btn-warning" />
+                        <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+   </div>
+
+
+@*<h1>編輯護理紀錄</h1>
+
+<h4></h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="NursingRecordEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <input type="hidden" name="NId" value="@Model.NId" />
+            <div class="form-group">
+                <input type="hidden" name="OId" value="@Model.OId />
+                <label class="control-label">姓名: @Html.DisplayFor(s=>s.P姓名)</label>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="OId" value="@Model.OId" />
+                <label class="control-label">身分證字號: @Html.DisplayFor(s=>s.身分證字號)</label>
+            </div>
+               <div class="form-group">
+                <input type="hidden" name="OId" value="@Model.OId" />
+                <label class="control-label">醫師診斷: @Html.DisplayFor(s=>s.醫師診斷)</label>
+            </div>
+               <div class="form-group">
+                <input type="hidden" name="OId" value="@Model.OId" />
+                <label class="control-label">指示與用藥: @Html.DisplayFor(s=>s.指示與用藥)</label>
+            </div> 
+            <div class="form-group">
+                <label asp-for="N舒張壓" class="control-label"></label>
+                <input asp-for="N舒張壓" class="form-control" />
+                <span asp-validation-for="N舒張壓" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="N收縮壓" class="control-label"></label>
+                <input asp-for="N收縮壓" class="form-control" />
+                <span asp-validation-for="N收縮壓" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="N體溫" class="control-label"></label>
+                <input asp-for="N體溫" class="form-control" />
+                <span asp-validation-for="N體溫" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="N脈搏" class="control-label"></label>
+                <input asp-for="N脈搏" class="form-control" />
+                <span asp-validation-for="N脈搏" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="N呼吸" class="control-label"></label>
+                <input asp-for="N呼吸" class="form-control" />
+                <span asp-validation-for="N呼吸" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="N傷口" class="control-label"></label>
+                <input asp-for="N傷口" class="form-control" />
+                <span asp-validation-for="N傷口" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="N三管" class="control-label"></label>
+                <input asp-for="N三管" class="form-control" />
+                <span asp-validation-for="N三管" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="N其他" class="control-label"></label>
+                <input asp-for="N其他" class="form-control" />
+                <span asp-validation-for="N其他" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="N紀錄時間" class="control-label"></label>
+                <input readonly="readonly" asp-for="N紀錄時間" class="form-control" />
+                <span asp-validation-for="N紀錄時間" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="NursingRecord.EId" class="control-label" hidden></label>
+                <input asp-for="NursingRecord.EId" class="form-control" id="EmployeeNameInput" hidden />
+                <label class="control-label">會員</label>
+                <select id="EmployeeNameSelected" name="NursingRecord.EId" class="form-select">
+                    <optgroup label="記錄人員">
+                        <option selected disabled hidden>選擇記錄人員</option>
+                        @{
+                            foreach (var item in Model.員工表單)
+                            {
+                                <option value=@item.EId> @item.E員工姓名</option>
+                            }
+                        }
+                    </optgroup>
+                </select>
+                <span asp-validation-for="NursingRecord.EId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="存檔" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">回上一頁</a>
+</div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+          <script>
+            let EmployeeNameSelected = document.querySelector("#EmployeeNameSelected");
+            let EmployeeNameInput = document.querySelector("#EmployeeNameInput");
+            EmployeeNameSelected.addEventListener("change", function () {
+                EmployeeNameInput.value = EmployeeNameSelected.value;
+            })
+        </script>
+}

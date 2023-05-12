@@ -1,0 +1,110 @@
+﻿@model List<preNursingHouse.Models.CShoppingCartItem>
+
+@{
+    ViewBag.Title = "CartView";
+}
+
+<h2>檢視購物車</h2>
+
+<p>
+    @Html.ActionLink("結帳購物車", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            序
+        </th>
+         <th>
+            訂購人
+        </th>
+        <th>
+            連絡電話
+        </th>
+        <th>
+            餐種
+        </th>
+        <th>
+            購買品項
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model[0].訂餐起始日)
+        </th>
+      <th>
+          @Html.DisplayNameFor(model => model[0].訂餐結束日)
+        </th>	
+       
+        <th>
+            @Html.DisplayNameFor(model => model[0].Days)
+        </th> 
+        <th>
+            @Html.DisplayNameFor(model => model[0].price)
+        </th>       
+        <th>
+            @Html.DisplayNameFor(model => model[0].總額)
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @{
+        int count = 0;
+        //decimal pay = 0;
+        //decimal tax = 0;
+        //decimal sum = 0;
+        foreach (var item in Model)
+        {
+            count++;
+          
+
+            <tr>
+                <td>
+                    @count
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.購買人)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.電話)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.meal.餐種)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.meal.餐別)
+                </td>
+               
+			   <td>
+                    @Html.DisplayFor(modelItem => item.訂餐起始日)
+                </td>
+				 <td>
+                    @Html.DisplayFor(modelItem => item.訂餐結束日)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Days)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+              <td>
+                    @Html.DisplayFor(modelItem => item.總額)
+                </td>
+               
+                <td>
+                   @*@Html.ActionLink("改數量", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("刪除", "RemoveFromCart", new {  itemId=item.meId  })*@
+                    <form method="post" asp-action="RemoveFromCart">
+                        <input type="hidden" name="itemId" value="@item.meId" />
+                        <button type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        //tax = pay * 0.05M;
+        //sum = pay + tax;
+    }
+</table>
+@*<li>交易金額：@pay.ToString("###,###,##0")</li>
+<li>稅　　額：@tax.ToString("###,###,##0")</li>
+<li>應負金額：@sum.ToString("###,###,##0")</li>*@

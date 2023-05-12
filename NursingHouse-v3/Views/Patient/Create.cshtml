@@ -1,0 +1,191 @@
+﻿@model NursingHouse_v3.ViewModel.CPatientViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@section Styles
+    {
+    <style>
+        #form {
+            margin: auto;
+        }
+
+    </style>
+}
+
+
+<div class="col-md-4" id="form">
+    <div id="form" class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">新增住民資料</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-body">
+                 <div class="form-group">
+                <label asp-for="P姓名" class="control-label"></label>
+                <input asp-for="P姓名" class="form-control" />
+                <span asp-validation-for="P姓名" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="P性別" class="control-label"></label>
+                <input asp-for="P性別" class="form-control" id="PatientGenderInput" hidden />
+                <select id="PatientGenderSelected" name="P性別" class="form-select">
+                    <optgroup label="請選擇生理性別">
+                        <option selected disabled hidden>請選擇生理性別</option>
+                        <option  value="男">男</option>
+                        <option value="女">女</option>
+                    </optgroup>
+                </select>
+                <span asp-validation-for="P性別" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="P身分證字號" class="control-label"></label>
+                <input asp-for="P身分證字號" class="form-control" />
+                <span asp-validation-for="P身分證字號" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="P出生日期" class="control-label"></label>
+                <input asp-for="P出生日期" class="form-control" />
+                <span asp-validation-for="P出生日期" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="P地址" class="control-label"></label>
+                <input asp-for="P地址" class="form-control" />
+                <span asp-validation-for="P地址" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="P聯絡電話" class="control-label"></label>
+                <input asp-for="P聯絡電話" class="form-control" />
+                <span asp-validation-for="P聯絡電話" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="P聯絡人" class="control-label"></label>
+                <input asp-for="P聯絡人" class="form-control" />
+                <span asp-validation-for="P聯絡人" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="P電話2" class="control-label"></label>
+                <input asp-for="P電話2" class="form-control" />
+                <span asp-validation-for="P電話2" class="text-danger"></span>
+            </div>         
+            <div class="form-group">
+                <label asp-for="P餐點" class="control-label"></label>
+                <input asp-for="P餐點" class="form-control" id="MealInput" hidden />
+                <select id="MealSelected" name="P餐點" class="form-select">
+                    <optgroup label="請選擇餐別">
+                        <option selected disabled hidden>請選擇餐別</option>
+                        <option value="普通餐">普通餐</option>
+                        <option value="糖尿病餐">糖尿病餐</option>
+                        <option value="腎臟病餐">腎臟病餐</option>
+                        <option value="癌症餐">癌症餐</option>
+                        
+                    </optgroup>
+                </select>
+                <span asp-validation-for="P餐點" class="text-danger"></span>
+            </div>
+                        <div class="form-group">
+                            <label asp-for="P醫師診斷" class="control-label"></label>
+                            <textarea asp-for="P醫師診斷" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <span asp-validation-for="P醫師診斷" class="text-danger"></span>
+                        </div>
+                            <div class="form-group">
+                            <label asp-for="P主訴" class="control-label"></label>
+                            <textarea asp-for="P主訴" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <span asp-validation-for="P主訴" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="現在病史" class="control-label"></label>
+                            <textarea asp-for="現在病史" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <span asp-validation-for="現在病史" class="text-danger"></span>
+                        </div>
+                            <div class="form-group">
+                            <label asp-for="過去病史" class="control-label"></label>
+                            <textarea asp-for="過去病史" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <span asp-validation-for="過去病史" class="text-danger"></span>
+                        </div>
+                            <div class="form-group">
+                            <label asp-for="家族病史" class="control-label"></label>
+                            <textarea asp-for="家族病史" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <span asp-validation-for="家族病史" class="text-danger"></span>
+                        </div>
+                 
+                        <div class="form-group">
+                            <label asp-for="檢查" class="control-label"></label>
+                            <textarea asp-for="檢查" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <span asp-validation-for="檢查" class="text-danger"></span>
+                        </div>
+       
+            <div class="form-group">
+                  <label asp-for="指示與用藥" class="control-label"></label>
+                  <textarea asp-for="指示與用藥" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                   <span asp-validation-for="指示與用藥" class="text-danger"></span>        
+						</div>
+                  	
+            <div class="form-group">
+                <label asp-for="patient.EId" class="control-label" hidden></label>
+                <input asp-for="patient.EId" class="form-control" id="EmployeeNameInput" hidden />
+                <label class="control-label">會員</label>
+                <select id="EmployeeNameSelected" name="patient.EId" class="form-select">
+                    <optgroup label="記錄人員">
+                        <option selected disabled hidden>選擇記錄人員</option>
+                        @{
+                            foreach (var item in Model.員工表單)
+                            {
+                                <option value=@item.EId> @item.E員工姓名</option>
+                            }
+                        }
+                    </optgroup>
+                </select>
+                <span asp-validation-for="patient.EId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label">P照片</label>
+                <input type="file" class="form-control" name="photo" />              
+            </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-warning">新增</button>
+                <a asp-action="List" class="btn btn-default float-right">上一頁</a>
+            </div>
+        </form>
+    </div>
+  </div>
+ </div>
+</div>
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        let EmployeeNameSelected = document.querySelector("#EmployeeNameSelected");
+        let EmployeeNameInput = document.querySelector("#EmployeeNameInput");
+        EmployeeNameSelected.addEventListener("change", function () {
+            EmployeeNameInput.value = EmployeeNameSelected.value;
+        })
+    </script>
+    <script>
+        @* // 獲取<select id="PatientGenderSelected">標籤*@
+            let PatientGenderSelected = document.querySelector("#PatientGenderSelected");
+        @* // 獲取<input asp-for="PatientGender" class="form-control" id="PatientGenderInput" hidden /> 標籤*@
+            let PatientGenderInput = document.querySelector("#PatientGenderInput");
+        PatientGenderSelected.addEventListener("change", function () {
+            PatientGenderInput.value = PatientGenderSelected.value;
+        })
+    </script>
+    <script>
+        @* // 獲取<select id="PatientGenderSelected">標籤*@
+            let MealSelected = document.querySelector("#MealSelected");
+        @* // 獲取<input asp-for="PatientGender" class="form-control" id="PatientGenderInput" hidden /> 標籤*@
+            let MealInput = document.querySelector("#MealInput");
+        MealSelected.addEventListener("change", function () {
+            MealInput.value = MealSelected.value;
+        })
+    </script>
+   
+}

@@ -1,0 +1,184 @@
+﻿@model IEnumerable<NursingHouse_v3.Models.TEmployee>
+
+@{
+    ViewData["Title"] = "List";
+}
+@section Styles{
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/DataTable/datatables-buttons/css/buttons.bootstrap4.min.css">
+}
+
+<h1 style="text-align:center">員工資料表</h1>
+<p>
+    <a asp-action="Create" class="btn btn-outline-secondary">新增紀錄</a>
+</p>
+
+<table id="example1" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                序
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E員工編號)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E員工姓名)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E電話)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E地址)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.E密碼)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.E性別)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E身分證號)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E職稱)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E到職日期)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E離職日期)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.E權限)
+            </th>*@
+           @* <th>
+                @Html.DisplayNameFor(model => model.E建立日期)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E建立者工號)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E修改日期)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E修改者工號)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.E員工生日)
+            </th>
+
+            <th>
+                編輯
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 0;
+            foreach (var item in Model) 
+            {
+                count++;
+        <tr>
+            <td>
+                @count
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E員工編號)
+            </td>
+            <td>
+                <img src="~/images/@item.EImagePath" width="80" height="80" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E員工姓名)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E電話)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E地址)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.E密碼)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.E性別)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E身分證號)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E職稱)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E到職日期)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E離職日期)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.E權限)
+            </td>*@
+            @*<td>
+                @Html.DisplayFor(modelItem => item.E建立日期)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E建立者工號)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E修改日期)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E修改者工號)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.E員工生日)
+            </td>
+
+            <td>
+                        @Html.ActionLink("修改", "Edit", new { id=item.EId }, new { Class = "btn btn-success" })
+                        @Html.ActionLink("詳細", "Details", new { id=item.EId }, new { Class = "btn btn-warning" })
+                @Html.ActionLink("刪除", "Delete", "Employee", new { id=item.EId },
+                 new { Class = "btn btn-danger", onclick = "return confirm('確定設定為離職嗎?')"})
+            </td>
+        </tr>
+}}
+    </tbody>
+</table>
+
+@section Scripts
+    {
+        <!-- DataTables  & Plugins -->    
+        <script src="~/assets/plugins/DataTable/datatables/jquery.dataTables.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+        <script src="~/assets/plugins/jszip/dist/jszip.min.js"></script>
+        <script src="~/assets/plugins/pdfmake/pdfmake.min.js"></script>
+        <script src="~/assets/plugins/pdfmake/vfs_fonts.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.html5.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.print.min.js"></script>
+        <script src="~/assets/plugins/DataTable/datatables-buttons/js/buttons.colVis.min.js"></script>
+    
+        <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],                
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+        })
+        </script>
+    }

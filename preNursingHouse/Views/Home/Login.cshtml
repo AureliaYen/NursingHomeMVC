@@ -1,0 +1,62 @@
+﻿@model preNursingHouse.ViewModel.CLoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<section class="cta-section section-padding section-bg">
+<div class="container">
+<div class="row">
+    <div class="col-lg-6 col-12">
+        <h2 class=" mb-4">會員登入</h2>
+        <form class="custom-form volunteer-form mb-5 mb-lg-0" action="#" method="post" role="form">
+            <h5 class="mb-4">會員登入</h5>
+            <p id="loginErr" style="color:red">@ViewBag.LoginErr</p>
+            <div class="row">
+                <div class=" col-12">
+                    <input type="text" name="txtAccount" id="txtAccount"
+                            pattern="^09\d{8}" class="form-control" placeholder="請輸入手機號碼"
+                            required title="手機格式輸入錯誤">
+                </div>
+
+                <div class=" col-12">
+                    @*todo確認*@
+                    <input type="password" name="txtPassword" id="txtPassword"
+                            pattern="^(?=.*[a-zA-Z])(?=.*[\d])[^\s]{6,12}$" class="form-control" placeholder="請輸入6-12碼包含中英文的密碼" required title="密碼格式輸入錯誤">
+                </div>
+
+                </div>
+                <div class="row">
+                   <div class="col-6 mt-1">
+                        <button type="submit" class="form-control col-lg-6">登入</button>
+                    </div>
+                    <div class="col-6 mt-1">
+                         <a asp-action="Register" id="addMember"  class="form-control col-lg-6" style="color:white; background-color:#597081;border-radius:50px;text-align:center;font-weight:bold">加入會員</a>
+                    </div>
+                </div>
+        </form>
+    </div>   
+    <div class="col-lg-6 col-12">
+                    <img src="~/images/index/pexels-kampus-production-7551627.jpg"
+                        class="volunteer-image img-fluid" alt="">
+
+                    <div class="custom-block-body text-center">
+                        <h4 class=" mt-lg-3 mb-lg-3">會員權利</h4>
+
+                        <p> 不受限於住民，成為會員均可參加多種不定期活動，讓您更好的了解老人照護與豐富自己的老年生活</p>
+                    </div>
+                </div>
+    </section>
+
+@section Scripts
+    {
+        <script>
+        //alert(@ViewBag.LoginErr);
+        //if (@ViewBag.LoginErr == "") {
+        //    $("#loginErr").hidden();
+        //}
+        </script>
+
+            
+            
+    }

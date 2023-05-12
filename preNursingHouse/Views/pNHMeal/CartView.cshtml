@@ -1,0 +1,181 @@
+﻿@model List<preNursingHouse.Models.CShoppingCartItem>
+
+@{
+    ViewBag.Title = "CartView";
+}
+<style>
+
+    .section-padding {
+        padding-top: 100px;
+        padding-bottom: 350px;
+    }
+
+    .hero-section-full-height {
+        height: 680px;
+        min-height: 680px;
+        position: relative;
+    }
+
+    h4 {
+        float: left;
+        /*display: inline-block;*/
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 10px;
+        margin-right: 10px;
+        width: 300px;
+    }
+     /* 標題欄位的樣式 */
+    th {
+        background-color: #007bff;
+        color: #CCCC4D;
+    }
+
+    /* 內容行的奇數行樣式 */
+    tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+
+    .form-group {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 30px;
+        margin-right: 10px;
+    }
+
+    .form-select option {
+        font-size: 20px;
+    }
+
+    .card {
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+    }
+
+        .card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+        }
+
+    .botn {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 30px;
+        margin-right: 10px;
+    }
+</style>
+
+<section class="cta-section section-padding section-bg">
+    <div class="container">
+
+        <div class="col-12 text-center mx-auto">
+            <h2 class=" mb-4">餐點確認</h2>
+        </div>
+        <table class="table">
+            <tr>
+                @*<th>
+                序
+                </th>*@
+                <th>
+                    訂購人
+                </th>
+                <th>
+                    連絡電話
+                </th>
+                <th>
+                    餐種
+                </th>
+                <th>
+                    餐別
+                </th>
+
+                <th>
+                    訂餐起始日
+                </th>
+                <th>
+                    訂餐結束日
+                </th>
+
+                <th>
+                    日數
+                </th>
+                <th>
+                    售價/日
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].總額)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @{
+                //int count = 0;
+                //decimal pay = 0;
+                //decimal tax = 0;
+                //decimal sum = 0;
+                foreach (var item in Model)
+                {
+                //count++;
+
+
+                    <tr>
+                        @*<td>
+                //    @count
+                //</td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.購買人)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.電話)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.meal.餐種)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.meal.餐別)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.訂餐起始日)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.訂餐結束日)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Days)
+                        </td>
+                        <td>                          
+                            @Html.DisplayFor(modelItem => item.price)
+                        </td>                       
+                        <td>
+                            @Html.DisplayFor(modelItem => item.總額)
+                        </td>
+
+                        @*<td>
+                @Html.ActionLink("改數量", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("刪除", "RemoveFromCart", new {  itemId=item.meId  })
+                <form method="post" asp-action="RemoveFromCart">
+                <input type="hidden" name="itemId" value="@item.meId" />
+                <button type="submit">Remove</button>
+                </form>
+                </td>*@
+                    </tr>
+                }
+                //tax = pay * 0.05M;
+                //sum = pay + tax;
+            }
+        </table>
+        <div class="col-12 text-center mx-auto my-5">
+            <p class="featured-block-text text-secondary"><strong>請至櫃檯繳費 以完成訂餐程序</strong></p>
+        </div>
+    </div>
+</section>
+@*<li>交易金額：@pay.ToString("###,###,##0")</li>
+<li>稅　　額：@tax.ToString("###,###,##0")</li>
+<li>應負金額：@sum.ToString("###,###,##0")</li>*@
